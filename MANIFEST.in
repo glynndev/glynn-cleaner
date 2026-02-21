@@ -1,0 +1,5 @@
+recursive-include logs *
+recursive-include input *
+recursive-include output *
+recursive-include config *
+

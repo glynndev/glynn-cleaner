@@ -1,0 +1,3 @@
+name,email,date_of_birth,notes,email_valid,email_suggested_fix,date_of_birth,date_of_birth_raw,date_of_birth_valid
+Mike   Brown,mike.brown@yahoo.com,1992.07.14,,True,,1992-07-14,1992.07.14,True
+Lucy   Adams,lucy.adams@hotmail.com,14 08 1993,new  starter,True,,1993-08-14,14 08 1993,True

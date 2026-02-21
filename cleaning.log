@@ -1,0 +1,1325 @@
+[2026-01-24 13:00:04] Loading input file
+[2026-01-24 13:00:05] Standardising column names
+[2026-01-24 13:00:05] Removing duplicate rows
+[2026-01-24 13:00:05] Cleaning whitespace in text columns
+[2026-01-24 13:00:05] Converting text columns to proper case
+[2026-01-24 13:00:05] Standardising date formats
+[2026-01-24 13:00:05] Validating email addresses
+[2026-01-24 13:00:05] Removing blank rows
+[2026-01-24 13:00:05] Saving clean file to output/cleaned_output.csv
+[2026-01-24 13:00:05] Cleaning process complete
+[2026-01-24 13:57:35] Loading input file
+[2026-01-24 13:57:35] Standardising column names
+[2026-01-24 13:57:35] Cleaning whitespace in text columns
+[2026-01-24 13:57:35] Converting text columns to proper case
+[2026-01-24 13:57:35] Standardising date formats
+[2026-01-24 13:57:35] Validating email addresses
+[2026-01-24 13:57:35] Removing blank rows
+[2026-01-24 13:57:35] Removing duplicate rows
+[2026-01-24 13:57:35] Saving clean file to output/cleaned_output.csv
+[2026-01-24 13:57:35] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-24 13:58:51] Loading input file
+[2026-01-24 13:58:51] Standardising column names
+[2026-01-24 13:58:51] Cleaning whitespace in text columns
+[2026-01-24 13:58:51] Converting text columns to proper case
+[2026-01-24 13:58:51] Standardising date formats
+[2026-01-24 13:58:51] Validating email addresses
+[2026-01-24 13:58:51] Removing blank rows
+[2026-01-24 13:58:51] Removing duplicate rows
+[2026-01-24 13:58:51] Saving clean file to output/cleaned_output.csv
+[2026-01-24 13:58:51] Cleaning process complete
+[2026-01-24 14:09:03] Loading input file
+[2026-01-24 14:09:04] Standardising column names
+[2026-01-24 14:09:04] Cleaning whitespace in text columns
+[2026-01-24 14:09:04] Converting text columns to proper case
+[2026-01-24 14:09:04] Standardising date formats
+[2026-01-24 14:09:04] Validating email addresses
+[2026-01-24 14:09:04] Removing blank rows
+[2026-01-24 14:09:04] Removing duplicate rows
+[2026-01-24 14:09:04] Saving clean file to output/cleaned_output.csv
+[2026-01-24 14:09:04] Cleaning process complete
+[2026-01-24 14:27:14] Loading input file
+[2026-01-24 14:27:14] Standardising column names
+[2026-01-24 14:27:14] Cleaning whitespace in text columns
+[2026-01-24 14:27:14] Validating and normalising email addresses
+[2026-01-24 14:27:14] Converting text columns to proper case
+[2026-01-24 14:27:14] Standardising date formats
+[2026-01-24 14:27:14] Removing blank rows
+[2026-01-24 14:27:14] Removing duplicate rows
+[2026-01-24 14:27:14] Saving clean file to output/cleaned_output.csv
+[2026-01-24 14:27:14] Cleaning process complete
+[2026-01-24 14:31:19] Loading input file
+[2026-01-24 14:31:19] Standardising column names
+[2026-01-24 14:31:19] Cleaning whitespace in text columns
+[2026-01-24 14:31:19] Validating and normalising email addresses
+[2026-01-24 14:31:19] Converting text columns to proper case
+[2026-01-24 14:31:19] Standardising date formats
+[2026-01-24 14:31:19] Removing blank rows
+[2026-01-24 14:31:19] Removing duplicate rows
+[2026-01-24 14:31:19] Saving clean file to output/cleaned_output.csv
+[2026-01-24 14:31:19] Cleaning process complete
+[2026-01-24 14:45:32] Loading input file
+[2026-01-24 14:45:32] Standardising column names
+[2026-01-24 14:45:32] Cleaning whitespace in text columns
+[2026-01-24 14:45:32] Validating and normalising email addresses
+[2026-01-24 14:45:32] Converting text columns to proper case
+[2026-01-24 14:45:32] ERROR: name 'col' is not defined
+[2026-01-24 14:57:19] Loading input file
+[2026-01-24 14:57:19] Standardising column names
+[2026-01-24 14:57:19] Cleaning whitespace in text columns
+[2026-01-24 14:57:19] Validating and normalising email addresses
+[2026-01-24 14:57:19] Converting text columns to proper case
+[2026-01-24 14:57:19] ERROR: name 'col' is not defined
+[2026-01-24 15:35:01] Loading input file
+[2026-01-24 15:35:01] Standardising column names
+[2026-01-24 15:35:01] Cleaning whitespace in text columns
+[2026-01-24 15:35:01] Validating and normalising email addresses
+[2026-01-24 15:35:01] Converting text columns to proper case
+[2026-01-24 15:35:01] ERROR: name 'col' is not defined
+[2026-01-24 15:36:56] Loading input file
+[2026-01-24 15:36:56] Standardising column names
+[2026-01-24 15:36:56] Cleaning whitespace in text columns
+[2026-01-24 15:36:56] Validating and normalising email addresses
+[2026-01-24 15:36:56] Converting text columns to proper case
+[2026-01-24 15:36:56] ERROR: name 'col' is not defined
+[2026-01-24 15:43:09] Loading input file
+[2026-01-24 15:43:09] Standardising column names
+[2026-01-24 15:43:09] Cleaning whitespace in text columns
+[2026-01-24 15:43:09] Validating and normalising email addresses
+[2026-01-24 15:43:09] Converting text columns to proper case
+[2026-01-24 15:43:09] Standardising date formats
+[2026-01-24 15:43:09] Removing blank rows
+[2026-01-24 15:43:09] Removing duplicate rows
+[2026-01-24 15:43:09] Saving clean file to output/cleaned_output.csv
+[2026-01-24 15:43:09] Cleaning process complete
+[2026-01-24 17:03:26] Loading input file
+[2026-01-24 17:03:26] Standardising column names
+[2026-01-24 17:03:26] Cleaning whitespace in text columns
+[2026-01-24 17:03:26] Validating and normalising email addresses
+[2026-01-24 17:03:26] Converting text columns to proper case
+[2026-01-24 17:03:26] Standardising date formats
+[2026-01-24 17:03:26] Removing blank rows
+[2026-01-24 17:03:26] Removing duplicate rows
+[2026-01-24 17:03:26] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:03:26] Cleaning process complete
+[2026-01-24 17:11:26] Loading input file
+[2026-01-24 17:11:26] Standardising column names
+[2026-01-24 17:11:26] Cleaning whitespace in text columns
+[2026-01-24 17:11:26] Validating and normalising email addresses
+[2026-01-24 17:11:26] Converting text columns to proper case
+[2026-01-24 17:11:26] Standardising date formats
+[2026-01-24 17:11:26] Removing blank rows
+[2026-01-24 17:11:26] Removing duplicate rows
+[2026-01-24 17:11:26] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:11:26] Cleaning process complete
+[2026-01-24 17:21:25] Loading input file
+[2026-01-24 17:21:25] Standardising column names
+[2026-01-24 17:21:25] Cleaning whitespace in text columns
+[2026-01-24 17:21:25] Validating and normalising email addresses
+[2026-01-24 17:21:25] Converting text columns to proper case
+[2026-01-24 17:21:25] Standardising date formats
+[2026-01-24 17:21:25] Removing blank or junk rows
+[2026-01-24 17:21:25] Removing duplicate rows
+[2026-01-24 17:21:25] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:21:25] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-24 17:22:04] Loading input file
+[2026-01-24 17:22:04] Standardising column names
+[2026-01-24 17:22:04] Cleaning whitespace in text columns
+[2026-01-24 17:22:04] Validating and normalising email addresses
+[2026-01-24 17:22:04] Converting text columns to proper case
+[2026-01-24 17:22:04] Standardising date formats
+[2026-01-24 17:22:04] Removing blank or junk rows
+[2026-01-24 17:22:04] Removing duplicate rows
+[2026-01-24 17:22:04] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:22:04] Cleaning process complete
+[2026-01-24 17:33:35] Loading input file
+[2026-01-24 17:33:35] Standardising column names
+[2026-01-24 17:33:35] Cleaning whitespace in text columns
+[2026-01-24 17:33:35] Validating and normalising email addresses
+[2026-01-24 17:33:35] Converting text columns to proper case
+[2026-01-24 17:33:35] Standardising date formats
+[2026-01-24 17:33:35] Normalising junk values
+[2026-01-24 17:33:35] Removing blank or junk rows
+[2026-01-24 17:33:35] Removing duplicate rows
+[2026-01-24 17:33:35] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:33:35] Cleaning process complete
+[2026-01-24 17:43:28] Loading input file
+[2026-01-24 17:43:28] Standardising column names
+[2026-01-24 17:43:28] Cleaning whitespace in text columns
+[2026-01-24 17:43:28] Validating and normalising email addresses
+[2026-01-24 17:43:28] Converting text columns to proper case
+[2026-01-24 17:43:28] Standardising date formats
+[2026-01-24 17:43:28] Normalising junk values
+[2026-01-24 17:43:28] Removing blank or junk rows
+[2026-01-24 17:43:28] Removing duplicate rows
+[2026-01-24 17:43:28] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:43:28] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-24 17:43:48] Loading input file
+[2026-01-24 17:43:48] Standardising column names
+[2026-01-24 17:43:48] Cleaning whitespace in text columns
+[2026-01-24 17:43:48] Validating and normalising email addresses
+[2026-01-24 17:43:48] Converting text columns to proper case
+[2026-01-24 17:43:48] Standardising date formats
+[2026-01-24 17:43:48] Normalising junk values
+[2026-01-24 17:43:48] Removing blank or junk rows
+[2026-01-24 17:43:48] Removing duplicate rows
+[2026-01-24 17:43:48] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:43:48] Cleaning process complete
+[2026-01-24 17:51:07] Loading input file
+[2026-01-24 17:51:07] Standardising column names
+[2026-01-24 17:51:07] Cleaning whitespace in text columns
+[2026-01-24 17:51:07] Normalising junk values
+[2026-01-24 17:51:07] Validating and normalising email addresses
+[2026-01-24 17:51:07] Converting text columns to proper case
+[2026-01-24 17:51:07] Standardising date formats
+[2026-01-24 17:51:07] Removing blank or junk rows
+[2026-01-24 17:51:07] Removing duplicate rows
+[2026-01-24 17:51:07] Saving clean file to output/cleaned_output.csv
+[2026-01-24 17:51:07] Cleaning process complete
+[2026-01-24 18:21:34] Loading input file
+[2026-01-24 18:21:34] Standardising column names
+[2026-01-24 18:21:34] Cleaning whitespace in text columns
+[2026-01-24 18:21:34] Normalising junk and blank values
+[2026-01-24 18:21:34] Validating and normalising email addresses
+[2026-01-24 18:21:34] Converting text columns to proper case
+[2026-01-24 18:21:34] Standardising date formats
+[2026-01-24 18:21:34] Removing rows with no user data
+[2026-01-24 18:21:34] Removing duplicate rows
+[2026-01-24 18:21:34] Saving clean file to output/cleaned_output.csv
+[2026-01-24 18:21:34] Cleaning process complete
+[2026-01-24 18:26:59] Loading input file
+[2026-01-24 18:26:59] Standardising column names
+[2026-01-24 18:26:59] Cleaning whitespace in text columns
+[2026-01-24 18:26:59] Normalising junk and blank values
+[2026-01-24 18:26:59] Validating and normalising email addresses
+[2026-01-24 18:26:59] Converting text columns to proper case
+[2026-01-24 18:26:59] Standardising date formats
+[2026-01-24 18:26:59] Removing rows with no user data
+[2026-01-24 18:27:00] Removing duplicate rows
+[2026-01-24 18:27:00] Saving clean file to output/cleaned_output.csv
+[2026-01-24 18:27:00] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-25 10:13:38] Loading input file
+[2026-01-25 10:13:38] Standardising column names
+[2026-01-25 10:13:38] Cleaning whitespace in text columns
+[2026-01-25 10:13:38] Normalising junk and blank values
+[2026-01-25 10:13:38] Validating and normalising email addresses
+[2026-01-25 10:13:38] Converting text columns to proper case
+[2026-01-25 10:13:38] Standardising date formats
+[2026-01-25 10:13:38] Removing rows with no user data
+[2026-01-25 10:13:38] Removing duplicate rows
+[2026-01-25 10:13:38] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:13:38] Cleaning process complete
+[2026-01-25 10:18:10] Loading input file
+[2026-01-25 10:18:10] Standardising column names
+[2026-01-25 10:18:10] Cleaning whitespace in text columns
+[2026-01-25 10:18:10] Normalising junk and blank values
+[2026-01-25 10:18:10] Validating and normalising email addresses
+[2026-01-25 10:18:10] Converting text columns to proper case
+[2026-01-25 10:18:10] Standardising date formats
+[2026-01-25 10:18:10] Removing rows with no user data
+[2026-01-25 10:18:10] Removing duplicate rows
+[2026-01-25 10:18:10] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:18:10] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-25 10:18:58] Loading input file
+[2026-01-25 10:18:58] Standardising column names
+[2026-01-25 10:18:58] Cleaning whitespace in text columns
+[2026-01-25 10:18:58] Normalising junk and blank values
+[2026-01-25 10:18:58] Validating and normalising email addresses
+[2026-01-25 10:18:58] Converting text columns to proper case
+[2026-01-25 10:18:58] Standardising date formats
+[2026-01-25 10:18:58] Removing rows with no user data
+[2026-01-25 10:18:58] Removing duplicate rows
+[2026-01-25 10:18:58] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:18:58] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-25 10:19:33] Loading input file
+[2026-01-25 10:19:33] Standardising column names
+[2026-01-25 10:19:33] Cleaning whitespace in text columns
+[2026-01-25 10:19:33] Normalising junk and blank values
+[2026-01-25 10:19:33] Validating and normalising email addresses
+[2026-01-25 10:19:33] Converting text columns to proper case
+[2026-01-25 10:19:33] Standardising date formats
+[2026-01-25 10:19:33] Removing rows with no user data
+[2026-01-25 10:19:33] Removing duplicate rows
+[2026-01-25 10:19:33] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:19:33] Cleaning process complete
+[2026-01-25 10:33:20] Loading input file
+[2026-01-25 10:33:20] Standardising column names
+[2026-01-25 10:33:20] Cleaning whitespace in text columns
+[2026-01-25 10:33:20] Normalising junk and blank values
+[2026-01-25 10:33:20] Validating and normalising email addresses
+[2026-01-25 10:33:20] Converting text columns to proper case
+[2026-01-25 10:33:20] Standardising date formats
+[2026-01-25 10:33:20] Removing rows with no user data
+[2026-01-25 10:33:20] Removing duplicate rows
+[2026-01-25 10:33:20] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:33:20] Cleaning process complete
+[2026-01-25 10:38:38] Loading input file
+[2026-01-25 10:38:38] Standardising column names
+[2026-01-25 10:38:38] Cleaning whitespace in text columns
+[2026-01-25 10:38:38] Normalising junk and blank values
+[2026-01-25 10:38:38] Removing rows with no user data
+[2026-01-25 10:38:38] Validating and normalising email addresses
+[2026-01-25 10:38:38] Converting text columns to proper case
+[2026-01-25 10:38:38] Standardising date formats
+[2026-01-25 10:38:38] Removing duplicate rows
+[2026-01-25 10:38:38] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:38:38] Cleaning process complete
+[2026-01-25 10:44:39] Loading input file
+[2026-01-25 10:44:39] Standardising column names
+[2026-01-25 10:44:39] Cleaning whitespace in text columns
+[2026-01-25 10:44:39] Normalising junk and blank values
+[2026-01-25 10:44:39] Removing rows with no user data
+[2026-01-25 10:44:39] Validating and normalising email addresses
+[2026-01-25 10:44:39] Converting text columns to proper case
+[2026-01-25 10:44:39] Standardising date formats
+[2026-01-25 10:44:39] Removing duplicate rows
+[2026-01-25 10:44:39] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:44:39] Cleaning process complete
+[2026-01-25 10:53:55] Loading input file
+[2026-01-25 10:53:55] Standardising column names
+[2026-01-25 10:53:55] Cleaning whitespace in text columns
+[2026-01-25 10:53:55] Normalising junk and blank values
+[2026-01-25 10:53:55] Removing rows with no user data
+[2026-01-25 10:53:55] Validating and normalising email addresses
+[2026-01-25 10:53:55] Converting text columns to proper case
+[2026-01-25 10:53:55] Standardising date formats
+[2026-01-25 10:53:55] Removing duplicate rows
+[2026-01-25 10:53:55] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:53:55] Cleaning process complete
+[2026-01-25 10:58:40] Loading input file
+[2026-01-25 10:58:40] Standardising column names
+[2026-01-25 10:58:40] Cleaning whitespace in text columns
+[2026-01-25 10:58:40] Normalising junk and blank values
+[2026-01-25 10:58:40] Removing rows with no user data
+[2026-01-25 10:58:40] Validating and normalising email addresses
+[2026-01-25 10:58:40] Converting text columns to proper case
+[2026-01-25 10:58:40] Standardising date formats
+[2026-01-25 10:58:40] Removing duplicate rows
+[2026-01-25 10:58:40] Saving clean file to output/cleaned_output.csv
+[2026-01-25 10:58:40] Cleaning process complete
+[2026-01-25 11:10:34] Loading input file
+[2026-01-25 11:10:34] Standardising column names
+[2026-01-25 11:10:34] Cleaning whitespace in text columns
+[2026-01-25 11:10:34] Normalising junk and blank values
+[2026-01-25 11:10:34] Removing rows with no user data
+[2026-01-25 11:10:34] Validating and normalising email addresses
+[2026-01-25 11:10:34] Converting text columns to proper case
+[2026-01-25 11:10:34] Standardising date formats
+[2026-01-25 11:10:34] Removing duplicate rows
+[2026-01-25 11:10:34] Saving clean file to output/cleaned_output.csv
+[2026-01-25 11:10:34] Cleaning process complete
+[2026-01-25 11:19:24] Loading input file
+[2026-01-25 11:19:24] Loaded 5 rows
+[2026-01-25 11:19:24] Standardising column names
+[2026-01-25 11:19:24] Cleaning whitespace in text columns
+[2026-01-25 11:19:24] Normalising junk and blank values
+[2026-01-25 11:19:24] Removed 1 junk/blank rows
+[2026-01-25 11:19:24] Validating email addresses
+[2026-01-25 11:19:24] Invalid emails detected: 1
+[2026-01-25 11:19:24] Converting text columns to proper case
+[2026-01-25 11:19:24] Standardising date formats
+[2026-01-25 11:19:24] Removed 0 duplicate rows
+[2026-01-25 11:19:24] Saving clean file to output/cleaned_output.csv
+[2026-01-25 11:19:24] Cleaning complete. Final row count: 4
+[2026-01-25 11:30:56] Loading input file
+[2026-01-25 11:30:56] Loaded 5 rows
+[2026-01-25 11:30:56] Standardising column names
+[2026-01-25 11:30:56] Cleaning whitespace in text columns
+[2026-01-25 11:30:56] Normalising junk and blank values
+[2026-01-25 11:30:56] Removed 1 junk/blank rows
+[2026-01-25 11:30:56] Validating email addresses
+[2026-01-25 11:30:56] Invalid emails detected: 1
+[2026-01-25 11:30:56] Converting text columns to proper case
+[2026-01-25 11:30:56] Standardising date formats
+[2026-01-25 11:30:56] Removed 0 duplicate rows
+[2026-01-25 11:30:56] Saving clean file to output/cleaned_output.csv
+[2026-01-25 11:30:56] Cleaning complete. Final row count: 4
+[2026-01-25 11:47:47] Loading input file
+[2026-01-25 11:47:47] Loaded 5 rows
+[2026-01-25 11:47:47] Standardising column names
+[2026-01-25 11:47:47] Cleaning whitespace in text columns
+[2026-01-25 11:47:47] Normalising junk and blank values
+[2026-01-25 11:47:47] Removed 1 junk/blank rows
+[2026-01-25 11:47:47] Validating email addresses
+[2026-01-25 11:47:47] Invalid emails detected: 1
+[2026-01-25 11:47:47] Generating suggested email fixes
+[2026-01-25 11:47:47] Email suggestions generated: 1
+[2026-01-25 11:47:47] Converting text columns to proper case
+[2026-01-25 11:47:47] Standardising date formats
+[2026-01-25 11:47:47] Removed 0 duplicate rows
+[2026-01-25 11:47:47] Saving clean file to output/cleaned_output.csv
+[2026-01-25 11:47:47] Cleaning complete. Final row count: 4
+[2026-01-25 11:53:23] Loading input file
+[2026-01-25 11:53:23] Loaded 5 rows
+[2026-01-25 11:53:23] Standardising column names
+[2026-01-25 11:53:23] Cleaning whitespace in text columns
+[2026-01-25 11:53:23] Normalising junk and blank values
+[2026-01-25 11:53:23] Removed 1 junk/blank rows
+[2026-01-25 11:53:23] Validating email addresses
+[2026-01-25 11:53:23] Invalid emails detected: 1
+[2026-01-25 11:53:23] Generating suggested email fixes
+[2026-01-25 11:53:23] Email suggestions generated: 1
+[2026-01-25 11:53:23] Converting text columns to proper case
+[2026-01-25 11:53:23] Standardising date formats
+[2026-01-25 11:53:23] Removed 0 duplicate rows
+[2026-01-25 11:53:23] Saving clean file to output/cleaned_output.csv
+[2026-01-25 11:53:23] Cleaning complete. Final row count: 4
+[2026-01-25 11:59:05] Loading input file
+[2026-01-25 11:59:05] Loaded 5 rows
+[2026-01-25 11:59:05] Standardising column names
+[2026-01-25 11:59:05] Cleaning whitespace in text columns
+[2026-01-25 11:59:05] Normalising junk and blank values
+[2026-01-25 11:59:05] Removed 1 junk/blank rows
+[2026-01-25 11:59:05] Validating email addresses
+[2026-01-25 11:59:05] Invalid emails detected: 1
+[2026-01-25 11:59:05] Generating suggested email fixes
+[2026-01-25 11:59:05] Email suggestions generated: 1
+[2026-01-25 11:59:05] Converting text columns to proper case
+[2026-01-25 11:59:05] Standardising date formats
+[2026-01-25 11:59:05] Removed 0 duplicate rows
+[2026-01-25 11:59:05] Saving clean file to output/cleaned_output.csv
+[2026-01-25 11:59:05] Cleaning complete. Final row count: 4
+[2026-01-25 12:00:34] Loading input file
+[2026-01-25 12:00:34] Loaded 5 rows
+[2026-01-25 12:00:34] Standardising column names
+[2026-01-25 12:00:34] Cleaning whitespace in text columns
+[2026-01-25 12:00:34] Normalising junk and blank values
+[2026-01-25 12:00:34] Removed 1 junk/blank rows
+[2026-01-25 12:00:34] Validating email addresses
+[2026-01-25 12:00:34] Invalid emails detected: 1
+[2026-01-25 12:00:34] Generating suggested email fixes
+[2026-01-25 12:00:34] Email suggestions generated: 1
+[2026-01-25 12:00:34] Converting text columns to proper case
+[2026-01-25 12:00:34] Standardising date formats
+[2026-01-25 12:00:34] Removed 0 duplicate rows
+[2026-01-25 12:00:34] Saving clean file to output/cleaned_output.csv
+[2026-01-25 12:00:34] Cleaning complete. Final row count: 4
+[2026-01-25 12:01:27] Loading input file
+[2026-01-25 12:01:27] Loaded 5 rows
+[2026-01-25 12:01:27] Standardising column names
+[2026-01-25 12:01:27] Cleaning whitespace in text columns
+[2026-01-25 12:01:27] Normalising junk and blank values
+[2026-01-25 12:01:27] Removed 1 junk/blank rows
+[2026-01-25 12:01:27] Validating email addresses
+[2026-01-25 12:01:27] Invalid emails detected: 1
+[2026-01-25 12:01:27] Generating suggested email fixes
+[2026-01-25 12:01:27] Email suggestions generated: 1
+[2026-01-25 12:01:27] Converting text columns to proper case
+[2026-01-25 12:01:27] Standardising date formats
+[2026-01-25 12:01:27] Removed 0 duplicate rows
+[2026-01-25 12:01:27] Saving clean file to output/cleaned_output.csv
+[2026-01-25 12:01:27] Cleaning complete. Final row count: 4
+[2026-01-25 12:08:45] Loading input file
+[2026-01-25 12:08:45] Loaded 5 rows
+[2026-01-25 12:08:45] Standardising column names
+[2026-01-25 12:08:45] Cleaning whitespace in text columns
+[2026-01-25 12:08:45] Normalising junk and blank values
+[2026-01-25 12:08:45] Removed 1 junk/blank rows
+[2026-01-25 12:08:45] Validating email addresses
+[2026-01-25 12:08:45] Invalid emails detected: 1
+[2026-01-25 12:08:45] Generating suggested email fixes
+[2026-01-25 12:08:45] Email suggestions generated: 1
+[2026-01-25 12:08:45] Converting text columns to proper case
+[2026-01-25 12:08:45] Standardising date formats
+[2026-01-25 12:08:45] Removed 0 duplicate rows
+[2026-01-25 12:08:45] Saving clean file to output/cleaned_output.csv
+[2026-01-25 12:08:45] Cleaning complete. Final row count: 4
+[2026-01-25 12:48:58] Loading input file
+[2026-01-25 12:48:59] Loaded 5 rows
+[2026-01-25 12:48:59] Standardising column names
+[2026-01-25 12:48:59] Cleaning whitespace in text columns
+[2026-01-25 12:48:59] Normalising junk and blank values
+[2026-01-25 12:48:59] Removed 1 junk/blank rows
+[2026-01-25 12:48:59] Validating email addresses
+[2026-01-25 12:48:59] Invalid emails detected: 1
+[2026-01-25 12:48:59] Generating suggested email fixes
+[2026-01-25 12:48:59] Email suggestions generated: 1
+[2026-01-25 12:48:59] Converting text columns to proper case
+[2026-01-25 12:48:59] Standardising date formats
+[2026-01-25 12:48:59] Removed 0 duplicate rows
+[2026-01-25 12:48:59] Saving clean file to output/cleaned_output.csv
+[2026-01-25 12:48:59] Cleaning complete. Final row count: 4
+[2026-01-25 12:55:22] Loading input file
+[2026-01-25 12:55:22] Loaded 5 rows
+[2026-01-25 12:55:22] Standardising column names
+[2026-01-25 12:55:22] Cleaning whitespace in text columns
+[2026-01-25 12:55:22] Normalising junk and blank values
+[2026-01-25 12:55:22] Removed 1 junk/blank rows
+[2026-01-25 12:55:22] Validating email addresses
+[2026-01-25 12:55:22] Invalid emails detected: 1
+[2026-01-25 12:55:22] Generating suggested email fixes
+[2026-01-25 12:55:22] Email suggestions generated: 1
+[2026-01-25 12:55:22] Converting text columns to proper case
+[2026-01-25 12:55:22] Standardising date formats
+[2026-01-25 12:55:22] Removed 0 duplicate rows
+[2026-01-25 12:55:22] Saving clean file to output/cleaned_output.csv
+[2026-01-25 12:55:22] Cleaning complete. Final row count: 4
+[2026-01-25 13:11:58] Loading input file
+[2026-01-25 13:11:58] Loaded 5 rows
+[2026-01-25 13:11:58] Standardising column names
+[2026-01-25 13:11:58] Cleaning whitespace in text columns
+[2026-01-25 13:11:58] Normalising junk and blank values
+[2026-01-25 13:11:58] Removed 1 junk/blank rows
+[2026-01-25 13:11:58] Validating email addresses
+[2026-01-25 13:11:58] Invalid emails detected: 1
+[2026-01-25 13:11:58] Generating suggested email fixes
+[2026-01-25 13:11:58] Email suggestions generated: 1
+[2026-01-25 13:11:58] Converting text columns to proper case
+[2026-01-25 13:11:58] Standardising date formats
+[2026-01-25 13:11:58] Removed 0 duplicate rows
+[2026-01-25 13:11:58] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:11:58] Cleaning complete. Final row count: 4
+[2026-01-25 13:27:38] Loading input file
+[2026-01-25 13:27:38] Loaded 5 rows
+[2026-01-25 13:27:38] Standardising column names
+[2026-01-25 13:27:38] Cleaning whitespace in text columns
+[2026-01-25 13:27:38] Normalising junk and blank values
+[2026-01-25 13:27:38] Removed 1 junk/blank rows
+[2026-01-25 13:27:38] Validating email addresses
+[2026-01-25 13:27:38] Invalid emails detected: 1
+[2026-01-25 13:27:38] Generating suggested email fixes
+[2026-01-25 13:27:38] Email suggestions generated: 1
+[2026-01-25 13:27:38] Converting text columns to proper case
+[2026-01-25 13:27:38] Standardising date formats
+[2026-01-25 13:27:38] Removed 0 duplicate rows
+[2026-01-25 13:27:38] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:27:38] Cleaning complete. Final row count: 4
+[2026-01-25 13:31:48] Loading input file
+[2026-01-25 13:31:48] Loaded 5 rows
+[2026-01-25 13:31:48] Standardising column names
+[2026-01-25 13:31:48] Cleaning whitespace in text columns
+[2026-01-25 13:31:48] Normalising junk and blank values
+[2026-01-25 13:31:48] Removed 1 junk/blank rows
+[2026-01-25 13:31:48] Validating email addresses
+[2026-01-25 13:31:48] Strict mode: removed 1 rows with invalid emails
+[2026-01-25 13:31:48] Invalid emails detected: 0
+[2026-01-25 13:31:48] Generating suggested email fixes
+[2026-01-25 13:31:48] Email suggestions generated: 0
+[2026-01-25 13:31:48] Converting text columns to proper case
+[2026-01-25 13:31:48] Standardising date formats
+[2026-01-25 13:31:48] Removed 0 duplicate rows
+[2026-01-25 13:31:48] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:31:48] Cleaning complete. Final row count: 3
+[2026-01-25 13:34:08] Loading input file
+[2026-01-25 13:34:08] Loaded 5 rows
+[2026-01-25 13:34:08] Standardising column names
+[2026-01-25 13:34:08] Cleaning whitespace in text columns
+[2026-01-25 13:34:08] Normalising junk and blank values
+[2026-01-25 13:34:08] Removed 1 junk/blank rows
+[2026-01-25 13:34:08] Validating email addresses
+[2026-01-25 13:34:08] Strict mode: removed 1 rows with invalid emails
+[2026-01-25 13:34:08] Invalid emails detected: 0
+[2026-01-25 13:34:08] Generating suggested email fixes
+[2026-01-25 13:34:08] Email suggestions generated: 0
+[2026-01-25 13:34:08] Converting text columns to proper case
+[2026-01-25 13:34:08] Standardising date formats
+[2026-01-25 13:34:08] Removed 0 duplicate rows
+[2026-01-25 13:34:08] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:34:08] Cleaning complete. Final row count: 3
+[2026-01-25 13:39:25] Loading input file
+[2026-01-25 13:39:25] Loaded 5 rows
+[2026-01-25 13:39:25] Standardising column names
+[2026-01-25 13:39:25] Cleaning whitespace in text columns
+[2026-01-25 13:39:25] Normalising junk and blank values
+[2026-01-25 13:39:25] Removed 1 junk/blank rows
+[2026-01-25 13:39:25] Validating email addresses
+[2026-01-25 13:39:25] Strict mode: removed 1 rows with invalid emails
+[2026-01-25 13:39:25] Invalid emails detected: 0
+[2026-01-25 13:39:25] Generating suggested email fixes
+[2026-01-25 13:39:25] Email suggestions generated: 0
+[2026-01-25 13:39:25] Converting text columns to proper case
+[2026-01-25 13:39:25] Standardising date formats
+[2026-01-25 13:39:25] Removed 0 duplicate rows
+[2026-01-25 13:39:25] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:39:25] Cleaning complete. Final row count: 3
+[2026-01-25 13:49:58] Loading input file
+[2026-01-25 13:49:58] Loaded 5 rows
+[2026-01-25 13:49:58] Standardising column names
+[2026-01-25 13:49:58] Cleaning whitespace in text columns
+[2026-01-25 13:49:58] Normalising junk and blank values
+[2026-01-25 13:49:58] Removed 1 junk/blank rows
+[2026-01-25 13:49:58] Validating email addresses
+[2026-01-25 13:49:58] Strict mode: removed 1 rows with invalid emails
+[2026-01-25 13:49:58] Standardising date formats
+[2026-01-25 13:49:58] Strict mode: removed 2 rows with invalid dates
+[2026-01-25 13:49:58] Invalid emails detected: 0
+[2026-01-25 13:49:58] Generating suggested email fixes
+[2026-01-25 13:49:58] Email suggestions generated: 0
+[2026-01-25 13:49:58] Converting text columns to proper case
+[2026-01-25 13:49:58] Removed 0 duplicate rows
+[2026-01-25 13:49:58] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:49:58] Cleaning complete. Final row count: 1
+[2026-01-25 13:53:18] Loading input file
+[2026-01-25 13:53:18] Loaded 5 rows
+[2026-01-25 13:53:18] Standardising column names
+[2026-01-25 13:53:18] Cleaning whitespace in text columns
+[2026-01-25 13:53:18] Normalising junk and blank values
+[2026-01-25 13:53:18] Removed 1 junk/blank rows
+[2026-01-25 13:53:18] Validating email addresses
+[2026-01-25 13:53:18] Standardising date formats
+[2026-01-25 13:53:18] Invalid emails detected: 1
+[2026-01-25 13:53:18] Generating suggested email fixes
+[2026-01-25 13:53:18] Email suggestions generated: 1
+[2026-01-25 13:53:18] Converting text columns to proper case
+[2026-01-25 13:53:18] Removed 0 duplicate rows
+[2026-01-25 13:53:18] Saving clean file to output/cleaned_output.csv
+[2026-01-25 13:53:18] Cleaning complete. Final row count: 4
+[2026-01-25 19:37:27] Loading input file
+[2026-01-25 19:37:27] Loaded 5 rows
+[2026-01-25 19:37:27] Standardising column names
+[2026-01-25 19:37:27] Cleaning whitespace in text columns
+[2026-01-25 19:37:27] Normalising junk and blank values
+[2026-01-25 19:37:27] Removed 1 junk/blank rows
+[2026-01-25 19:37:27] Validating email addresses
+[2026-01-25 19:37:27] Standardising date formats
+[2026-01-25 19:37:27] Invalid emails detected: 1
+[2026-01-25 19:37:27] Generating suggested email fixes
+[2026-01-25 19:37:27] Email suggestions generated: 1
+[2026-01-25 19:37:27] Converting text columns to proper case
+[2026-01-25 19:37:27] Removed 0 duplicate rows
+[2026-01-25 19:37:27] Saving clean file to output/cleaned_output.csv
+[2026-01-25 19:37:27] Cleaning complete. Final row count: 4
+[2026-01-25 19:47:06] Loading input file
+[2026-01-25 19:47:06] Loaded 5 rows
+[2026-01-25 19:47:06] Standardising column names
+[2026-01-25 19:47:06] Cleaning whitespace in text columns
+[2026-01-25 19:47:06] Normalising junk and blank values
+[2026-01-25 19:47:06] Removed 1 junk/blank rows
+[2026-01-25 19:47:06] Validating email addresses
+[2026-01-25 19:47:06] Standardising date formats
+[2026-01-25 19:47:06] Invalid emails detected: 1
+[2026-01-25 19:47:06] Generating suggested email fixes
+[2026-01-25 19:47:06] Email suggestions generated: 1
+[2026-01-25 19:47:06] Converting text columns to proper case
+[2026-01-25 19:47:06] Removed 0 duplicate rows
+[2026-01-25 19:47:06] Saving clean file to output/cleaned_output.csv
+[2026-01-25 19:47:06] Cleaning complete. Final row count: 4
+[2026-01-25 19:51:30] Loading input file
+[2026-01-25 19:51:30] Loaded 5 rows
+[2026-01-25 19:51:30] Standardising column names
+[2026-01-25 19:51:30] Cleaning whitespace in text columns
+[2026-01-25 19:51:30] Normalising junk and blank values
+[2026-01-25 19:51:30] Removed 1 junk/blank rows
+[2026-01-25 19:51:30] Validating email addresses
+[2026-01-25 19:51:30] Standardising date formats
+[2026-01-25 19:51:30] Invalid emails detected: 1
+[2026-01-25 19:51:30] Generating suggested email fixes
+[2026-01-25 19:51:30] Email suggestions generated: 1
+[2026-01-25 19:51:30] Converting text columns to proper case
+[2026-01-25 19:51:30] Removed 0 duplicate rows
+[2026-01-25 19:51:30] Saving clean file to output/cleaned_output.csv
+[2026-01-25 19:51:30] Cleaning complete. Final row count: 4
+[2026-01-25 20:07:02] Loading input file
+[2026-01-25 20:07:02] Loaded 5 rows
+[2026-01-25 20:07:02] Standardising column names
+[2026-01-25 20:07:02] Cleaning whitespace in text columns
+[2026-01-25 20:07:02] Normalising junk and blank values
+[2026-01-25 20:07:02] Removed 1 junk/blank rows
+[2026-01-25 20:07:02] Validating email addresses
+[2026-01-25 20:07:02] Standardising date formats
+[2026-01-25 20:07:02] Invalid emails detected: 1
+[2026-01-25 20:07:02] Generating suggested email fixes
+[2026-01-25 20:07:02] Email suggestions generated: 1
+[2026-01-25 20:07:02] Converting text columns to proper case
+[2026-01-25 20:07:02] Removed 0 duplicate rows
+[2026-01-25 20:07:02] Saving clean file to output/cleaned_output.csv
+[2026-01-25 20:07:02] Cleaning complete. Final row count: 4
+[2026-01-25 20:21:50] Loading input file
+[2026-01-25 20:21:50] Loaded 5 rows
+[2026-01-25 20:21:50] Standardising column names
+[2026-01-25 20:21:50] Cleaning whitespace in text columns
+[2026-01-25 20:21:50] Normalising junk and blank values
+[2026-01-25 20:21:50] Removed 0 junk/blank rows
+[2026-01-25 20:21:50] Validating email addresses
+[2026-01-25 20:21:50] Standardising date formats
+[2026-01-25 20:21:50] Invalid emails detected: 2
+[2026-01-25 20:21:50] Generating suggested email fixes
+[2026-01-25 20:21:50] Email suggestions generated: 1
+[2026-01-25 20:21:50] Converting text columns to proper case
+[2026-01-25 20:21:50] Removed 0 duplicate rows
+[2026-01-25 20:21:50] Saving clean file to output/cleaned_output.csv
+[2026-01-25 20:21:50] Cleaning complete. Final row count: 5
+[2026-01-25 20:48:09] Loading input file
+[2026-01-25 20:48:09] Loaded 5 rows
+[2026-01-25 20:48:09] Standardising column names
+[2026-01-25 20:48:09] Cleaning whitespace in text columns
+[2026-01-25 20:48:09] Normalising junk and blank values
+[2026-01-25 20:48:09] Removed 0 junk/blank rows
+[2026-01-25 20:48:09] Validating email addresses
+[2026-01-25 20:48:09] Standardising date formats
+[2026-01-25 20:48:09] Invalid emails detected: 2
+[2026-01-25 20:48:09] Generating suggested email fixes
+[2026-01-25 20:48:09] Email suggestions generated: 1
+[2026-01-25 20:48:09] Converting text columns to proper case
+[2026-01-25 20:48:09] Removed 0 duplicate rows
+[2026-01-25 20:48:09] Saving clean file to output/cleaned_output.csv
+[2026-01-25 20:48:09] Cleaning complete. Final row count: 5
+[2026-01-26 09:56:03] Loading input file
+[2026-01-26 09:56:03] Loaded 5 rows
+[2026-01-26 09:56:03] Standardising column names
+[2026-01-26 09:56:03] Cleaning whitespace in text columns
+[2026-01-26 09:56:03] Normalising junk and blank values
+[2026-01-26 09:56:03] Removed 0 junk/blank rows
+[2026-01-26 09:56:03] Validating email addresses
+[2026-01-26 09:56:03] Standardising date formats
+[2026-01-26 09:56:03] Invalid emails detected: 2
+[2026-01-26 09:56:03] Generating suggested email fixes
+[2026-01-26 09:56:03] Email suggestions generated: 1
+[2026-01-26 09:56:03] Converting text columns to proper case
+[2026-01-26 09:56:03] Removed 0 duplicate rows
+[2026-01-26 09:56:03] Saving clean file to output/cleaned_output.csv
+[2026-01-26 09:56:03] Cleaning complete. Final row count: 5
+[2026-01-30 15:51:59] Loading input file
+[2026-01-30 15:51:59] ERROR: 'date_of_birth'
+[2026-01-30 16:19:36] Loading input file
+[2026-01-30 16:19:36] Loaded 6 rows
+[2026-01-30 16:19:36] Standardising column names
+[2026-01-30 16:19:36] Cleaning whitespace in text columns
+[2026-01-30 16:19:36] Normalising junk and blank values
+[2026-01-30 16:19:36] Removed 2 junk/blank rows
+[2026-01-30 16:19:36] Validating email addresses
+[2026-01-30 16:19:36] Standardising date formats
+[2026-01-30 16:19:36] Invalid emails detected: 1
+[2026-01-30 16:19:36] Generating suggested email fixes
+[2026-01-30 16:19:36] Email suggestions generated: 1
+[2026-01-30 16:19:36] Converting text columns to proper case
+[2026-01-30 16:19:36] Removed 0 duplicate rows
+[2026-01-30 16:19:36] Saving clean file to output/cleaned_output.csv
+[2026-01-30 16:19:36] Cleaning complete. Final row count: 4
+[2026-01-30 16:40:53] Loading input file
+[2026-01-30 16:40:53] Loaded 6 rows
+[2026-01-30 16:40:53] Standardising column names
+[2026-01-30 16:40:53] Cleaning whitespace in text columns
+[2026-01-30 16:40:53] Normalising junk and blank values
+[2026-01-30 16:40:53] Removed 2 junk/blank rows
+[2026-01-30 16:40:53] Validating email addresses
+[2026-01-30 16:40:53] Standardising date formats
+[2026-01-30 16:40:53] Invalid emails detected: 1
+[2026-01-30 16:40:53] Generating suggested email fixes
+[2026-01-30 16:40:53] Email suggestions generated: 1
+[2026-01-30 16:40:53] Converting text columns to proper case
+[2026-01-30 16:40:53] Removed 0 duplicate rows
+[2026-01-30 16:40:53] Saving clean file to output/cleaned_output.csv
+[2026-01-30 16:40:53] Cleaning complete. Final row count: 4
+[2026-01-30 16:55:40] Loading input file
+[2026-01-30 16:55:40] Loaded 6 rows
+[2026-01-30 16:55:40] Standardising column names
+[2026-01-30 16:55:40] Cleaning whitespace in text columns
+[2026-01-30 16:55:40] Normalising junk and blank values
+[2026-01-30 16:55:40] Removed 2 junk/blank rows
+[2026-01-30 16:55:40] Validating email addresses
+[2026-01-30 16:55:40] Standardising date formats
+[2026-01-30 16:55:40] Invalid emails detected: 1
+[2026-01-30 16:55:40] Generating suggested email fixes
+[2026-01-30 16:55:40] Email suggestions generated: 1
+[2026-01-30 16:55:40] Converting text columns to proper case
+[2026-01-30 16:55:40] Removed 0 duplicate rows
+[2026-01-30 16:55:40] Saving clean file to output/cleaned_output.csv
+[2026-01-30 16:55:40] Cleaning complete. Final row count: 4
+[2026-01-30 16:57:49] Loading input file
+[2026-01-30 16:57:49] Loaded 6 rows
+[2026-01-30 16:57:49] Standardising column names
+[2026-01-30 16:57:49] Cleaning whitespace in text columns
+[2026-01-30 16:57:49] Normalising junk and blank values
+[2026-01-30 16:57:49] Removed 2 junk/blank rows
+[2026-01-30 16:57:49] Validating email addresses
+[2026-01-30 16:57:49] Standardising date formats
+[2026-01-30 16:57:49] Invalid emails detected: 1
+[2026-01-30 16:57:49] Generating suggested email fixes
+[2026-01-30 16:57:49] Email suggestions generated: 1
+[2026-01-30 16:57:49] Converting text columns to proper case
+[2026-01-30 16:57:49] Removed 0 duplicate rows
+[2026-01-30 16:57:49] Saving clean file to output/cleaned_output.csv
+[2026-01-30 16:57:49] Cleaning complete. Final row count: 4
+[2026-01-30 17:07:17] Loading input file
+[2026-01-30 17:07:17] Loaded 6 rows
+[2026-01-30 17:07:17] Standardising column names
+[2026-01-30 17:07:17] Cleaning whitespace in text columns
+[2026-01-30 17:07:17] Normalising junk and blank values
+[2026-01-30 17:07:17] Removed 2 junk/blank rows
+[2026-01-30 17:07:17] Validating email addresses
+[2026-01-30 17:07:17] Standardising date formats
+[2026-01-30 17:07:17] Invalid emails detected: 1
+[2026-01-30 17:07:17] Generating suggested email fixes
+[2026-01-30 17:07:17] Email suggestions generated: 1
+[2026-01-30 17:07:17] Converting text columns to proper case
+[2026-01-30 17:07:17] Removed 0 duplicate rows
+[2026-01-30 17:07:17] Saving clean file to output/cleaned_output.csv
+[2026-01-30 17:07:17] Cleaning complete. Final row count: 4
+[2026-01-30 17:08:02] Loading input file
+[2026-01-30 17:08:02] Loaded 6 rows
+[2026-01-30 17:08:02] Standardising column names
+[2026-01-30 17:08:02] Cleaning whitespace in text columns
+[2026-01-30 17:08:02] Normalising junk and blank values
+[2026-01-30 17:08:02] Removed 2 junk/blank rows
+[2026-01-30 17:08:02] Validating email addresses
+[2026-01-30 17:08:02] Standardising date formats
+[2026-01-30 17:08:02] Invalid emails detected: 1
+[2026-01-30 17:08:02] Generating suggested email fixes
+[2026-01-30 17:08:02] Email suggestions generated: 1
+[2026-01-30 17:08:02] Converting text columns to proper case
+[2026-01-30 17:08:02] Removed 0 duplicate rows
+[2026-01-30 17:08:02] Saving clean file to output/cleaned_output.csv
+[2026-01-30 17:08:02] Cleaning complete. Final row count: 4
+[2026-01-30 17:14:47] Loading input file
+[2026-01-30 17:14:47] Loaded 6 rows
+[2026-01-30 17:14:47] Standardising column names
+[2026-01-30 17:14:47] Cleaning whitespace in text columns
+[2026-01-30 17:14:47] Normalising junk and blank values
+[2026-01-30 17:14:47] Removed 2 junk/blank rows
+[2026-01-30 17:14:47] Validating email addresses
+[2026-01-30 17:14:47] Standardising date formats
+[2026-01-30 17:14:47] Invalid emails detected: 1
+[2026-01-30 17:14:47] Generating suggested email fixes
+[2026-01-30 17:14:47] Email suggestions generated: 1
+[2026-01-30 17:14:47] Converting text columns to proper case
+[2026-01-30 17:14:47] Removed 0 duplicate rows
+[2026-01-30 17:14:47] Saving clean file to output/cleaned_output.csv
+[2026-01-30 17:14:47] Cleaning complete. Final row count: 4
+[2026-01-30 17:38:12] Loading input file
+[2026-01-30 17:38:12] Loaded 6 rows
+[2026-01-30 17:38:12] Standardising column names
+[2026-01-30 17:38:12] Cleaning whitespace in text columns
+[2026-01-30 17:38:12] Normalising junk and blank values
+[2026-01-30 17:38:12] Removed 2 junk/blank rows
+[2026-01-30 17:38:12] Validating email addresses
+[2026-01-30 17:38:12] Standardising date formats
+[2026-01-30 17:38:12] Invalid emails detected: 1
+[2026-01-30 17:38:12] Generating suggested email fixes
+[2026-01-30 17:38:12] Email suggestions generated: 1
+[2026-01-30 17:38:12] Converting text columns to proper case
+[2026-01-30 17:38:12] Removed 0 duplicate rows
+[2026-01-30 17:38:12] Saving clean file to output/cleaned_output.csv
+[2026-01-30 17:38:12] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-30 17:39:25] Loading input file
+[2026-01-30 17:39:25] Loaded 6 rows
+[2026-01-30 17:39:25] Standardising column names
+[2026-01-30 17:39:25] Cleaning whitespace in text columns
+[2026-01-30 17:39:25] Normalising junk and blank values
+[2026-01-30 17:39:25] Removed 2 junk/blank rows
+[2026-01-30 17:39:25] Validating email addresses
+[2026-01-30 17:39:25] Standardising date formats
+[2026-01-30 17:39:25] Invalid emails detected: 1
+[2026-01-30 17:39:25] Generating suggested email fixes
+[2026-01-30 17:39:25] Email suggestions generated: 1
+[2026-01-30 17:39:25] Converting text columns to proper case
+[2026-01-30 17:39:25] Removed 0 duplicate rows
+[2026-01-30 17:39:25] Saving clean file to output/cleaned_output.csv
+[2026-01-30 17:39:25] Cleaning complete. Final row count: 4
+[2026-01-30 19:00:20] Loading input file
+[2026-01-30 19:00:20] Loaded 6 rows
+[2026-01-30 19:00:20] Standardising column names
+[2026-01-30 19:00:20] Cleaning whitespace in text columns
+[2026-01-30 19:00:20] Normalising junk and blank values
+[2026-01-30 19:00:20] Removed 2 junk/blank rows
+[2026-01-30 19:00:20] Validating email addresses
+[2026-01-30 19:00:20] Standardising date formats
+[2026-01-30 19:00:20] Invalid emails detected: 1
+[2026-01-30 19:00:20] Generating suggested email fixes
+[2026-01-30 19:00:20] Email suggestions generated: 1
+[2026-01-30 19:00:20] Converting text columns to proper case
+[2026-01-30 19:00:20] Removed 0 duplicate rows
+[2026-01-30 19:00:20] Saving clean file to output/cleaned_output.csv
+[2026-01-30 19:00:20] Cleaning complete. Final row count: 4
+[2026-01-30 19:06:05] Loading input file
+[2026-01-30 19:06:05] Loaded 6 rows
+[2026-01-30 19:06:05] Standardising column names
+[2026-01-30 19:06:05] Cleaning whitespace in text columns
+[2026-01-30 19:06:05] Normalising junk and blank values
+[2026-01-30 19:06:05] Removed 2 junk/blank rows
+[2026-01-30 19:06:05] Validating email addresses
+[2026-01-30 19:06:05] running standardise_dates()
+[2026-01-30 19:06:05] Invalid emails detected: 1
+[2026-01-30 19:06:05] Generating suggested email fixes
+[2026-01-30 19:06:05] Email suggestions generated: 1
+[2026-01-30 19:06:05] Converting text columns to proper case
+[2026-01-30 19:06:05] Removed 0 duplicate rows
+[2026-01-30 19:06:05] Saving clean file to output/cleaned_output.csv
+[2026-01-30 19:06:05] ERROR: [Errno 13] Permission denied: 'output/cleaned_output.csv'
+[2026-01-30 19:11:15] Loading input file
+[2026-01-30 19:11:15] Loaded 6 rows
+[2026-01-30 19:11:15] Standardising column names
+[2026-01-30 19:11:15] Cleaning whitespace in text columns
+[2026-01-30 19:11:15] Normalising junk and blank values
+[2026-01-30 19:11:15] Removed 2 junk/blank rows
+[2026-01-30 19:11:15] Validating email addresses
+[2026-01-30 19:11:15] running standardise_dates()
+[2026-01-30 19:11:15] Invalid emails detected: 1
+[2026-01-30 19:11:15] Generating suggested email fixes
+[2026-01-30 19:11:15] Email suggestions generated: 1
+[2026-01-30 19:11:15] Converting text columns to proper case
+[2026-01-30 19:11:15] Removed 0 duplicate rows
+[2026-01-30 19:11:15] Saving clean file to output/cleaned_output.csv
+[2026-01-30 19:11:15] Cleaning complete. Final row count: 4
+[2026-01-30 19:13:17] Loading input file
+[2026-01-30 19:13:17] Loaded 6 rows
+[2026-01-30 19:13:17] Standardising column names
+[2026-01-30 19:13:17] Cleaning whitespace in text columns
+[2026-01-30 19:13:17] Normalising junk and blank values
+[2026-01-30 19:13:18] Removed 2 junk/blank rows
+[2026-01-30 19:13:18] Validating email addresses
+[2026-01-30 19:13:18] running standardise_dates()
+[2026-01-30 19:13:18] Invalid emails detected: 1
+[2026-01-30 19:13:18] Generating suggested email fixes
+[2026-01-30 19:13:18] Email suggestions generated: 1
+[2026-01-30 19:13:18] Converting text columns to proper case
+[2026-01-30 19:13:18] Removed 0 duplicate rows
+[2026-01-30 19:13:18] Saving clean file to output/cleaned_output.csv
+[2026-01-30 19:13:18] Cleaning complete. Final row count: 4
+[2026-01-30 19:28:22] Loading input file
+[2026-01-30 19:28:22] Loaded 6 rows
+[2026-01-30 19:28:22] Standardising column names
+[2026-01-30 19:28:22] Cleaning whitespace in text columns
+[2026-01-30 19:28:22] Normalising junk and blank values
+[2026-01-30 19:28:22] Removed 2 junk/blank rows
+[2026-01-30 19:28:22] Validating email addresses
+[2026-01-30 19:28:22] running standardise_dates()
+[2026-01-30 19:28:22] Invalid emails detected: 1
+[2026-01-30 19:28:22] Generating suggested email fixes
+[2026-01-30 19:28:22] Email suggestions generated: 1
+[2026-01-30 19:28:22] Converting text columns to proper case
+[2026-01-30 19:28:22] Removed 0 duplicate rows
+[2026-01-30 19:28:22] Saving clean file to output/cleaned_output.csv
+[2026-01-30 19:28:22] Cleaning complete. Final row count: 4
+[2026-01-30 23:43:44] Loading input file
+[2026-01-30 23:43:44] Loaded 6 rows
+[2026-01-30 23:43:44] Standardising column names
+[2026-01-30 23:43:44] Cleaning whitespace in text columns
+[2026-01-30 23:43:44] Normalising junk and blank values
+[2026-01-30 23:43:44] Removed 2 junk/blank rows
+[2026-01-30 23:43:44] Validating email addresses
+[2026-01-30 23:43:44] running standardise_dates()
+[2026-01-30 23:43:44] Invalid emails detected: 1
+[2026-01-30 23:43:44] Generating suggested email fixes
+[2026-01-30 23:43:44] Email suggestions generated: 1
+[2026-01-30 23:43:44] Converting text columns to proper case
+[2026-01-30 23:43:44] Removed 0 duplicate rows
+[2026-01-30 23:43:44] Saving clean file to output/cleaned_output.csv
+[2026-01-30 23:43:44] Cleaning complete. Final row count: 4
+[2026-01-30 23:43:44] Loading input file
+[2026-01-30 23:43:44] Loaded 6 rows
+[2026-01-30 23:43:44] Standardising column names
+[2026-01-30 23:43:44] Cleaning whitespace in text columns
+[2026-01-30 23:43:44] Normalising junk and blank values
+[2026-01-30 23:43:44] Removed 2 junk/blank rows
+[2026-01-30 23:43:44] Validating email addresses
+[2026-01-30 23:43:44] running standardise_dates()
+[2026-01-30 23:43:44] Invalid emails detected: 1
+[2026-01-30 23:43:44] Generating suggested email fixes
+[2026-01-30 23:43:44] Email suggestions generated: 1
+[2026-01-30 23:43:44] Converting text columns to proper case
+[2026-01-30 23:43:44] Removed 0 duplicate rows
+[2026-01-30 23:43:44] Saving clean file to output/cleaned_output.csv
+[2026-01-30 23:43:44] Cleaning complete. Final row count: 4
+[2026-01-30 23:58:31] Loading input file
+[2026-01-30 23:58:32] Loaded 6 rows
+[2026-01-30 23:58:32] Standardising column names
+[2026-01-30 23:58:32] Cleaning whitespace in text columns
+[2026-01-30 23:58:32] Normalising junk and blank values
+[2026-01-30 23:58:32] Removed 2 junk/blank rows
+[2026-01-30 23:58:32] Validating email addresses
+[2026-01-30 23:58:32] running standardise_dates()
+[2026-01-30 23:58:32] Invalid emails detected: 1
+[2026-01-30 23:58:32] Generating suggested email fixes
+[2026-01-30 23:58:32] Email suggestions generated: 1
+[2026-01-30 23:58:32] Converting text columns to proper case
+[2026-01-30 23:58:32] Removed 0 duplicate rows
+[2026-01-30 23:58:32] Saving clean file to output/cleaned_output.csv
+[2026-01-30 23:58:32] Cleaning complete. Final row count: 4
+[2026-01-30 23:58:32] Loading input file
+[2026-01-30 23:58:32] Loaded 6 rows
+[2026-01-30 23:58:32] Standardising column names
+[2026-01-30 23:58:32] Cleaning whitespace in text columns
+[2026-01-30 23:58:32] Normalising junk and blank values
+[2026-01-30 23:58:32] Removed 2 junk/blank rows
+[2026-01-30 23:58:32] Validating email addresses
+[2026-01-30 23:58:32] running standardise_dates()
+[2026-01-30 23:58:32] Invalid emails detected: 1
+[2026-01-30 23:58:32] Generating suggested email fixes
+[2026-01-30 23:58:32] Email suggestions generated: 1
+[2026-01-30 23:58:32] Converting text columns to proper case
+[2026-01-30 23:58:32] Removed 0 duplicate rows
+[2026-01-30 23:58:32] Saving clean file to output/cleaned_output.csv
+[2026-01-30 23:58:32] Cleaning complete. Final row count: 4
+[2026-01-31 00:06:11] Loading input file
+[2026-01-31 00:06:11] Loaded 6 rows
+[2026-01-31 00:06:11] Standardising column names
+[2026-01-31 00:06:11] Cleaning whitespace in text columns
+[2026-01-31 00:06:11] Normalising junk and blank values
+[2026-01-31 00:06:11] Removed 2 junk/blank rows
+[2026-01-31 00:06:11] Validating email addresses
+[2026-01-31 00:06:11] running standardise_dates()
+[2026-01-31 00:06:11] Invalid emails detected: 1
+[2026-01-31 00:06:11] Generating suggested email fixes
+[2026-01-31 00:06:11] Email suggestions generated: 1
+[2026-01-31 00:06:11] Converting text columns to proper case
+[2026-01-31 00:06:11] Removed 0 duplicate rows
+[2026-01-31 00:06:11] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:06:11] Cleaning complete. Final row count: 4
+[2026-01-31 00:06:11] Loading input file
+[2026-01-31 00:06:11] Loaded 6 rows
+[2026-01-31 00:06:11] Standardising column names
+[2026-01-31 00:06:11] Cleaning whitespace in text columns
+[2026-01-31 00:06:11] Normalising junk and blank values
+[2026-01-31 00:06:11] Removed 2 junk/blank rows
+[2026-01-31 00:06:11] Validating email addresses
+[2026-01-31 00:06:11] running standardise_dates()
+[2026-01-31 00:06:11] Invalid emails detected: 1
+[2026-01-31 00:06:11] Generating suggested email fixes
+[2026-01-31 00:06:11] Email suggestions generated: 1
+[2026-01-31 00:06:11] Converting text columns to proper case
+[2026-01-31 00:06:11] Removed 0 duplicate rows
+[2026-01-31 00:06:11] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:06:11] Cleaning complete. Final row count: 4
+[2026-01-31 00:25:10] Loading input file
+[2026-01-31 00:25:10] Loaded 6 rows
+[2026-01-31 00:25:10] Standardising column names
+[2026-01-31 00:25:10] Cleaning whitespace in text columns
+[2026-01-31 00:25:10] Normalising junk and blank values
+[2026-01-31 00:25:10] Removed 2 junk/blank rows
+[2026-01-31 00:25:10] Validating email addresses
+[2026-01-31 00:25:10] running standardise_dates()
+[2026-01-31 00:25:10] Invalid emails detected: 1
+[2026-01-31 00:25:10] Generating suggested email fixes
+[2026-01-31 00:25:10] Email suggestions generated: 1
+[2026-01-31 00:25:10] Converting text columns to proper case
+[2026-01-31 00:25:10] Removed 0 duplicate rows
+[2026-01-31 00:25:10] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:25:10] Cleaning complete. Final row count: 4
+[2026-01-31 00:25:10] Loading input file
+[2026-01-31 00:25:10] Loaded 6 rows
+[2026-01-31 00:25:10] Standardising column names
+[2026-01-31 00:25:10] Cleaning whitespace in text columns
+[2026-01-31 00:25:10] Normalising junk and blank values
+[2026-01-31 00:25:10] Removed 2 junk/blank rows
+[2026-01-31 00:25:10] Validating email addresses
+[2026-01-31 00:25:10] running standardise_dates()
+[2026-01-31 00:25:10] Invalid emails detected: 1
+[2026-01-31 00:25:10] Generating suggested email fixes
+[2026-01-31 00:25:10] Email suggestions generated: 1
+[2026-01-31 00:25:10] Converting text columns to proper case
+[2026-01-31 00:25:10] Removed 0 duplicate rows
+[2026-01-31 00:25:10] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:25:10] Cleaning complete. Final row count: 4
+[2026-01-31 00:34:27] Loading input file
+[2026-01-31 00:34:27] Loaded 6 rows
+[2026-01-31 00:34:27] Standardising column names
+[2026-01-31 00:34:27] Cleaning whitespace in text columns
+[2026-01-31 00:34:27] Normalising junk and blank values
+[2026-01-31 00:34:27] Removed 2 junk/blank rows
+[2026-01-31 00:34:27] Validating email addresses
+[2026-01-31 00:34:27] running standardise_dates()
+[2026-01-31 00:34:27] Invalid emails detected: 1
+[2026-01-31 00:34:27] Generating suggested email fixes
+[2026-01-31 00:34:27] Email suggestions generated: 1
+[2026-01-31 00:34:27] Converting text columns to proper case
+[2026-01-31 00:34:27] Removed 0 duplicate rows
+[2026-01-31 00:34:27] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:34:27] Cleaning complete. Final row count: 4
+[2026-01-31 00:34:27] Loading input file
+[2026-01-31 00:34:27] Loaded 6 rows
+[2026-01-31 00:34:27] Standardising column names
+[2026-01-31 00:34:27] Cleaning whitespace in text columns
+[2026-01-31 00:34:27] Normalising junk and blank values
+[2026-01-31 00:34:27] Removed 2 junk/blank rows
+[2026-01-31 00:34:27] Validating email addresses
+[2026-01-31 00:34:27] running standardise_dates()
+[2026-01-31 00:34:27] Invalid emails detected: 1
+[2026-01-31 00:34:27] Generating suggested email fixes
+[2026-01-31 00:34:27] Email suggestions generated: 1
+[2026-01-31 00:34:27] Converting text columns to proper case
+[2026-01-31 00:34:27] Removed 0 duplicate rows
+[2026-01-31 00:34:27] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:34:27] Cleaning complete. Final row count: 4
+[2026-01-31 00:51:08] Loading input file
+[2026-01-31 00:51:08] Loaded 6 rows
+[2026-01-31 00:51:08] Standardising column names
+[2026-01-31 00:51:08] Cleaning whitespace in text columns
+[2026-01-31 00:51:08] Normalising junk and blank values
+[2026-01-31 00:51:08] Removed 2 junk/blank rows
+[2026-01-31 00:51:08] Validating email addresses
+[2026-01-31 00:51:08] running standardise_dates()
+[2026-01-31 00:51:08] Invalid emails detected: 1
+[2026-01-31 00:51:08] Generating suggested email fixes
+[2026-01-31 00:51:08] Email suggestions generated: 1
+[2026-01-31 00:51:08] Converting text columns to proper case
+[2026-01-31 00:51:08] Removed 0 duplicate rows
+[2026-01-31 00:51:08] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:51:09] Cleaning complete. Final row count: 4
+[2026-01-31 00:51:09] Loading input file
+[2026-01-31 00:51:09] Loaded 6 rows
+[2026-01-31 00:51:09] Standardising column names
+[2026-01-31 00:51:09] Cleaning whitespace in text columns
+[2026-01-31 00:51:09] Normalising junk and blank values
+[2026-01-31 00:51:09] Removed 2 junk/blank rows
+[2026-01-31 00:51:09] Validating email addresses
+[2026-01-31 00:51:09] running standardise_dates()
+[2026-01-31 00:51:09] Invalid emails detected: 1
+[2026-01-31 00:51:09] Generating suggested email fixes
+[2026-01-31 00:51:09] Email suggestions generated: 1
+[2026-01-31 00:51:09] Converting text columns to proper case
+[2026-01-31 00:51:09] Removed 0 duplicate rows
+[2026-01-31 00:51:09] Saving clean file to output/cleaned_output.csv
+[2026-01-31 00:51:09] Cleaning complete. Final row count: 4
+[2026-01-31 01:02:29] Loading input file
+[2026-01-31 01:02:29] Loaded 6 rows
+[2026-01-31 01:02:29] Standardising column names
+[2026-01-31 01:02:29] Cleaning whitespace in text columns
+[2026-01-31 01:02:29] Normalising junk and blank values
+[2026-01-31 01:02:29] Removed 2 junk/blank rows
+[2026-01-31 01:02:29] Validating email addresses
+[2026-01-31 01:02:29] running standardise_dates()
+[2026-01-31 01:02:29] Invalid emails detected: 1
+[2026-01-31 01:02:29] Generating suggested email fixes
+[2026-01-31 01:02:29] Email suggestions generated: 1
+[2026-01-31 01:02:29] Converting text columns to proper case
+[2026-01-31 01:02:29] Removed 0 duplicate rows
+[2026-01-31 01:02:29] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:02:29] Cleaning complete. Final row count: 4
+[2026-01-31 01:02:29] Loading input file
+[2026-01-31 01:02:29] Loaded 6 rows
+[2026-01-31 01:02:29] Standardising column names
+[2026-01-31 01:02:29] Cleaning whitespace in text columns
+[2026-01-31 01:02:29] Normalising junk and blank values
+[2026-01-31 01:02:29] Removed 2 junk/blank rows
+[2026-01-31 01:02:29] Validating email addresses
+[2026-01-31 01:02:29] running standardise_dates()
+[2026-01-31 01:02:29] Invalid emails detected: 1
+[2026-01-31 01:02:29] Generating suggested email fixes
+[2026-01-31 01:02:29] Email suggestions generated: 1
+[2026-01-31 01:02:29] Converting text columns to proper case
+[2026-01-31 01:02:29] Removed 0 duplicate rows
+[2026-01-31 01:02:29] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:02:29] Cleaning complete. Final row count: 4
+[2026-01-31 01:22:40] Loading input file
+[2026-01-31 01:22:41] Loaded 6 rows
+[2026-01-31 01:22:41] Standardising column names
+[2026-01-31 01:22:41] Cleaning whitespace in text columns
+[2026-01-31 01:22:41] Normalising junk and blank values
+[2026-01-31 01:22:41] Removed 2 junk/blank rows
+[2026-01-31 01:22:41] Validating email addresses
+[2026-01-31 01:22:41] running standardise_dates()
+[2026-01-31 01:22:41] Invalid emails detected: 1
+[2026-01-31 01:22:41] Generating suggested email fixes
+[2026-01-31 01:22:41] Email suggestions generated: 1
+[2026-01-31 01:22:41] Converting text columns to proper case
+[2026-01-31 01:22:41] Removed 0 duplicate rows
+[2026-01-31 01:22:41] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:22:41] Cleaning complete. Final row count: 4
+[2026-01-31 01:22:41] Loading input file
+[2026-01-31 01:22:41] Loaded 6 rows
+[2026-01-31 01:22:41] Standardising column names
+[2026-01-31 01:22:41] Cleaning whitespace in text columns
+[2026-01-31 01:22:41] Normalising junk and blank values
+[2026-01-31 01:22:41] Removed 2 junk/blank rows
+[2026-01-31 01:22:41] Validating email addresses
+[2026-01-31 01:22:41] running standardise_dates()
+[2026-01-31 01:22:41] Invalid emails detected: 1
+[2026-01-31 01:22:41] Generating suggested email fixes
+[2026-01-31 01:22:41] Email suggestions generated: 1
+[2026-01-31 01:22:41] Converting text columns to proper case
+[2026-01-31 01:22:41] Removed 0 duplicate rows
+[2026-01-31 01:22:41] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:22:41] Cleaning complete. Final row count: 4
+[2026-01-31 01:32:34] Loading input file
+[2026-01-31 01:32:34] Loaded 6 rows
+[2026-01-31 01:32:34] WARNING: No 'date_of_birth' column found after standardisation
+[2026-01-31 01:32:34] Standardising column names
+[2026-01-31 01:32:34] Cleaning whitespace in text columns
+[2026-01-31 01:32:34] Normalising junk and blank values
+[2026-01-31 01:32:34] Removed 2 junk/blank rows
+[2026-01-31 01:32:34] Validating email addresses
+[2026-01-31 01:32:34] running standardise_dates()
+[2026-01-31 01:32:34] Invalid emails detected: 1
+[2026-01-31 01:32:34] Generating suggested email fixes
+[2026-01-31 01:32:34] Email suggestions generated: 1
+[2026-01-31 01:32:34] Converting text columns to proper case
+[2026-01-31 01:32:35] Removed 0 duplicate rows
+[2026-01-31 01:32:35] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:32:35] Cleaning complete. Final row count: 4
+[2026-01-31 01:32:35] Loading input file
+[2026-01-31 01:32:35] Loaded 6 rows
+[2026-01-31 01:32:35] WARNING: No 'date_of_birth' column found after standardisation
+[2026-01-31 01:32:35] Standardising column names
+[2026-01-31 01:32:35] Cleaning whitespace in text columns
+[2026-01-31 01:32:35] Normalising junk and blank values
+[2026-01-31 01:32:35] Removed 2 junk/blank rows
+[2026-01-31 01:32:35] Validating email addresses
+[2026-01-31 01:32:35] running standardise_dates()
+[2026-01-31 01:32:35] Invalid emails detected: 1
+[2026-01-31 01:32:35] Generating suggested email fixes
+[2026-01-31 01:32:35] Email suggestions generated: 1
+[2026-01-31 01:32:35] Converting text columns to proper case
+[2026-01-31 01:32:35] Removed 0 duplicate rows
+[2026-01-31 01:32:35] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:32:35] Cleaning complete. Final row count: 4
+[2026-01-31 01:38:41] Loading input file
+[2026-01-31 01:38:42] Loaded 6 rows
+[2026-01-31 01:38:42] Standardising column names
+[2026-01-31 01:38:42] Cleaning whitespace in text columns
+[2026-01-31 01:38:42] Normalising junk and blank values
+[2026-01-31 01:38:42] Removed 2 junk/blank rows
+[2026-01-31 01:38:42] Validating email addresses
+[2026-01-31 01:38:42] running standardise_dates()
+[2026-01-31 01:38:42] Invalid emails detected: 1
+[2026-01-31 01:38:42] Generating suggested email fixes
+[2026-01-31 01:38:42] Email suggestions generated: 1
+[2026-01-31 01:38:42] Converting text columns to proper case
+[2026-01-31 01:38:42] Removed 0 duplicate rows
+[2026-01-31 01:38:42] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:38:42] Cleaning complete. Final row count: 4
+[2026-01-31 01:38:42] Loading input file
+[2026-01-31 01:38:42] Loaded 6 rows
+[2026-01-31 01:38:42] Standardising column names
+[2026-01-31 01:38:42] Cleaning whitespace in text columns
+[2026-01-31 01:38:42] Normalising junk and blank values
+[2026-01-31 01:38:42] Removed 2 junk/blank rows
+[2026-01-31 01:38:42] Validating email addresses
+[2026-01-31 01:38:42] running standardise_dates()
+[2026-01-31 01:38:42] Invalid emails detected: 1
+[2026-01-31 01:38:42] Generating suggested email fixes
+[2026-01-31 01:38:42] Email suggestions generated: 1
+[2026-01-31 01:38:42] Converting text columns to proper case
+[2026-01-31 01:38:42] Removed 0 duplicate rows
+[2026-01-31 01:38:42] Saving clean file to output/cleaned_output.csv
+[2026-01-31 01:38:42] Cleaning complete. Final row count: 4
+[2026-01-31 01:43:21] Loading input file
+[2026-01-31 01:43:21] ERROR: 'date_of_birth'
+[2026-01-31 01:43:21] Loading input file
+[2026-01-31 01:43:21] ERROR: 'date_of_birth'
+[2026-01-31 01:45:16] Loading input file
+[2026-01-31 01:45:16] ERROR: 'date_of_birth'
+[2026-01-31 01:45:16] Loading input file
+[2026-01-31 01:45:16] ERROR: 'date_of_birth'
+[2026-01-31 01:54:07] Loading input file
+[2026-01-31 01:54:07] ERROR: 'date_of_birth'
+[2026-01-31 01:54:07] Loading input file
+[2026-01-31 01:54:07] ERROR: 'date_of_birth'
+[2026-01-31 01:57:29] Loading input file
+[2026-01-31 01:57:29] ERROR: 'date_of_birth'
+[2026-01-31 01:57:29] Loading input file
+[2026-01-31 01:57:29] ERROR: 'date_of_birth'
+[2026-01-31 01:58:17] Loading input file
+[2026-01-31 01:58:17] ERROR: 'date_of_birth'
+[2026-01-31 01:58:17] Loading input file
+[2026-01-31 01:58:17] ERROR: 'date_of_birth'
+[2026-01-31 02:08:29] Loading input file
+[2026-01-31 02:08:29] Loaded 6 rows
+[2026-01-31 02:08:30] Standardising column names
+[2026-01-31 02:08:30] Cleaning whitespace in text columns
+[2026-01-31 02:08:30] Normalising junk and blank values
+[2026-01-31 02:08:30] Removed 2 junk/blank rows
+[2026-01-31 02:08:30] Validating email addresses
+[2026-01-31 02:08:30] Running standardise_dates()
+[2026-01-31 02:08:30] Invalid emails detected: 1
+[2026-01-31 02:08:30] Generating suggested email fixes
+[2026-01-31 02:08:30] Email suggestions generated: 1
+[2026-01-31 02:08:30] Converting text columns to proper case
+[2026-01-31 02:08:30] Removed 0 duplicate rows
+[2026-01-31 02:08:30] Saving clean file to output/cleaned_output.csv
+[2026-01-31 02:08:30] Cleaning complete. Final row count: 4
+[2026-01-31 02:22:55] Loading input file
+[2026-01-31 02:22:55] Loaded 6 rows
+[2026-01-31 02:22:55] Standardising column names
+[2026-01-31 02:22:55] Cleaning whitespace in text columns
+[2026-01-31 02:22:55] Normalising junk and blank values
+[2026-01-31 02:22:55] Removed 2 junk/blank rows
+[2026-01-31 02:22:55] Validating email addresses
+[2026-01-31 02:22:55] Running standardise_dates()
+[2026-01-31 02:22:55] Invalid emails detected: 1
+[2026-01-31 02:22:55] Generating suggested email fixes
+[2026-01-31 02:22:55] Email suggestions generated: 1
+[2026-01-31 02:22:55] Converting text columns to proper case
+[2026-01-31 02:22:55] Removed 0 duplicate rows
+[2026-01-31 02:22:55] Saving clean file to output/cleaned_output.csv
+[2026-01-31 02:22:55] Cleaning complete. Final row count: 4
+[2026-01-31 02:29:49] Loading input file
+[2026-01-31 02:29:49] Loaded 6 rows
+[2026-01-31 02:29:49] Standardising column names
+[2026-01-31 02:29:49] Cleaning whitespace in text columns
+[2026-01-31 02:29:49] Normalising junk and blank values
+[2026-01-31 02:29:49] Removed 2 junk/blank rows
+[2026-01-31 02:29:49] Validating email addresses
+[2026-01-31 02:29:49] Running standardise_dates()
+[2026-01-31 02:29:49] Invalid emails detected: 1
+[2026-01-31 02:29:49] Generating suggested email fixes
+[2026-01-31 02:29:49] Email suggestions generated: 1
+[2026-01-31 02:29:49] Converting text columns to proper case
+[2026-01-31 02:29:49] Removed 0 duplicate rows
+[2026-01-31 02:29:49] Saving clean file to output/cleaned_output.csv
+[2026-01-31 02:29:49] Cleaning complete. Final row count: 4
+[2026-01-31 02:34:57] Loading input file
+[2026-01-31 02:34:57] Loaded 6 rows
+[2026-01-31 02:34:57] Standardising column names
+[2026-01-31 02:34:57] Cleaning whitespace in text columns
+[2026-01-31 02:34:57] Normalising junk and blank values
+[2026-01-31 02:34:57] Removed 2 junk/blank rows
+[2026-01-31 02:34:57] Validating email addresses
+[2026-01-31 02:34:57] Running standardise_dates()
+[2026-01-31 02:34:57] Invalid emails detected: 1
+[2026-01-31 02:34:57] Generating suggested email fixes
+[2026-01-31 02:34:57] Email suggestions generated: 1
+[2026-01-31 02:34:57] Converting text columns to proper case
+[2026-01-31 02:34:57] Removed 0 duplicate rows
+[2026-01-31 02:34:57] Saving clean file to output/cleaned_output.csv
+[2026-01-31 02:34:57] Cleaning complete. Final row count: 4
+[2026-01-31 10:53:23] Loading input file
+[2026-01-31 10:53:23] Loaded 6 rows
+[2026-01-31 10:53:23] Standardising column names
+[2026-01-31 10:53:23] Cleaning whitespace in text columns
+[2026-01-31 10:53:23] Normalising junk and blank values
+[2026-01-31 10:53:23] Removed 2 junk/blank rows
+[2026-01-31 10:53:23] Validating email addresses
+[2026-01-31 10:53:23] Running standardise_dates()
+[2026-01-31 10:53:23] Invalid emails detected: 1
+[2026-01-31 10:53:23] Generating suggested email fixes
+[2026-01-31 10:53:23] Email suggestions generated: 1
+[2026-01-31 10:53:23] Converting text columns to proper case
+[2026-01-31 10:53:23] Removed 0 duplicate rows
+[2026-01-31 10:53:23] Saving clean file to output/cleaned_output.csv
+[2026-01-31 10:53:23] Cleaning complete. Final row count: 4
+[2026-01-31 11:04:13] Loading input file
+[2026-01-31 11:04:13] Loaded 6 rows
+[2026-01-31 11:04:13] Standardising column names
+[2026-01-31 11:04:13] Cleaning whitespace in text columns
+[2026-01-31 11:04:13] Normalising junk and blank values
+[2026-01-31 11:04:13] Removed 2 junk/blank rows
+[2026-01-31 11:04:13] Validating email addresses
+[2026-01-31 11:04:13] Running standardise_dates()
+[2026-01-31 11:04:13] Invalid emails detected: 1
+[2026-01-31 11:04:13] Generating suggested email fixes
+[2026-01-31 11:04:13] Email suggestions generated: 1
+[2026-01-31 11:04:13] Converting text columns to proper case
+[2026-01-31 11:04:13] Removed 0 duplicate rows
+[2026-01-31 11:04:13] Saving clean file to output/cleaned_output.csv
+[2026-01-31 11:04:13] Cleaning complete. Final row count: 4
+[2026-01-31 11:48:37] Loading input file
+[2026-01-31 12:14:58] Loading input file
+[2026-01-31 12:36:48] Loading input file
+[2026-01-31 12:59:56] Loading input file
+[2026-01-31 13:06:36] Loading input file
+[2026-01-31 13:22:28] Loading input file
+[2026-01-31 13:43:25] Loading input file
+[2026-01-31 13:50:51] Loading input file
+[2026-01-31 13:57:53] Loading input file
+[2026-01-31 13:59:28] Loading input file
+[2026-01-31 14:16:04] Loading input file
+[2026-01-31 14:27:40] Loading input file
+[2026-01-31 14:36:26] Loading input file
+[2026-02-07 12:02:25] Loading input file
+[2026-02-07 12:23:13] Loading input file
+[2026-02-07 12:27:58] Loading input file
+[2026-02-07 12:40:37] Loading input file
+[2026-02-07 12:41:58] Loading input file
+[2026-02-07 12:49:04] Loading input file
+[2026-02-07 12:54:01] Loading input file
+[2026-02-07 12:55:03] Loading input file
+[2026-02-07 13:00:06] Loading input file
+[2026-02-07 13:07:05] Loading input file
+[2026-02-07 13:21:42] Loading input file
+[2026-02-07 13:32:43] Loading input file
+[2026-02-07 13:45:41] Loading input file
+[2026-02-07 13:49:12] Loading input file
+[2026-02-07 13:53:04] Loading input file
+[2026-02-07 13:56:31] Loading input file
+[2026-02-07 14:00:43] Loading input file

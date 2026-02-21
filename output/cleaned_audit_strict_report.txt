@@ -1,0 +1,15 @@
+CLEANING REPORT — 2026-02-20 16:11:24
+----------------------------------------
+Input file: input/sample_dirty_data.csv
+Output file: output/cleaned_audit_strict.csv
+
+Mode: audit
+Strictness: strict
+
+Rows loaded: 6
+Junk rows removed: 2
+Invalid emails removed: 2
+Invalid dates removed: 0
+Duplicates removed: 0
+
+Final row count: 2

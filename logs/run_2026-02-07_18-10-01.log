@@ -1,0 +1,31 @@
+2026-02-07 18:10:01 | INFO | Starting cleaning process
+2026-02-07 18:10:01 | INFO | Mode: audit, Strictness: strict
+2026-02-07 18:10:01 | INFO | Input file: input/sample_dirty_data.csv
+2026-02-07 18:10:01 | INFO | Loading CSV: input/sample_dirty_data.csv
+2026-02-07 18:10:01 | INFO | Loaded CSV successfully with 6 rows
+2026-02-07 18:10:01 | DEBUG | Columns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes']
+2026-02-07 18:10:01 | INFO | Rows loaded: 6
+2026-02-07 18:10:01 | INFO | Normalising column names
+2026-02-07 18:10:01 | DEBUG | Normalised columns: ['name', 'email_address', 'date_of_birth', 'notes']
+2026-02-07 18:10:01 | INFO | Trimming whitespace from string cells
+2026-02-07 18:10:01 | INFO | Applying name capitalisation
+2026-02-07 18:10:01 | INFO | Removing junk rows
+2026-02-07 18:10:01 | INFO | Junk rows removed: 2
+2026-02-07 18:10:01 | INFO | Validating emails (strict=True)
+2026-02-07 18:10:01 | INFO | Invalid emails detected: 2
+2026-02-07 18:10:01 | INFO | Parsing dates of birth
+2026-02-07 18:10:01 | INFO | Invalid dates detected: 1
+2026-02-07 18:10:01 | INFO | Applying strict filtering rules
+2026-02-07 18:10:01 | INFO | Rows removed due to invalid emails: 2
+2026-02-07 18:10:01 | INFO | Rows removed due to invalid dates: 0
+2026-02-07 18:10:01 | INFO | Removing duplicate rows
+2026-02-07 18:10:01 | INFO | Duplicates removed: 0
+2026-02-07 18:10:01 | INFO | Final row count: 2
+2026-02-07 18:10:01 | INFO | Saving cleaned CSV to: output/cleaned_output.csv
+2026-02-07 18:10:01 | INFO | Cleaned CSV saved successfully
+2026-02-07 18:10:01 | INFO | Saving summary CSV to: output/cleaned_output_summary.csv
+2026-02-07 18:10:01 | INFO | Summary CSV saved successfully
+2026-02-07 18:10:01 | DEBUG | Summary contents: {'timestamp': '2026-02-07 18:10:01', 'input_file': 'input/sample_dirty_data.csv', 'output_file': 'output/cleaned_output.csv', 'mode': 'audit', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 2, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 2}
+2026-02-07 18:10:01 | INFO | Saving text report to: output/cleaned_output_report.txt
+2026-02-07 18:10:01 | INFO | Text report saved successfully
+2026-02-07 18:10:01 | INFO | Cleaning process completed successfully

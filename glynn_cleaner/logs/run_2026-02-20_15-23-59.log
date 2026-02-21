@@ -1,0 +1,9 @@
+2026-02-20 15:23:59 | INFO | [36m==============================================[0m
+2026-02-20 15:23:59 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-02-20 15:23:59 | INFO | [36m                    Version 1.3[0m
+2026-02-20 15:23:59 | INFO | [36m==============================================[0m
+2026-02-20 15:23:59 | INFO | [36mMode: simple | Strictness: strict[0m
+2026-02-20 15:23:59 | INFO | [36m----------------------------------------------[0m
+2026-02-20 15:23:59 | INFO | [36m[1/10] Loading CSV: input/sample_dirty_data.csv[0m
+2026-02-20 15:23:59 | INFO | [36mLoading CSV: input/sample_dirty_data.csv[0m
+2026-02-20 15:23:59 | ERROR | [31mFailed to load CSV 'input/sample_dirty_data.csv': [Errno 2] No such file or directory: 'input/sample_dirty_data.csv'[0m

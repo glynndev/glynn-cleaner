@@ -1,0 +1,97 @@
+Metadata-Version: 2.4
+Name: glynn-cleaner
+Version: 1.3
+Summary: A polished command-line CSV cleaning tool with strict validation, summaries, reports, and progress indicators.
+Author: Glynn Holland
+License: MIT License
+        
+        Copyright (c) 2026 Glynn Holland
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/yourusername/glynn-cleaner
+Project-URL: Source, https://github.com/yourusername/glynn-cleaner
+Project-URL: Issues, https://github.com/yourusername/glynn-cleaner/issues
+Keywords: csv,data-cleaning,cli,validation,automation,data-quality
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=2.0
+Requires-Dist: colorama>=0.4
+Dynamic: license-file
+
+# Glynn Cleaner — Data Cleaning Tool
+
+A polished, user‑friendly command‑line CSV cleaning utility designed for analysts, developers, and small businesses.  
+Glynn Cleaner provides strict or lenient validation, structured progress messages, detailed summaries, and clean output files — all wrapped in a professional CLI experience.
+
+---
+
+## Features
+
+- **Simple and Audit Modes**  
+  Choose between minimal cleaning or full audit‑style validation.
+
+- **Strict or Lenient Validation**  
+  - Strict mode enforces RFC‑like email rules and 4‑digit‑year date formats.  
+  - Lenient mode accepts a wider range of inputs.
+
+- **Email Validation & Suggestions**  
+  Detect invalid emails and generate suggested fixes.
+
+- **Date Parsing & Normalisation**  
+  Convert multiple date formats into `YYYY-MM-DD`.
+
+- **Whitespace Trimming & Name Capitalisation**  
+  Clean and standardise text fields automatically.
+
+- **Junk Row Removal**  
+  Remove empty or placeholder rows.
+
+- **Duplicate Removal**  
+  Ensure clean, unique records.
+
+- **Dry‑Run Mode**  
+  Run the full cleaning process without writing any files.
+
+- **Summary‑Only Mode**  
+  Generate summary + report without producing a cleaned CSV.
+
+- **Structured Progress Messages**  
+  Clear step‑by‑step progress indicators.
+
+- **Startup & Success Banners**  
+  A polished CLI experience from start to finish.
+
+---
+
+## Installation
+
+Install via pip:
+
+```bash
+pip install glynn-cleaner
+

@@ -1,0 +1,2 @@
+[console_scripts]
+glynn-cleaner = glynn_cleaner.cleaner:clean_data_cli

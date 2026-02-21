@@ -1,0 +1,2 @@
+timestamp,input_file,output_file,mode,strictness,rows_loaded,junk_rows_removed,invalid_emails_removed,invalid_dates_removed,duplicates_removed,final_row_count
+2026-02-20 15:27:05,input/sample_dirty_data.csv,output/cleaned_strict.csv,simple,strict,6,2,2,0,0,2
