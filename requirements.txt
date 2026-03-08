@@ -5,4 +5,5 @@ pandas>=2.0
 python-dateutil>=2.8
 glynn-cleaner
 colorama
+requests
 
