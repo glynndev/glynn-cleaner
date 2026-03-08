@@ -1,33 +1,18 @@
 # 🧼 glynn-cleaner
 A fast, reliable, analyst‑friendly CSV cleaning tool with audit mode, strict/lenient validation, and Excel‑safe output formatting.
 
-<!-- Badges -->
 <p align="left">
-
-  <!-- Python version -->
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python Version">
-
-  <!-- License -->
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-
-  <!-- Build status (placeholder until CI is added) -->
   <img src="https://img.shields.io/badge/Build-Passing-brightgreen.svg" alt="Build Status">
-
-  <!-- Project status -->
   <img src="https://img.shields.io/badge/Status-Active-success.svg" alt="Project Status">
-
-  <!-- Repo size -->
   <img src="https://img.shields.io/github/repo-size/glynndev/glynn-cleaner.svg" alt="Repo Size">
-
-  <!-- Last commit -->
   <img src="https://img.shields.io/github/last-commit/glynndev/glynn-cleaner.svg" alt="Last Commit">
-
 </p>
 
 ---
 
 ## 📚 Contents
-
 - [Overview](#-overview)
 - [Quick Start](#-quick-start)
 - [CLI Preview](#️-cli-preview)
@@ -46,15 +31,16 @@ A fast, reliable, analyst‑friendly CSV cleaning tool with audit mode, strict/l
 
 ---
 
-### ✨ Overview
+## ✨ Overview
 `glynn-cleaner` is a command‑line data cleaning tool designed for analysts, small businesses, and anyone who needs clean, consistent CSV files without wrestling with spreadsheets. It handles common data‑quality issues automatically — blank rows, junk values, inconsistent dates, malformed emails, and more — while producing a clear summary of what was fixed.
 
 The tool supports two modes:
-
 - **Simple Mode** — quick cleaning with minimal intervention  
 - **Audit Mode** — detailed reporting, suggested corrections, and Excel‑safe outputs  
 
 Strict and lenient validation options allow you to control how aggressively the tool enforces data quality.
+
+---
 
 ## ⚡ Quick Start
 
@@ -65,93 +51,136 @@ Follow these steps to clean your first CSV file using **glynn-cleaner**.
 ### 1. Prepare your input file
 Place your CSV file somewhere easy to reference, for example:
 
-```
-data/input.csv
-```
+    input/sample.csv
+
+You can use any folder structure you prefer. The cleaner will preserve all columns and apply logic only to recognised fields.
 
 ---
 
 ### 2. Run the cleaner in Simple Mode
 Simple Mode performs fast, automatic cleaning with minimal reporting.
 
-```
-python -m glynn_cleaner data/input.csv data/output.csv --mode simple
-```
+    glynn-cleaner --input input/sample.csv --output output/cleaned.csv --mode simple
 
 This generates:
-
-- `output.csv` — your cleaned dataset
+- `cleaned.csv` — your cleaned dataset
 
 ---
 
 ### 3. Run the cleaner in Audit Mode
-Audit Mode provides detailed reporting, suggestions, and Excel‑safe date outputs.
+Audit Mode provides detailed reporting, issue detection, and a full audit trail.
 
-```
-python -m glynn_cleaner data/input.csv data/output.csv --mode audit
-```
+    glynn-cleaner --input input/sample.csv --output output/cleaned.csv --mode audit
 
 This generates:
-
-- `output.csv` — cleaned dataset  
-- `summary.csv` — detailed log of changes, issues, and suggestions  
+- `cleaned.csv` — cleaned dataset  
+- `cleaned_summary.csv` — summary of issues, changes, and validation results  
+- `cleaned_report.txt` — human‑readable audit report
 
 ---
 
 ### 4. Enable strict validation (optional)
-Strict mode enforces tighter rules and flags more issues.
+Strict mode enforces tighter rules and removes rows with invalid emails, dates, or junk content.
 
-```
-python -m glynn_cleaner data/input.csv data/output.csv --strict
-```
+    glynn-cleaner --input input/sample.csv --output output/cleaned.csv --strictness strict
 
 You can combine strict mode with audit mode:
 
-```
-python -m glynn_cleaner data/input.csv data/output.csv --mode audit --strict
-```
+    glynn-cleaner --input input/sample.csv --output output/cleaned.csv --mode audit --strictness strict
 
 ---
 
 ### 5. View your results
 Open the generated files in Excel, VS Code, or your preferred tool:
 
-- `output.csv` — final cleaned data  
-- `summary.csv` — audit log (audit mode only)
+- `cleaned.csv` — final cleaned data  
+- `cleaned_summary.csv` — audit log (audit mode only)  
+- `cleaned_report.txt` — detailed text report (audit mode only)
 
 You now have a fully cleaned, analysis‑ready dataset.
 
+---
+
+## How It Works
+
+The cleaner processes your CSV through a structured, multi‑stage pipeline designed to improve data quality while preserving the integrity of fields it does not explicitly modify. Each stage is logged when using `--verbose` and contributes to a final audit summary.
+
+### Processing Pipeline
+
+1. **Load the CSV** — Reads the file into memory, counts rows, and checks for basic structural issues.  
+2. **Normalise column names** — Converts column headers to a consistent format (lowercase, underscores).  
+3. **Trim whitespace** — Removes leading/trailing spaces from all string fields.  
+4. **Apply name formatting** — Capitalises names and removes junk entries such as placeholder text.  
+5. **Remove junk rows** — Filters out rows that contain no meaningful data.  
+6. **Validate emails** — Checks email format and flags invalid entries (strict mode removes them).  
+7. **Parse dates of birth** — Converts valid dates into a consistent format and flags invalid ones.  
+8. **Apply strict filtering rules** — Removes rows with invalid or missing critical fields when strict mode is enabled.  
+9. **Remove duplicates** — Identifies and removes duplicate rows based on the full row content.  
+10. **Save outputs** — Writes the cleaned CSV, a summary CSV, and a text report to the output directory.
+
+---
+
+## Supported Fields and Cleaning Logic
+
+The cleaner applies targeted transformations only to the fields it recognises. All other fields are preserved exactly as provided, ensuring compatibility with HR, CRM, finance, and operational datasets.
+
+| Column name       | Cleaning applied                                                                 |
+|-------------------|----------------------------------------------------------------------------------|
+| `name`            | Whitespace trimming, normalisation, capitalisation, junk‑row detection           |
+| `email`           | Format validation, strict filtering, junk‑row detection                          |
+| `date_of_birth`   | Date parsing, invalid‑date detection, strict filtering                           |
+| Other columns     | Preserved as‑is; no cleaning or validation applied                               |
+
+---
+
+### ⚠️ Ambiguous Dates in Strict Mode
+
+Strict mode removes dates that cannot be interpreted unambiguously. Formats such as `12/05/1990` or `03/11/1985` may be valid, but they can represent different dates depending on whether the source uses **DD/MM/YYYY** or **MM/DD/YYYY**. Because the cleaner cannot reliably determine the intended format, these dates are treated as invalid in strict mode and the entire row is removed.
+
+Examples of ambiguous formats:
+- `12/05/1990`  
+- `03/11/1985`  
+
+Examples of unambiguous formats (always accepted):
+- `1992.07.14`  
+- `14 08 1993`  
+- `1990-05-12`  
+
+If you want to keep ambiguous dates, use **lenient mode**, which preserves all rows and leaves date interpretation to the user or downstream tools.
+
+---
+
+## Behaviour With Unknown or Alternative Column Names
+
+The cleaner does not attempt to guess or infer the meaning of columns. This prevents accidental mis‑cleaning of fields that share similar names but contain unrelated data.
+
+Examples:
+- Columns such as `dob`, `D.O.B`, `birthdate`, or `dateOfBirth` will **not** be treated as `date_of_birth` unless they use the exact name.  
+- A column named `email_address` will not receive email validation unless it is named `email`.  
+- Additional fields such as `address`, `postcode`, `department`, or `employee_id` will be included in the output unchanged.
+
+This ensures predictable behaviour and avoids corrupting data.
+
+### Advisory for Best Results
+To ensure the cleaner applies all available logic, use the exact column names listed in the table above.
+
+If your dataset uses alternative names, you may:
+- rename the columns before running the cleaner, or  
+- allow them to pass through unchanged.
+
+All unrecognised fields are preserved, so no data is lost unless strict mode removes the entire row due to validation failures in recognised fields.
+
+---
+
 ## 🖥️ CLI Preview
-
-A quick look at how **glynn-cleaner** runs from the command line. This helps new users understand the flow of the tool before trying it themselves.
-
-> Replace the placeholder image link below with your own screenshot or GIF once you capture it.
 
 <p align="center">
   <img src="https://via.placeholder.com/800x300.png?text=CLI+Preview+Goes+Here" alt="glynn-cleaner CLI preview" width="80%">
 </p>
 
-### How to add your own screenshot or GIF
-1. Run the tool in your terminal.
-2. Take a screenshot or record a short GIF (e.g., using ShareX, ScreenToGif, or macOS screenshot tools).
-3. Upload the image to your GitHub repo:
-   - Click **Add file → Upload files**.
-   - Place it in a folder like `assets/` or `docs/`.
-4. Copy the file’s GitHub URL.
-5. Replace the placeholder link in the `<img>` tag with your real URL.
-
-Example once you add your own image:
-
-```
-<p align="center">
-  <img src="https://github.com/glynndev/glynn-cleaner/blob/main/assets/cli-preview.gif" alt="glynn-cleaner CLI preview" width="80%">
-</p>
-```
-
-
 ---
 
-### 🚀 Features
+## 🚀 Features
 - Removes blank rows and junk rows  
 - Normalises column names  
 - Cleans and validates email addresses  
@@ -159,231 +188,151 @@ Example once you add your own image:
 - Provides Excel‑safe date suggestions  
 - Capitalises names for professional polish  
 - Generates a summary CSV of all changes  
-- Supports **simple** and **audit** modes  
-- Supports **strict** and **lenient** validation  
+- Supports simple and audit modes  
+- Supports strict and lenient validation  
 - Fully CLI‑driven for repeatable workflows  
 
 ---
 
-### 📦 Installation
-Once published to PyPI/TestPyPI, installation will be:
+## 📦 Installation
 
-```
-pip install glynn-cleaner
-```
+Once published to PyPI/TestPyPI:
 
-For now, run locally via:
+    pip install glynn-cleaner
 
-```
-python -m glynn_cleaner --help
-```
+For local development:
+
+    python -m glynn_cleaner --help
 
 ---
 
 ## 🧩 Requirements
+- Python 3.10+  
+- pip  
+- pandas  
+- python-dateutil  
+- UTF‑8 CSV files  
 
-To run **glynn-cleaner**, you’ll need the following:
+Install dependencies locally:
 
-- **Python 3.10 or higher** — the tool uses modern Python features and typing.
-- **pip** — for installing dependencies and (eventually) the PyPI package.
-- **pandas** — core dependency for CSV processing.
-- **python-dateutil** — used for flexible date parsing.
-- **A terminal or command prompt** — the tool is fully CLI‑driven.
-- **CSV files encoded in UTF‑8** — recommended for best compatibility.
-
-All required Python packages will be installed automatically once the project is published to PyPI. For local development, install dependencies with:
-
-```
-pip install -r requirements.txt
-```
+    pip install -r requirements.txt
 
 ---
 
-### 🛠 Usage
+## 🛠 Usage
 
-#### Simple Mode
-```
-python -m glynn_cleaner input.csv output.csv --mode simple
-```
+Simple Mode:
 
-#### Audit Mode
-```
-python -m glynn_cleaner input.csv output.csv --mode audit
-```
+    python -m glynn_cleaner input.csv output.csv --mode simple
 
-#### Strict Validation
-```
-python -m glynn_cleaner input.csv output.csv --strict
-```
+Audit Mode:
 
-#### Combined Example
-```
-python -m glynn_cleaner input.csv output.csv --mode audit --strict
-```
+    python -m glynn_cleaner input.csv output.csv --mode audit
+
+Strict Validation:
+
+    python -m glynn_cleaner input.csv output.csv --strict
+
+Combined:
+
+    python -m glynn_cleaner input.csv output.csv --mode audit --strict
 
 ---
 
-### 📄 Output Files
-Depending on mode and flags, the tool may generate:
-
-- **Cleaned CSV** — your final cleaned dataset  
-- **Summary CSV** — a log of all changes, suggestions, and flagged issues  
-- **Audit report** (audit mode) — detailed breakdown of detected problems  
+## 📄 Output Files
+- Cleaned CSV  
+- Summary CSV  
+- Audit report (audit mode)
 
 ---
 
-### 📁 Project Structure
-```
-glynn-cleaner/
-│
-├── glynn_cleaner/
-│   ├── cleaner.py
-│   ├── helpers/
-│   ├── __init__.py
-│   └── ...
-│
-├── tests/
-├── README.md
-├── pyproject.toml
-└── setup.cfg
-```
+## 📁 Project Structure
+
+    glynn-cleaner/
+    │
+    ├── glynn_cleaner/
+    │   ├── cleaner.py
+    │   ├── helpers/
+    │   ├── __init__.py
+    │   └── ...
+    │
+    ├── tests/
+    ├── README.md
+    ├── pyproject.toml
+    └── setup.cfg
 
 ---
 
-### 🧪 Testing
-Run the test suite:
+## 🧪 Testing
 
-```
-pytest
-```
+    pytest
 
 ---
 
 ## 🗺️ Roadmap
-
-A clear view of what’s coming next for **glynn-cleaner**. This helps users understand the project’s direction and gives contributors a sense of where they can help.
-
-### Near‑term improvements
-- Add support for additional date formats and locale-aware parsing  
-- Improve email validation with more robust pattern matching  
-- Add optional logging to a dedicated `logs/` directory  
-- Expand summary reporting with clearer issue categories  
-- Add more unit tests for edge cases and helper functions  
-
-### Medium‑term goals
-- Introduce a configuration file (`glynn-cleaner.toml`) for reusable settings  
-- Add support for cleaning Excel files (`.xlsx`) directly  
-- Provide a plugin system for custom cleaning rules  
-- Add a progress indicator for large files  
-- Publish to TestPyPI and then PyPI for easy installation  
-
-### Long‑term vision
-- Build a simple GUI for non-technical users  
-- Offer a web-based version for quick uploads and downloads  
-- Create integrations for Power BI and Tableau workflows  
-- Develop a library API so developers can import and use the cleaner programmatically  
+- Additional date formats  
+- Improved email validation  
+- Config file support  
+- Excel input support  
+- Plugin system  
+- GUI prototype  
+- Web-based version  
 
 ---
 
 ## 💡 Why This Tool Exists
-
-Most analysts and small businesses spend far too much time fixing messy CSV files — blank rows, inconsistent dates, malformed emails, strange characters, and formatting issues that break Excel or downstream tools. These problems slow down real work and create frustration.
-
-**glynn-cleaner** was built to solve that problem with a tool that is:
-
-- fast  
-- predictable  
-- repeatable  
-- easy to run  
-- safe for Excel users  
-- transparent about what it changes  
-
-The goal is to give people a reliable way to clean data without needing to write Python scripts, build complex formulas, or manually fix the same issues over and over again. It’s designed for real-world workflows, where data is rarely perfect and time is always limited.
-
-This project exists to make data cleaning simple, consistent, and accessible — whether you’re an analyst, a small business owner, or someone who just wants their CSV files to behave.
+Most analysts and small businesses spend too much time fixing messy CSV files. This tool provides a fast, predictable, repeatable way to clean data without writing code or manually fixing the same issues repeatedly.
 
 ---
 
 ## 📝 Changelog
 
-A version-by-version record of improvements, fixes, and new features added to **glynn-cleaner**. This helps users understand what has changed over time and provides transparency for contributors.
-
 ### Unreleased
 - Initial public release preparation  
-- README polish and documentation improvements  
-- Added Quick Start, CLI Preview, Roadmap, and project purpose sections  
-- Repository structure cleaned and standardised  
-- GitHub publishing and remote setup completed  
+- README improvements  
+- Added Quick Start, CLI Preview, Roadmap  
+- Repository structure standardised  
 
 ### v1.0.0 (Planned)
 - First stable release  
 - Full support for simple and audit modes  
-- Strict and lenient validation options  
-- Email cleaning and validation  
-- Date parsing with Excel‑safe suggestions  
+- Strict/lenient validation  
+- Email cleaning  
+- Date parsing  
 - Name capitalisation  
 - Summary CSV generation  
-- Junk row and blank row removal  
+- Junk row removal  
 - Column normalisation  
-- CLI interface with argparse  
-- Comprehensive logging and reporting  
-
-### Future versions
-- Config file support (`glynn-cleaner.toml`)  
-- Excel (`.xlsx`) input support  
-- Plugin system for custom cleaning rules  
-- Progress indicator for large files  
-- GUI prototype  
-- Web-based upload/clean/download interface  
+- CLI interface  
+- Logging and reporting  
 
 ---
 
 ## 🧩 Versioning Strategy
+Semantic Versioning (SemVer):
 
-This project follows **Semantic Versioning (SemVer)** to ensure predictable, transparent releases. Each version number has the form:
+    MAJOR.MINOR.PATCH
 
-```
-MAJOR.MINOR.PATCH
-```
-
-### What each part means
-- **MAJOR** — increased when breaking changes are introduced that may require users to update their workflows or code.
-- **MINOR** — increased when new features are added in a backwards‑compatible way.
-- **PATCH** — increased when bugs are fixed or small improvements are made that do not change behaviour.
-
-### How this applies to glynn-cleaner
-- **1.0.0** will represent the first stable release with all core features complete.
-- **1.x.x** versions will add enhancements such as new cleaning rules, improved validation, or expanded reporting, without breaking existing usage.
-- **2.0.0** will only be used if a major redesign or breaking change is introduced (e.g., a new CLI structure or incompatible configuration system).
-
-### Release workflow
-- Development changes are tracked in the **Unreleased** section of the Changelog.
-- When a release is ready, a new version number is assigned and the Changelog is updated.
-- Tags will be created in GitHub for each release to make version history clear and accessible.
-- TestPyPI will be used for pre‑release validation before publishing to PyPI.
-
-This approach keeps the project stable for users while allowing steady, well‑documented improvements.
+- MAJOR for breaking changes  
+- MINOR for new features  
+- PATCH for fixes  
 
 ---
 
-### 🤝 Contributing
-Contributions are welcome!  
-Please read the `CONTRIBUTING.md` file for guidelines on:
-
-- branching  
-- code style  
-- pull request workflow  
-- testing requirements  
+## 🤝 Contributing
+Contributions welcome. See `CONTRIBUTING.md`.
 
 ---
 
-### 📜 License
-MIT License — see `LICENSE` for details.
+## 📜 License
+MIT License — see `LICENSE`.
 
 ---
 
-### 🙌 Acknowledgements
+## 🙌 Acknowledgements
 Built with a focus on clarity, reliability, and real‑world analyst workflows.
+
+
 
 
 

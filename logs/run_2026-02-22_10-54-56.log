@@ -1,0 +1,33 @@
+2026-02-22 10:54:56 | INFO | [36m==============================================[0m
+2026-02-22 10:54:56 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-02-22 10:54:56 | INFO | [36m                    Version 1.3[0m
+2026-02-22 10:54:56 | INFO | [36m==============================================[0m
+2026-02-22 10:54:56 | INFO | [36mMode: audit | Strictness: lenient[0m
+2026-02-22 10:54:56 | INFO | [36m----------------------------------------------[0m
+2026-02-22 10:54:56 | INFO | [36m[1/10] Loading CSV: input/sample_dirty_data.csv[0m
+2026-02-22 10:54:56 | INFO | [36mLoading CSV: input/sample_dirty_data.csv[0m
+2026-02-22 10:54:56 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-02-22 10:54:56 | INFO | [36mRows loaded: 6[0m
+2026-02-22 10:54:56 | INFO | [36m[2/10] Normalising column names[0m
+2026-02-22 10:54:56 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-02-22 10:54:56 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-02-22 10:54:56 | INFO | [36m[5/10] Removing junk rows[0m
+2026-02-22 10:54:56 | INFO | [36mJunk rows removed: 2[0m
+2026-02-22 10:54:56 | INFO | [36m[6/10] Validating emails (strict=False)[0m
+2026-02-22 10:54:56 | INFO | [36mInvalid emails detected: 0[0m
+2026-02-22 10:54:56 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-02-22 10:54:56 | INFO | [36mInvalid dates detected: 0[0m
+2026-02-22 10:54:56 | INFO | [36m[8/10] Skipping strict filtering (lenient mode)[0m
+2026-02-22 10:54:56 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-02-22 10:54:56 | INFO | [36mDuplicates removed: 0[0m
+2026-02-22 10:54:56 | INFO | [36mFinal row count: 4[0m
+2026-02-22 10:54:56 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-02-22 10:54:56 | INFO | [36mSaving cleaned CSV to: output/cleaned.csv[0m
+2026-02-22 10:54:56 | INFO | [36mCleaned CSV saved successfully[0m
+2026-02-22 10:54:56 | INFO | [36mSaving summary CSV to: output/cleaned_summary.csv[0m
+2026-02-22 10:54:57 | INFO | [36mSummary CSV saved successfully[0m
+2026-02-22 10:54:57 | INFO | [36mSaving text report to: output/cleaned_report.txt[0m
+2026-02-22 10:54:57 | INFO | [36mText report saved successfully[0m
+2026-02-22 10:54:57 | INFO | [36m==============================================[0m
+2026-02-22 10:54:57 | INFO | [36m        Cleaning Completed Successfully (v1.3)[0m
+2026-02-22 10:54:57 | INFO | [36m==============================================[0m

@@ -1,9 +1,9 @@
-CLEANING REPORT — 2026-02-18 21:05:26
+CLEANING REPORT — 2026-02-22 11:43:15
 ----------------------------------------
-Input file: input/sample_dirty_data.csv
-Output file: output/cleaned.csv
+Input file: input\sample_dirty_data.csv
+Output file: output\cleaned.csv
 
-Mode: simple
+Mode: audit
 Strictness: lenient
 
 Rows loaded: 6
