@@ -3,60 +3,314 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import pandas as pd
-import io
 import tempfile
 import os
+import json
+import uuid
+import logging
+import time
+from collections import defaultdict
 
 from glynn_cleaner import __version__
 from glynn_cleaner.cleaner import clean_data
 from glynn_cleaner.utils.logger import log_info, log_error
-
+from pydantic import BaseModel, RootModel
 
 # ------------------------------------------------------------
-# API KEY AUTHENTICATION
+# UTILITY: Save uploaded file to disk
 # ------------------------------------------------------------
-API_KEY = "super-secret-key"  # Replace with environment variable later
+async def save_upload_to_disk(upload_file: UploadFile, destination_path: str):
+    with open(destination_path, "wb") as buffer:
+        while True:
+            chunk = await upload_file.read(1024 * 1024)
+            if not chunk:
+                break
+            buffer.write(chunk)
+
+# ------------------------------------------------------------
+# JSON LOGGING SETUP
+# ------------------------------------------------------------
+class JsonFormatter(logging.Formatter):
+    def format(self, record):
+        return json.dumps({
+            "timestamp": datetime.utcnow().isoformat(),
+            "level": record.levelname,
+            "message": record.getMessage(),
+        })
+
+handler = logging.StreamHandler()
+handler.setFormatter(JsonFormatter())
+logging.basicConfig(level=logging.INFO, handlers=[handler])
+
+# ------------------------------------------------------------
+# RESPONSE MODELS
+# ------------------------------------------------------------
+class StatusResponse(BaseModel):
+    status: str
+    version: str | None = None
+    message: str | None = None
+
+class ErrorResponse(BaseModel):
+    error: str
+
+class ReportResponse(BaseModel):
+    report: str
+
+class SummaryResponse(RootModel[dict]):
+    pass
+
+class SchemaResponse(BaseModel):
+    schema: dict
+
+class PreviewResponse(BaseModel):
+    preview: list
+
+class ColumnsResponse(BaseModel):
+    columns: list[str]
+
+class ProfileResponse(BaseModel):
+    profile: dict
+
+class DelimiterResponse(BaseModel):
+    delimiter: str
+
+class InferredTypesResponse(BaseModel):
+    types: dict
+
+# ------------------------------------------------------------
+# GLOBAL LIMITS & METRICS
+# ------------------------------------------------------------
+RATE_LIMIT = 60
+RATE_WINDOW = 60
+MAX_UPLOAD_SIZE = 10 * 1024 * 1024
+
+START_TIME = time.time()
+TOTAL_REQUESTS = 0
+RATE_LIMIT_HITS = 0
+request_log = defaultdict(list)
+
+# ------------------------------------------------------------
+# API KEY AUTH
+# ------------------------------------------------------------
+raw_keys = os.getenv("API_KEYS", "").split(",")
+API_KEYS = {}
+
+for entry in raw_keys:
+    if ":" in entry:
+        name, key = entry.split(":", 1)
+        API_KEYS[key.strip()] = name.strip()
+    else:
+        API_KEYS[entry.strip()] = "unnamed"
+
+if not API_KEYS:
+    raise RuntimeError("API_KEYS environment variable is not set")
 
 def require_api_key(x_api_key: str = Header(None)):
-    if x_api_key != API_KEY:
+    if x_api_key not in API_KEYS:
         raise HTTPException(status_code=401, detail="Invalid or missing API key")
+    log_info(f"API key used: {API_KEYS.get(x_api_key)}")
 
+print("Loaded API keys:", API_KEYS)
 
 # ------------------------------------------------------------
-# FASTAPI APP SETUP
+# FASTAPI SETUP (CLEAN + CORRECT)
 # ------------------------------------------------------------
 app = FastAPI(
     title="Glynn Cleaner API",
     description="API backend for the Glynn Cleaner CSV cleaning tool.",
     version=__version__,
+    openapi_tags=[
+        {"name": "System", "description": "Health checks and service metadata."},
+        {"name": "Cleaning", "description": "CSV cleaning and summaries."},
+        {"name": "Reporting", "description": "Human-readable reports."}
+    ]
 )
 
-# CORS (required for browser-based UI)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],   # Restrict later for production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
 # ------------------------------------------------------------
-# ROOT ENDPOINT
+# CUSTOM OPENAPI (FIXED + CLEAN)
 # ------------------------------------------------------------
-@app.get("/")
-def root():
-    return {
-        "message": "Glynn Cleaner API is running",
-        "version": __version__,
-        "status": "ok"
+from fastapi.openapi.utils import get_openapi
+
+def custom_openapi():
+    print("CUSTOM OPENAPI EXECUTED")
+    app.openapi_schema = None
+
+    schema = get_openapi(
+        title=app.title,
+        version=app.version,
+        description=app.description,
+        routes=app.routes,
+    )
+
+    # ------------------------------------------------------------
+    # SECURITY SCHEME
+    # ------------------------------------------------------------
+    schema["components"]["securitySchemes"] = {
+        "APIKeyHeader": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "X-API-Key"
+        }
+    }
+
+    for path in schema["paths"].values():
+        for method in path.values():
+            method.setdefault("security", [{"APIKeyHeader": []}])
+
+    # ------------------------------------------------------------
+    # FORCE /clean TO BE A FILE DOWNLOAD
+    # ------------------------------------------------------------
+    if "/clean" in schema["paths"]:
+        post_op = schema["paths"]["/clean"]["post"]
+
+    # Ensure the 200 response exists
+    if "200" not in post_op["responses"]:
+        post_op["responses"]["200"] = {}
+
+    # Ensure the content block exists
+    if "content" not in post_op["responses"]["200"]:
+        post_op["responses"]["200"]["content"] = {}
+
+    # Remove JSON fallback if present
+    if "application/json" in post_op["responses"]["200"]["content"]:
+        del post_op["responses"]["200"]["content"]["application/json"]
+
+    # Replace entire content block with ONLY binary types
+    post_op["responses"]["200"]["content"] = {
+        "text/csv": {
+            "schema": {
+                "type": "string",
+                "format": "binary"
+            }
+        },
+        "application/octet-stream": {
+            "schema": {
+                "type": "string",
+                "format": "binary"
+            }
+        }
     }
 
 
+    app.openapi_schema = schema
+    return schema
+
 # ------------------------------------------------------------
-# CLEAN ENDPOINT — RETURNS CLEANED CSV
+# CORS
 # ------------------------------------------------------------
-@app.post("/clean", dependencies=[Depends(require_api_key)])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://app.glynncleaner.com"
+    ],
+    allow_credentials=True,
+    allow_methods=["POST", "GET", "OPTIONS"],
+    allow_headers=["*"],
+)
+
+# ------------------------------------------------------------
+# MIDDLEWARE: File size limit
+# ------------------------------------------------------------
+@app.middleware("http")
+async def enforce_file_size_limit(request, call_next):
+    content_length = request.headers.get("content-length")
+    if content_length and int(content_length) > MAX_UPLOAD_SIZE:
+        return JSONResponse(
+            status_code=413,
+            content={
+                "error": "File too large.",
+                "request_id": getattr(request.state, "request_id", "unknown")
+            }
+        )
+    return await call_next(request)
+
+# ------------------------------------------------------------
+# MIDDLEWARE: Rate limiting
+# ------------------------------------------------------------
+@app.middleware("http")
+async def rate_limit(request, call_next):
+    global RATE_LIMIT_HITS
+
+    ip = request.client.host
+    now = time.time()
+
+    request_log[ip] = [ts for ts in request_log[ip] if now - ts < RATE_WINDOW]
+
+    if len(request_log[ip]) >= RATE_LIMIT:
+        RATE_LIMIT_HITS += 1
+        return JSONResponse(status_code=429, content={"error": "Rate limit exceeded"})
+
+    request_log[ip].append(now)
+    return await call_next(request)
+
+# ------------------------------------------------------------
+# MIDDLEWARE: Logging
+# ------------------------------------------------------------
+@app.middleware("http")
+async def log_requests(request, call_next):
+    global TOTAL_REQUESTS
+    TOTAL_REQUESTS += 1
+
+    start = datetime.utcnow()
+    response = await call_next(request)
+    duration = (datetime.utcnow() - start).total_seconds()
+
+    logging.info(json.dumps({
+        "request_id": getattr(request.state, "request_id", "unknown"),
+        "client_ip": request.client.host,
+        "method": request.method,
+        "path": request.url.path,
+        "status": response.status_code,
+        "duration": duration
+    }))
+
+    return response
+
+# ------------------------------------------------------------
+# MIDDLEWARE: Request ID
+# ------------------------------------------------------------
+@app.middleware("http")
+async def attach_request_id(request, call_next):
+    if not hasattr(request.state, "request_id"):
+        request.state.request_id = str(uuid.uuid4())
+
+    response = await call_next(request)
+    response.headers["X-Request-ID"] = request.state.request_id
+    return response
+
+# ------------------------------------------------------------
+# SYSTEM ENDPOINTS
+# ------------------------------------------------------------
+@app.get("/health", response_model=StatusResponse, tags=["System"])
+def health():
+    return StatusResponse(status="ok")
+
+@app.get("/", response_model=StatusResponse, tags=["System"])
+def root():
+    return StatusResponse(status="ok", version=__version__, message="Glynn Cleaner API is running")
+
+@app.get("/metrics", tags=["System"])
+def metrics():
+    return {
+        "status": "ok",
+        "version": __version__,
+        "uptime_seconds": time.time() - START_TIME,
+        "total_requests": TOTAL_REQUESTS,
+        "rate_limit_hits": RATE_LIMIT_HITS,
+        "active_api_keys": len(API_KEYS)
+    }
+
+# ------------------------------------------------------------
+# CLEAN ENDPOINT (CSV DOWNLOAD WORKING)
+# ------------------------------------------------------------
+@app.post(
+    "/clean",
+    dependencies=[Depends(require_api_key)],
+    tags=["Cleaning"],
+    response_class=StreamingResponse
+)
+
 async def clean_csv_api(
     file: UploadFile = File(...),
     mode: str = Form("simple"),
@@ -64,20 +318,14 @@ async def clean_csv_api(
     summary_only: bool = Form(False),
     dry_run: bool = Form(False)
 ):
-    """
-    Upload a CSV file and return cleaned output as a downloadable CSV.
-    """
-
     try:
-        log_info("API request received — starting cleaning process")
-
-        contents = await file.read()
-        df = pd.read_csv(io.BytesIO(contents))
-
         with tempfile.TemporaryDirectory() as tmpdir:
             input_path = os.path.join(tmpdir, "input.csv")
             output_path = os.path.join(tmpdir, "output.csv")
 
+            await save_upload_to_disk(file, input_path)
+
+            df = pd.read_csv(input_path)
             df.to_csv(input_path, index=False)
 
             clean_data(
@@ -89,83 +337,253 @@ async def clean_csv_api(
                 summary_only=summary_only
             )
 
-            cleaned_bytes = open(output_path, "rb").read()
+            def iter_file(path):
+                with open(path, "rb") as f:
+                    while chunk := f.read(1024 * 1024):
+                        yield chunk
 
-        return StreamingResponse(
-            io.BytesIO(cleaned_bytes),
-            media_type="text/csv",
-            headers={
-                "Content-Disposition": f"attachment; filename=cleaned_{file.filename}"
-            }
-        )
+            with open(output_path, "rb") as f:
+                data = f.read()
 
-    except Exception as e:
-        log_error(f"API error: {e}")
-        return JSONResponse(status_code=500, content={"error": str(e)})
-
-
-# ------------------------------------------------------------
-# SUMMARY ENDPOINT — RETURNS SUMMARY JSON
-# ------------------------------------------------------------
-@app.post("/summary", dependencies=[Depends(require_api_key)])
-async def clean_csv_summary_api(
-    file: UploadFile = File(...),
-    mode: str = Form("simple"),
-    strictness: str = Form("lenient")
-):
-    """
-    Upload a CSV and return ONLY the summary JSON.
-    """
-
-    try:
-        log_info("API request received — summary mode")
-
-        contents = await file.read()
-        df = pd.read_csv(io.BytesIO(contents))
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            input_path = os.path.join(tmpdir, "input.csv")
-            output_path = os.path.join(tmpdir, "output.csv")
-
-            df.to_csv(input_path, index=False)
-
-            clean_data(
-                input_path=input_path,
-                output_path=output_path,
-                mode=mode,
-                strictness=strictness,
-                dry_run=False,
-                summary_only=True
+            return StreamingResponse(
+                iter([data]),
+                media_type="application/octet-stream",
+                headers={"Content-Disposition": f"attachment; filename=cleaned_{file.filename}"}
             )
 
-            summary_path = output_path.replace(".csv", "_summary.csv")
-            summary_df = pd.read_csv(summary_path)
-
-        return summary_df.to_dict(orient="records")[0]
 
     except Exception as e:
-        log_error(f"API summary error: {e}")
+        log_error(str(e))
         return JSONResponse(status_code=500, content={"error": str(e)})
 
+# ------------------------------------------------------------
+# SCHEMA ENDPOINT
+# ------------------------------------------------------------
+@app.post("/schema", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=SchemaResponse)
+async def schema_csv_api(file: UploadFile = File(...)):
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_path = os.path.join(tmpdir, "input.csv")
+            await save_upload_to_disk(file, input_path)
+            df = pd.read_csv(input_path)
+
+        schema = {
+            "columns": {},
+            "row_count": len(df)
+        }
+
+        for col in df.columns:
+            col_data = df[col]
+            schema["columns"][col] = {
+                "dtype": str(col_data.dtype),
+                "missing": int(col_data.isna().sum()),
+                "sample_values": col_data.dropna().head(5).tolist()
+            }
+
+        return SchemaResponse(schema=schema)
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
 # ------------------------------------------------------------
-# REPORT ENDPOINT — RETURNS HUMAN-READABLE TEXT REPORT
+# PREVIEW ENDPOINT
 # ------------------------------------------------------------
-@app.post("/report", dependencies=[Depends(require_api_key)])
+@app.post("/preview", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=PreviewResponse)
+async def preview_csv_api(file: UploadFile = File(...), rows: int = Form(5)):
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_path = os.path.join(tmpdir, "input.csv")
+            await save_upload_to_disk(file, input_path)
+            df = pd.read_csv(input_path)
+
+        rows = max(1, min(rows, 50))
+        preview_data = df.head(rows).to_dict(orient="records")
+
+        return PreviewResponse(preview=preview_data)
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+# ------------------------------------------------------------
+# COLUMNS ENDPOINT
+# ------------------------------------------------------------
+@app.post("/columns", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=ColumnsResponse)
+async def columns_csv_api(file: UploadFile = File(...)):
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_path = os.path.join(tmpdir, "input.csv")
+            await save_upload_to_disk(file, input_path)
+            df = pd.read_csv(input_path)
+
+        return ColumnsResponse(columns=list(df.columns))
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+# ------------------------------------------------------------
+# PROFILE ENDPOINT
+# ------------------------------------------------------------
+@app.post("/profile", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=ProfileResponse)
+async def profile_csv_api(file: UploadFile = File(...)):
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_path = os.path.join(tmpdir, "input.csv")
+            await save_upload_to_disk(file, input_path)
+            df = pd.read_csv(input_path)
+
+        profile = {
+            "row_count": len(df),
+            "column_count": len(df.columns),
+            "columns": {}
+        }
+
+        for col in df.columns:
+            col_data = df[col]
+            col_profile = {
+                "dtype": str(col_data.dtype),
+                "missing": int(col_data.isna().sum()),
+                "unique": int(col_data.nunique(dropna=True)),
+                "sample_values": col_data.dropna().head(5).tolist()
+            }
+
+            if pd.api.types.is_numeric_dtype(col_data):
+                col_profile["min"] = float(col_data.min(skipna=True))
+                col_profile["max"] = float(col_data.max(skipna=True))
+                col_profile["mean"] = float(col_data.mean(skipna=True))
+                col_profile["std"] = float(col_data.std(skipna=True))
+
+            if pd.api.types.is_string_dtype(col_data):
+                lengths = col_data.dropna().astype(str).str.len()
+                if not lengths.empty:
+                    col_profile["text_length_min"] = int(lengths.min())
+                    col_profile["text_length_max"] = int(lengths.max())
+                    col_profile["text_length_mean"] = float(lengths.mean())
+
+            profile["columns"][col] = col_profile
+
+        return ProfileResponse(profile=profile)
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+# ------------------------------------------------------------
+# DETECT DELIMITER ENDPOINT
+# ------------------------------------------------------------
+@app.post("/detect-delimiter", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=DelimiterResponse)
+async def detect_delimiter_api(file: UploadFile = File(...)):
+    try:
+        sample = (await file.read(4096)).decode("utf-8", errors="ignore")
+        await file.seek(0)
+
+        import csv
+        sniffer = csv.Sniffer()
+
+        try:
+            dialect = sniffer.sniff(sample)
+            delimiter = dialect.delimiter
+        except Exception:
+            delimiter = ","
+
+        return DelimiterResponse(delimiter=delimiter)
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+# ------------------------------------------------------------
+# INFER TYPES ENDPOINT
+# ------------------------------------------------------------
+@app.post("/infer-types", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=InferredTypesResponse)
+async def infer_types_api(file: UploadFile = File(...)):
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_path = os.path.join(tmpdir, "input.csv")
+            await save_upload_to_disk(file, input_path)
+            df = pd.read_csv(input_path)
+
+        inferred = {}
+
+        import re
+        email_re = re.compile(r"[^@]+@[^@]+\.[^@]+")
+        phone_re = re.compile(r"^\+?\d[\d\s\-()]{6,}$")
+        url_re = re.compile(r"^https?://")
+        currency_re = re.compile(r"^[£$€]\s?\d")
+        postcode_re = re.compile(r"^[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d[A-Za-z]{2}$")
+
+        for col in df.columns:
+            col_data = df[col].dropna().astype(str)
+
+            if col_data.empty:
+                inferred[col] = "unknown"
+                continue
+
+            sample = col_data.head(20)
+
+            if sample.apply(lambda x: bool(email_re.match(x))).mean() > 0.6:
+                inferred[col] = "email"
+                continue
+
+            if sample.apply(lambda x: bool(phone_re.match(x))).mean() > 0.6:
+                inferred[col] = "phone"
+                continue
+
+            if sample.apply(lambda x: bool(url_re.match(x))).mean() > 0.6:
+                inferred[col] = "url"
+                continue
+
+            if sample.apply(lambda x: bool(currency_re.match(x))).mean() > 0.6:
+                inferred[col] = "currency"
+                continue
+
+            if sample.apply(lambda x: bool(postcode_re.match(x))).mean() > 0.6:
+                inferred[col] = "postcode"
+                continue
+
+            if sample.str.lower().isin(["true", "false", "yes", "no", "0", "1"]).mean() > 0.8:
+                inferred[col] = "boolean"
+                continue
+
+            try:
+                pd.to_datetime(sample, errors="raise")
+                inferred[col] = "datetime"
+                continue
+            except Exception:
+                pass
+
+            if pd.api.types.is_numeric_dtype(df[col]):
+                inferred[col] = "numeric"
+                continue
+
+            if df[col].nunique() / max(len(df), 1) < 0.05:
+                inferred[col] = "categorical"
+                continue
+
+            inferred[col] = "text"
+
+        return InferredTypesResponse(types=inferred)
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+# ------------------------------------------------------------
+# REPORT ENDPOINT
+# ------------------------------------------------------------
+@app.post("/report", dependencies=[Depends(require_api_key)], tags=["Reporting"], response_model=ReportResponse)
 async def clean_csv_report_api(
     file: UploadFile = File(...),
     mode: str = Form("simple"),
     strictness: str = Form("lenient")
 ):
-    """
-    Upload a CSV and return the human-readable text report.
-    """
-
     try:
-        log_info("API request received — report mode")
-
-        contents = await file.read()
-        df = pd.read_csv(io.BytesIO(contents))
+        with tempfile.TemporaryDirectory() as tmpdir:
+            input_path = os.path.join(tmpdir, "input.csv")
+            await save_upload_to_disk(file, input_path)
+            df = pd.read_csv(input_path)
 
         with tempfile.TemporaryDirectory() as tmpdir:
             input_path = os.path.join(tmpdir, "input.csv")
@@ -185,9 +603,14 @@ async def clean_csv_report_api(
             report_path = output_path.replace(".csv", "_report.txt")
             report_text = open(report_path, "r").read()
 
-        return {"report": report_text}
+        return ReportResponse(report=report_text)
 
     except Exception as e:
-        log_error(f"API report error: {e}")
-        return JSONResponse(status_code=500, content={"error": str(e)})
+            log_error(str(e))
+            return JSONResponse(status_code=500, content={"error": str(e)})
+
+print("API FILE LOADED")
+app.openapi = custom_openapi
+print("OPENAPI OVERRIDE ATTACHED")
+
 

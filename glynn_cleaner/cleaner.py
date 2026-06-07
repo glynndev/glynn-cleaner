@@ -301,11 +301,33 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
     if "date_of_birth" in df.columns:
         df["date_of_birth"] = df["date_of_birth"].astype(str).str.strip()
 
-    dedupe_keys = [col for col in ["name", "email", "date_of_birth"] if col in df.columns]
-    df = df.drop_duplicates(subset=dedupe_keys, keep="first")
+    # HR identity deduplication with note merging
+    # One row per (email + date_of_birth), preserve all notes
+
+    dedupe_keys = [col for col in ["email", "date_of_birth"] if col in df.columns]
+
+    def merge_notes(series):
+        values = (
+            series.dropna()
+            .astype(str)
+            .str.strip()
+        )
+        values = [v for v in values if v]
+        return "; ".join(sorted(set(values)))
+
+    before = len(df)
+
+    df = (
+        df
+        .groupby(dedupe_keys, dropna=False, as_index=False)
+        .agg({
+            "name": "first",
+            "notes": merge_notes
+        })
+    )
 
     removed_dupes = before - len(df)
-    log_info(f"Duplicates removed: {removed_dupes}")
+    log_info(f"Duplicates removed (identity merge): {removed_dupes}")
 
     final_count = len(df)
 
@@ -315,11 +337,8 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
     if mode == "simple":
         log_info("Simple mode selected — dropping helper columns")
 
-        if "date_of_birth" in df.columns:
-            df = df.drop(columns=["date_of_birth"])
-
-        df = df[["name", "email", "date_of_birth_cleaned", "notes"]]
-        df = df.rename(columns={"date_of_birth_cleaned": "date_of_birth"})
+        # At this point, date_of_birth is already cleaned and final
+        df = df[["name", "email", "date_of_birth", "notes"]]
 
     else:
         log_info("Audit mode selected — keeping helper columns")

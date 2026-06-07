@@ -1,0 +1,28 @@
+2026-04-12 15:20:26 | INFO | [36mAPI key used: dev[0m
+2026-04-12 15:20:27 | INFO | [36m==============================================[0m
+2026-04-12 15:20:27 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-04-12 15:20:27 | INFO | [36m                    Version 1.3.0[0m
+2026-04-12 15:20:27 | INFO | [36m==============================================[0m
+2026-04-12 15:20:27 | INFO | [36mMode: simple | Strictness: lenient[0m
+2026-04-12 15:20:27 | INFO | [36m----------------------------------------------[0m
+2026-04-12 15:20:27 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmproknj1db\input.csv[0m
+2026-04-12 15:20:27 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmproknj1db\input.csv[0m
+2026-04-12 15:20:28 | INFO | [36mLoaded CSV successfully with 100000 rows[0m
+2026-04-12 15:20:28 | DEBUG | [90mColumns detected: ['name', 'email', 'date_of_birth', 'notes'][0m
+2026-04-12 15:20:28 | INFO | [36mRows loaded: 100000[0m
+2026-04-12 15:20:28 | INFO | [36m[2/10] Normalising column names[0m
+2026-04-12 15:20:28 | DEBUG | [90mNormalised columns: ['name', 'email', 'date_of_birth', 'notes'][0m
+2026-04-12 15:20:28 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-04-12 15:20:29 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-04-12 15:20:30 | INFO | [36m[5/10] Removing junk rows[0m
+2026-04-12 15:22:17 | INFO | [36mJunk rows removed: 0[0m
+2026-04-12 15:22:17 | INFO | [36m[6/10] Validating emails (strict=False)[0m
+2026-04-12 15:22:23 | INFO | [36mInvalid emails detected: 42714[0m
+2026-04-12 15:22:23 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-04-12 15:22:36 | INFO | [36mInvalid dates detected: 33397[0m
+2026-04-12 15:22:42 | INFO | [36m[8/10] Skipping strict filtering (lenient mode)[0m
+2026-04-12 15:22:42 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-04-12 15:22:43 | INFO | [36mDuplicates removed (identity merge): 99970[0m
+2026-04-12 15:22:43 | INFO | [36mPreparing final output columns[0m
+2026-04-12 15:22:43 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-04-12 15:22:43 | ERROR | [31m"['date_of_birth_cleaned'] not in index"[0m

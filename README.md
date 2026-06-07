@@ -13,21 +13,27 @@ A fast, reliable, analyst‑friendly CSV cleaning tool with audit mode, strict/l
 ---
 
 ## 📚 Contents
-- [Overview](#-overview)
-- [Quick Start](#-quick-start)
-- [CLI Preview](#️-cli-preview)
-- [Features](#-features)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Output Files](#-output-files)
-- [Project Structure](#-project-structure)
-- [Testing](#-testing)
-- [Changelog](#-changelog)
-- [Versioning Strategy](#-versioning-strategy)
-- [Roadmap](#-roadmap)
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [How It Works](#how-it-works)
+- [Supported Fields and Cleaning Logic](#supported-fields-and-cleaning-logic)
+- [How Identity and Deduplication Work](#-how-identity-and-deduplication-work)
+- [Audit Mode Explained](#-audit-mode-explained)
+- [CLI Preview](#cli-preview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Output Files](#output-files)
+- [Project Structure](#project-structure)
+- [Testing](#testing)
+- [Roadmap](#️-roadmap)
+- [Changelog](#changelog)
+- [Versioning Strategy](#versioning-strategy)
+- [Frequently Asked Questions](#-frequently-asked-questions)
 - [Why This Tool Exists](#-why-this-tool-exists)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [Contributing](#contributing)
+- [License](#license)
+
 
 ---
 
@@ -68,7 +74,7 @@ This generates:
 ---
 
 ### 3. Run the cleaner in Audit Mode
-Audit Mode provides detailed reporting, issue detection, and a full audit trail.
+Audit mode provides detailed reporting, validation flags, suggested corrections, and Excel‑safe outputs
 
     glynn-cleaner --input input/sample.csv --output output/cleaned.csv --mode audit
 
@@ -87,6 +93,10 @@ Strict mode enforces tighter rules and removes rows with invalid emails, dates, 
 You can combine strict mode with audit mode:
 
     glynn-cleaner --input input/sample.csv --output output/cleaned.csv --mode audit --strictness strict
+
+> **Recommended default:**
+> For most use cases, `--mode simple --strictness strict` provides the cleanest,
+> HR‑ready output. Audit modes are intended for investigation and validation.
 
 ---
 
@@ -115,7 +125,9 @@ The cleaner processes your CSV through a structured, multi‑stage pipeline desi
 6. **Validate emails** — Checks email format and flags invalid entries (strict mode removes them).  
 7. **Parse dates of birth** — Converts valid dates into a consistent format and flags invalid ones.  
 8. **Apply strict filtering rules** — Removes rows with invalid or missing critical fields when strict mode is enabled.  
-9. **Remove duplicates** — Identifies and removes duplicate rows based on the full row content.  
+9. **Resolve duplicate identities** — Collapses records that refer to the same person using an identity
+   key (email + date of birth). When multiple records match, they are merged into a single row and
+   notes are combined deterministically.  
 10. **Save outputs** — Writes the cleaned CSV, a summary CSV, and a text report to the output directory.
 
 ---
@@ -130,6 +142,60 @@ The cleaner applies targeted transformations only to the fields it recognises. A
 | `email`           | Format validation, strict filtering, junk‑row detection                          |
 | `date_of_birth`   | Date parsing, invalid‑date detection, strict filtering                           |
 | Other columns     | Preserved as‑is; no cleaning or validation applied                               |
+
+---
+
+## 🧠 How Identity and Deduplication Work
+
+`glynn-cleaner` is designed primarily for HR‑style datasets, where identity cannot safely be inferred
+from a single field.
+
+### Identity Resolution Rules
+
+For deduplication purposes, a *person* is defined using the following identity key:
+
+- **Email address**
+- **Date of birth**
+
+Records are merged **only when both fields match and are valid**.
+
+### Why not email‑only deduplication?
+
+In real‑world HR data:
+- email addresses may be shared, reused, or reassigned,
+- historical records may contain corrected or conflicting personal details.
+
+To avoid silent data loss, the cleaner **does not assume that one email equals one person**.
+If identity cannot be proven, records are kept separate and fully explained.
+
+### Notes and Information Preservation
+
+When multiple records are merged:
+- all non‑blank notes are combined,
+- duplicate note content is removed,
+- the final notes field remains human‑readable.
+
+No contextual information is discarded.
+
+---
+
+## 🔎 Audit Mode Explained
+
+Audit mode prioritises **transparency over minimal output**.
+
+As a result, audit outputs may still contain:
+- multiple records sharing the same email address,
+- multiple names associated with one email,
+- records that look similar but cannot be confidently merged.
+
+This is intentional.
+
+Audit mode is designed to:
+- surface ambiguity,
+- explain why rows were kept or removed,
+- provide evidence for every decision.
+
+If two records cannot be proven to represent the same individual, both are retained.
 
 ---
 
@@ -293,18 +359,20 @@ Most analysts and small businesses spend too much time fixing messy CSV files. T
 - Added Quick Start, CLI Preview, Roadmap  
 - Repository structure standardised  
 
-### v1.0.0 (Planned)
-- First stable release  
-- Full support for simple and audit modes  
-- Strict/lenient validation  
-- Email cleaning  
-- Date parsing  
-- Name capitalisation  
-- Summary CSV generation  
-- Junk row removal  
-- Column normalisation  
-- CLI interface  
-- Logging and reporting  
+### v1.3.0
+- First stable public release
+- Full support for simple and audit modes
+- Strict and lenient validation
+- Identity‑based deduplication (email + date of birth)
+- Notes preservation and merging
+- Email validation
+- Date parsing with ambiguity handling
+- Name capitalisation
+- Summary CSV generation
+- Junk row removal
+- Column normalisation
+- CLI interface
+- Logging and reporting 
 
 ---
 
@@ -315,7 +383,123 @@ Semantic Versioning (SemVer):
 
 - MAJOR for breaking changes  
 - MINOR for new features  
-- PATCH for fixes  
+- PATCH for fixes 
+
+---
+
+## ❓ Frequently Asked Questions
+
+### Why do I see the same email address multiple times in the output?
+
+This is expected behaviour.
+
+`glynn-cleaner` does **not** assume that one email address uniquely identifies a person.
+In real‑world HR and operational datasets, email addresses can be:
+
+- shared between people,
+- reused historically,
+- reassigned,
+- incorrectly entered,
+- or associated with corrected personal details over time.
+
+For this reason, records are only merged when **both email and date of birth match and are valid**.
+If identity cannot be proven, records remain separate to avoid silent data loss.
+
+---
+
+### Why doesn’t the cleaner deduplicate on email alone?
+
+Email‑only deduplication looks attractive, but it is unsafe for HR‑style data.
+
+Using email alone can incorrectly merge:
+- different people sharing an inbox,
+- historical records with corrected dates of birth,
+- reused or reassigned email addresses.
+
+To remain **auditable and predictable**, `glynn-cleaner` uses a conservative identity key:
+**email + date of birth**.
+
+This ensures records are only merged when there is strong evidence they represent the same individual.
+
+---
+
+### Audit mode output looks repetitive or messy. Is something wrong?
+
+No — this is intentional.
+
+Audit mode prioritises **transparency over minimal output**. It is designed to:
+- surface ambiguity,
+- show why records were kept or removed,
+- explain why some records could not be merged.
+
+If two records cannot be confidently proven to represent the same person, both are retained and fully visible.
+Simple mode exists for users who prefer a cleaner operational view.
+
+---
+
+### Which mode should I use most of the time?
+
+For most users, the recommended default is:
+
+`--mode simple --strictness strict`
+
+This produces the cleanest, HR‑ready dataset.
+
+Use **audit mode** when you need to:
+- understand why rows were removed,
+- investigate data quality issues,
+- validate upstream data sources,
+- provide compliance or troubleshooting evidence.
+
+---
+
+### Why were some rows removed in strict mode but kept in lenient mode?
+
+Lenient mode preserves all rows and flags issues.
+
+Strict mode removes rows that fail essential validation rules, such as:
+- invalid email addresses,
+- invalid or ambiguous dates of birth,
+- rows with insufficient identity information.
+
+This allows you to choose between **maximum retention** (lenient) and **maximum correctness** (strict).
+
+---
+
+### Why are some dates treated as invalid even though they look reasonable?
+
+See Ambiguous Dates in Strict Mode above for the full explanation.
+
+Some date formats are ambiguous.
+
+For example, `12/05/1990` could mean:
+- 12 May 1990 (DD/MM), or
+- 5 December 1990 (MM/DD).
+
+Because the cleaner cannot reliably infer the intended format, such dates are treated as **ambiguous** and removed in strict mode.
+
+Unambiguous formats such as `1992.07.14`, `1990-05-12`, or `14 08 1993` are always accepted.
+
+---
+
+### Does the cleaner modify columns it doesn’t recognise?
+
+No.
+
+Only recognised fields (`name`, `email`, `date_of_birth`) are validated or transformed.
+All other columns are preserved **exactly as provided**.
+
+This ensures compatibility with HR, finance, CRM, and operational datasets.
+
+---
+
+### Can deduplication rules be made more aggressive?
+
+Not by default.
+
+The current behaviour is deliberately conservative to avoid data loss.
+More aggressive strategies (such as email‑only deduplication) may be considered in the future,
+but would always be explicit, documented, and opt‑in.
 
 ---
 

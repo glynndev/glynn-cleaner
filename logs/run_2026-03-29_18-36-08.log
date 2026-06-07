@@ -1,0 +1,437 @@
+2026-03-29 18:38:04 | INFO | [36mAPI key used: local[0m
+2026-03-29 18:38:04 | INFO | [36m==============================================[0m
+2026-03-29 18:38:04 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 18:38:04 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 18:38:04 | INFO | [36m==============================================[0m
+2026-03-29 18:38:04 | INFO | [36mMode: simple | Strictness: lenient[0m
+2026-03-29 18:38:04 | INFO | [36m----------------------------------------------[0m
+2026-03-29 18:38:04 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpc6azg2pt\input.csv[0m
+2026-03-29 18:38:04 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpc6azg2pt\input.csv[0m
+2026-03-29 18:38:04 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 18:38:04 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 18:38:04 | INFO | [36mRows loaded: 6[0m
+2026-03-29 18:38:04 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 18:38:04 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 18:38:04 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 18:38:04 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 18:38:04 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 18:38:04 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 18:38:04 | INFO | [36m[6/10] Validating emails (strict=False)[0m
+2026-03-29 18:38:08 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 18:38:08 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 18:38:08 | INFO | [36mInvalid dates detected: 0[0m
+2026-03-29 18:38:08 | INFO | [36m[8/10] Skipping strict filtering (lenient mode)[0m
+2026-03-29 18:38:08 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 18:38:08 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 18:38:08 | INFO | [36mPreparing final output columns[0m
+2026-03-29 18:38:08 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-03-29 18:38:08 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 18:38:08 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpc6azg2pt\output.csv[0m
+2026-03-29 18:38:08 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 18:38:08 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpc6azg2pt\output_summary.csv[0m
+2026-03-29 18:38:08 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 18:38:08 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 18:38:08', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpc6azg2pt\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpc6azg2pt\\output.csv', 'mode': 'simple', 'strictness': 'lenient', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 0, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 4}[0m
+2026-03-29 18:38:08 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpc6azg2pt\output_report.txt[0m
+2026-03-29 18:38:08 | INFO | [36mText report saved successfully[0m
+2026-03-29 18:38:08 | INFO | [36m==============================================[0m
+2026-03-29 18:38:08 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 18:38:08 | INFO | [36m==============================================[0m
+2026-03-29 20:07:51 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:14:33 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:17:28 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:21:57 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:24:07 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:26:34 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:29:34 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:29:34 | INFO | [36m==============================================[0m
+2026-03-29 20:29:34 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:29:34 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:29:34 | INFO | [36m==============================================[0m
+2026-03-29 20:29:34 | INFO | [36mMode: simple | Strictness: lenient[0m
+2026-03-29 20:29:34 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:29:34 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmp87x5oc28\input.csv[0m
+2026-03-29 20:29:34 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmp87x5oc28\input.csv[0m
+2026-03-29 20:29:34 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:29:34 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:29:34 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:29:34 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:29:34 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:29:34 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:29:34 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:29:34 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:29:34 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:29:34 | INFO | [36m[6/10] Validating emails (strict=False)[0m
+2026-03-29 20:29:34 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:29:34 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:29:34 | INFO | [36mInvalid dates detected: 0[0m
+2026-03-29 20:29:34 | INFO | [36m[8/10] Skipping strict filtering (lenient mode)[0m
+2026-03-29 20:29:34 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:29:34 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:29:34 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:29:34 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-03-29 20:29:34 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:29:34 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmp87x5oc28\output.csv[0m
+2026-03-29 20:29:34 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:29:34 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmp87x5oc28\output_summary.csv[0m
+2026-03-29 20:29:34 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:29:34 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:29:34', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp87x5oc28\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp87x5oc28\\output.csv', 'mode': 'simple', 'strictness': 'lenient', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 0, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 4}[0m
+2026-03-29 20:29:34 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmp87x5oc28\output_report.txt[0m
+2026-03-29 20:29:34 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:29:34 | INFO | [36m==============================================[0m
+2026-03-29 20:29:34 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:29:34 | INFO | [36m==============================================[0m
+2026-03-29 20:35:49 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:35:49 | INFO | [36m==============================================[0m
+2026-03-29 20:35:49 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:35:49 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:35:49 | INFO | [36m==============================================[0m
+2026-03-29 20:35:49 | INFO | [36mMode: simple | Strictness: strict[0m
+2026-03-29 20:35:49 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:35:49 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpalvw9tq8\input.csv[0m
+2026-03-29 20:35:49 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpalvw9tq8\input.csv[0m
+2026-03-29 20:35:49 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:35:49 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:35:49 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:35:49 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:35:49 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:35:49 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:35:49 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:35:49 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:35:49 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:35:49 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 20:35:49 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:35:49 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:35:49 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 20:35:49 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 20:35:49 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 20:35:49 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 20:35:49 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:35:49 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:35:49 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:35:49 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-03-29 20:35:49 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:35:49 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpalvw9tq8\output.csv[0m
+2026-03-29 20:35:49 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:35:49 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpalvw9tq8\output_summary.csv[0m
+2026-03-29 20:35:49 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:35:49 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:35:49', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpalvw9tq8\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpalvw9tq8\\output.csv', 'mode': 'simple', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 1, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 3}[0m
+2026-03-29 20:35:49 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpalvw9tq8\output_report.txt[0m
+2026-03-29 20:35:49 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:35:49 | INFO | [36m==============================================[0m
+2026-03-29 20:35:49 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:35:49 | INFO | [36m==============================================[0m
+2026-03-29 20:36:35 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:36:35 | INFO | [36m==============================================[0m
+2026-03-29 20:36:35 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:36:35 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:36:35 | INFO | [36m==============================================[0m
+2026-03-29 20:36:35 | INFO | [36mMode: simple | Strictness: strict[0m
+2026-03-29 20:36:35 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:36:35 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpc28z34fo\input.csv[0m
+2026-03-29 20:36:35 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpc28z34fo\input.csv[0m
+2026-03-29 20:36:35 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:36:35 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:36:35 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:36:35 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:36:35 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:36:36 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:36:36 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:36:36 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:36:36 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:36:36 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 20:36:36 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:36:36 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:36:36 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 20:36:36 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 20:36:36 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 20:36:36 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 20:36:36 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:36:36 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:36:36 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:36:36 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-03-29 20:36:36 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:36:36 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpc28z34fo\output.csv[0m
+2026-03-29 20:36:36 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:36:36 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpc28z34fo\output_summary.csv[0m
+2026-03-29 20:36:36 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:36:36 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:36:36', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpc28z34fo\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpc28z34fo\\output.csv', 'mode': 'simple', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 1, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 3}[0m
+2026-03-29 20:36:36 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpc28z34fo\output_report.txt[0m
+2026-03-29 20:36:36 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:36:36 | INFO | [36m==============================================[0m
+2026-03-29 20:36:36 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:36:36 | INFO | [36m==============================================[0m
+2026-03-29 20:44:47 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:44:47 | INFO | [36m==============================================[0m
+2026-03-29 20:44:47 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:44:47 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:44:47 | INFO | [36m==============================================[0m
+2026-03-29 20:44:47 | INFO | [36mMode: simple | Strictness: strict[0m
+2026-03-29 20:44:47 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:44:47 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpo5p819jh\input.csv[0m
+2026-03-29 20:44:47 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpo5p819jh\input.csv[0m
+2026-03-29 20:44:47 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:44:47 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:44:47 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:44:47 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:44:47 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:44:47 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:44:47 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:44:47 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:44:47 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:44:47 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 20:44:47 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:44:47 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:44:47 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 20:44:47 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 20:44:47 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 20:44:47 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 20:44:47 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:44:47 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:44:47 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:44:47 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-03-29 20:44:47 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:44:47 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpo5p819jh\output.csv[0m
+2026-03-29 20:44:47 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:44:47 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpo5p819jh\output_summary.csv[0m
+2026-03-29 20:44:47 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:44:47 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:44:47', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpo5p819jh\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpo5p819jh\\output.csv', 'mode': 'simple', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 1, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 3}[0m
+2026-03-29 20:44:47 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpo5p819jh\output_report.txt[0m
+2026-03-29 20:44:47 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:44:47 | INFO | [36m==============================================[0m
+2026-03-29 20:44:47 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:44:47 | INFO | [36m==============================================[0m
+2026-03-29 20:48:09 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:48:09 | INFO | [36m==============================================[0m
+2026-03-29 20:48:09 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:48:09 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:48:09 | INFO | [36m==============================================[0m
+2026-03-29 20:48:09 | INFO | [36mMode: simple | Strictness: strict[0m
+2026-03-29 20:48:09 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:48:09 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpawnn_ss_\input.csv[0m
+2026-03-29 20:48:09 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpawnn_ss_\input.csv[0m
+2026-03-29 20:48:09 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:48:09 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:48:09 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:48:09 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:48:09 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:48:09 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:48:09 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:48:09 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:48:09 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:48:09 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 20:48:09 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:48:09 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:48:09 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 20:48:09 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 20:48:09 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 20:48:09 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 20:48:09 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:48:09 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:48:09 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:48:09 | INFO | [36mSimple mode selected — dropping helper columns[0m
+2026-03-29 20:48:09 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:48:09 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpawnn_ss_\output.csv[0m
+2026-03-29 20:48:09 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:48:09 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpawnn_ss_\output_summary.csv[0m
+2026-03-29 20:48:09 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:48:09 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:48:09', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpawnn_ss_\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpawnn_ss_\\output.csv', 'mode': 'simple', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 1, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 3}[0m
+2026-03-29 20:48:09 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpawnn_ss_\output_report.txt[0m
+2026-03-29 20:48:09 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:48:09 | INFO | [36m==============================================[0m
+2026-03-29 20:48:09 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:48:09 | INFO | [36m==============================================[0m
+2026-03-29 20:58:01 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:58:01 | INFO | [36m==============================================[0m
+2026-03-29 20:58:01 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:58:01 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:58:01 | INFO | [36m==============================================[0m
+2026-03-29 20:58:01 | INFO | [36mMode: advanced | Strictness: lenient[0m
+2026-03-29 20:58:01 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:58:01 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmp9r39oqa8\input.csv[0m
+2026-03-29 20:58:01 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmp9r39oqa8\input.csv[0m
+2026-03-29 20:58:01 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:58:01 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:58:01 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:58:01 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:58:01 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:58:01 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:58:01 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:58:01 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:58:01 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:58:01 | INFO | [36m[6/10] Validating emails (strict=False)[0m
+2026-03-29 20:58:01 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:58:01 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:58:01 | INFO | [36mInvalid dates detected: 0[0m
+2026-03-29 20:58:01 | INFO | [36m[8/10] Skipping strict filtering (lenient mode)[0m
+2026-03-29 20:58:01 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:58:01 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:58:01 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:58:01 | INFO | [36mAudit mode selected — keeping helper columns[0m
+2026-03-29 20:58:01 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:58:01 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmp9r39oqa8\output.csv[0m
+2026-03-29 20:58:01 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:58:01 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmp9r39oqa8\output_summary.csv[0m
+2026-03-29 20:58:01 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:58:01 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:58:01', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp9r39oqa8\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp9r39oqa8\\output.csv', 'mode': 'advanced', 'strictness': 'lenient', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 0, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 4}[0m
+2026-03-29 20:58:01 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmp9r39oqa8\output_report.txt[0m
+2026-03-29 20:58:01 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:58:01 | INFO | [36m==============================================[0m
+2026-03-29 20:58:01 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:58:01 | INFO | [36m==============================================[0m
+2026-03-29 20:59:52 | INFO | [36mAPI key used: local[0m
+2026-03-29 20:59:52 | INFO | [36m==============================================[0m
+2026-03-29 20:59:52 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 20:59:52 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 20:59:52 | INFO | [36m==============================================[0m
+2026-03-29 20:59:52 | INFO | [36mMode: advanced | Strictness: lenient[0m
+2026-03-29 20:59:52 | INFO | [36m----------------------------------------------[0m
+2026-03-29 20:59:52 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmp93tdy276\input.csv[0m
+2026-03-29 20:59:52 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmp93tdy276\input.csv[0m
+2026-03-29 20:59:52 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 20:59:52 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 20:59:52 | INFO | [36mRows loaded: 6[0m
+2026-03-29 20:59:52 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 20:59:52 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 20:59:52 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 20:59:52 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 20:59:52 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 20:59:52 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 20:59:52 | INFO | [36m[6/10] Validating emails (strict=False)[0m
+2026-03-29 20:59:52 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 20:59:52 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 20:59:52 | INFO | [36mInvalid dates detected: 0[0m
+2026-03-29 20:59:52 | INFO | [36m[8/10] Skipping strict filtering (lenient mode)[0m
+2026-03-29 20:59:52 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 20:59:52 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 20:59:52 | INFO | [36mPreparing final output columns[0m
+2026-03-29 20:59:52 | INFO | [36mAudit mode selected — keeping helper columns[0m
+2026-03-29 20:59:52 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 20:59:52 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmp93tdy276\output.csv[0m
+2026-03-29 20:59:52 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 20:59:52 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmp93tdy276\output_summary.csv[0m
+2026-03-29 20:59:52 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 20:59:52 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 20:59:52', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp93tdy276\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp93tdy276\\output.csv', 'mode': 'advanced', 'strictness': 'lenient', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 0, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 4}[0m
+2026-03-29 20:59:52 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmp93tdy276\output_report.txt[0m
+2026-03-29 20:59:52 | INFO | [36mText report saved successfully[0m
+2026-03-29 20:59:52 | INFO | [36m==============================================[0m
+2026-03-29 20:59:52 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 20:59:52 | INFO | [36m==============================================[0m
+2026-03-29 21:03:58 | INFO | [36mAPI key used: local[0m
+2026-03-29 21:03:58 | INFO | [36m==============================================[0m
+2026-03-29 21:03:58 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 21:03:58 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 21:03:58 | INFO | [36m==============================================[0m
+2026-03-29 21:03:58 | INFO | [36mMode: advanced | Strictness: strict[0m
+2026-03-29 21:03:58 | INFO | [36m----------------------------------------------[0m
+2026-03-29 21:03:58 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmp1bqx3hn7\input.csv[0m
+2026-03-29 21:03:58 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmp1bqx3hn7\input.csv[0m
+2026-03-29 21:03:58 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 21:03:58 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 21:03:58 | INFO | [36mRows loaded: 6[0m
+2026-03-29 21:03:58 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 21:03:58 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 21:03:58 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 21:03:58 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 21:03:58 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 21:03:58 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 21:03:58 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 21:03:58 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 21:03:58 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 21:03:58 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 21:03:58 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 21:03:58 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 21:03:58 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 21:03:58 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 21:03:58 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 21:03:58 | INFO | [36mPreparing final output columns[0m
+2026-03-29 21:03:58 | INFO | [36mAudit mode selected — keeping helper columns[0m
+2026-03-29 21:03:58 | WARNING | [33mDry-run mode enabled — no output files will be written.[0m
+2026-03-29 21:03:58 | INFO | [36mCleaning process completed (dry-run).[0m
+2026-03-29 21:03:58 | INFO | [36mSummary (dry-run):[0m
+2026-03-29 21:03:58 | INFO | [36m  Rows loaded: 6[0m
+2026-03-29 21:03:58 | INFO | [36m  Junk rows removed: 2[0m
+2026-03-29 21:03:58 | INFO | [36m  Invalid emails removed: 1[0m
+2026-03-29 21:03:58 | INFO | [36m  Invalid dates removed: 0[0m
+2026-03-29 21:03:58 | INFO | [36m  Duplicates removed: 0[0m
+2026-03-29 21:03:58 | INFO | [36m  Final row count: 3[0m
+2026-03-29 21:03:58 | ERROR | [31m[Errno 2] No such file or directory: 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmp1bqx3hn7\\output.csv'[0m
+2026-03-29 21:10:37 | INFO | [36mAPI key used: local[0m
+2026-03-29 21:10:37 | INFO | [36m==============================================[0m
+2026-03-29 21:10:37 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 21:10:37 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 21:10:37 | INFO | [36m==============================================[0m
+2026-03-29 21:10:37 | INFO | [36mMode: advanced | Strictness: strict[0m
+2026-03-29 21:10:37 | INFO | [36m----------------------------------------------[0m
+2026-03-29 21:10:37 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpprwt5fga\input.csv[0m
+2026-03-29 21:10:37 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpprwt5fga\input.csv[0m
+2026-03-29 21:10:38 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 21:10:38 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 21:10:38 | INFO | [36mRows loaded: 6[0m
+2026-03-29 21:10:38 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 21:10:38 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 21:10:38 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 21:10:38 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 21:10:38 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 21:10:38 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 21:10:38 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 21:10:38 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 21:10:38 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 21:10:38 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 21:10:38 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 21:10:38 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 21:10:38 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 21:10:38 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 21:10:38 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 21:10:38 | INFO | [36mPreparing final output columns[0m
+2026-03-29 21:10:38 | INFO | [36mAudit mode selected — keeping helper columns[0m
+2026-03-29 21:10:38 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 21:10:38 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpprwt5fga\output.csv[0m
+2026-03-29 21:10:38 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 21:10:38 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpprwt5fga\output_summary.csv[0m
+2026-03-29 21:10:38 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 21:10:38 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 21:10:38', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpprwt5fga\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpprwt5fga\\output.csv', 'mode': 'advanced', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 1, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 3}[0m
+2026-03-29 21:10:38 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpprwt5fga\output_report.txt[0m
+2026-03-29 21:10:38 | INFO | [36mText report saved successfully[0m
+2026-03-29 21:10:38 | INFO | [36m==============================================[0m
+2026-03-29 21:10:38 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 21:10:38 | INFO | [36m==============================================[0m
+2026-03-29 21:15:34 | INFO | [36mAPI key used: local[0m
+2026-03-29 21:15:34 | INFO | [36m==============================================[0m
+2026-03-29 21:15:34 | INFO | [36m        Glynn Cleaner — Data Cleaning Tool[0m
+2026-03-29 21:15:34 | INFO | [36m                    Version 1.3.0[0m
+2026-03-29 21:15:34 | INFO | [36m==============================================[0m
+2026-03-29 21:15:34 | INFO | [36mMode: advanced | Strictness: strict[0m
+2026-03-29 21:15:34 | INFO | [36m----------------------------------------------[0m
+2026-03-29 21:15:34 | INFO | [36m[1/10] Loading CSV: C:\Users\glynn\AppData\Local\Temp\tmpqcuw6dpy\input.csv[0m
+2026-03-29 21:15:34 | INFO | [36mLoading CSV: C:\Users\glynn\AppData\Local\Temp\tmpqcuw6dpy\input.csv[0m
+2026-03-29 21:15:34 | INFO | [36mLoaded CSV successfully with 6 rows[0m
+2026-03-29 21:15:34 | DEBUG | [90mColumns detected: ['Name', ' Email Address', ' Date of Birth', ' Notes'][0m
+2026-03-29 21:15:34 | INFO | [36mRows loaded: 6[0m
+2026-03-29 21:15:34 | INFO | [36m[2/10] Normalising column names[0m
+2026-03-29 21:15:34 | DEBUG | [90mNormalised columns: ['name', 'email_address', 'date_of_birth', 'notes'][0m
+2026-03-29 21:15:34 | INFO | [36m[3/10] Trimming whitespace[0m
+2026-03-29 21:15:34 | INFO | [36m[4/10] Applying name capitalisation[0m
+2026-03-29 21:15:34 | INFO | [36m[5/10] Removing junk rows[0m
+2026-03-29 21:15:34 | INFO | [36mJunk rows removed: 2[0m
+2026-03-29 21:15:34 | INFO | [36m[6/10] Validating emails (strict=True)[0m
+2026-03-29 21:15:34 | INFO | [36mInvalid emails detected: 1[0m
+2026-03-29 21:15:34 | INFO | [36m[7/10] Parsing dates of birth[0m
+2026-03-29 21:15:34 | INFO | [36mInvalid dates detected: 1[0m
+2026-03-29 21:15:34 | INFO | [36m[8/10] Applying strict filtering rules[0m
+2026-03-29 21:15:34 | INFO | [36mRows removed due to invalid emails: 1[0m
+2026-03-29 21:15:34 | INFO | [36mRows removed due to invalid dates: 0[0m
+2026-03-29 21:15:34 | INFO | [36m[9/10] Removing duplicate rows[0m
+2026-03-29 21:15:35 | INFO | [36mDuplicates removed: 0[0m
+2026-03-29 21:15:35 | INFO | [36mPreparing final output columns[0m
+2026-03-29 21:15:35 | INFO | [36mAudit mode selected — keeping helper columns[0m
+2026-03-29 21:15:35 | INFO | [36m[10/10] Saving cleaned CSV[0m
+2026-03-29 21:15:35 | INFO | [36mSaving cleaned CSV to: C:\Users\glynn\AppData\Local\Temp\tmpqcuw6dpy\output.csv[0m
+2026-03-29 21:15:35 | INFO | [36mCleaned CSV saved successfully[0m
+2026-03-29 21:15:35 | INFO | [36mSaving summary CSV to: C:\Users\glynn\AppData\Local\Temp\tmpqcuw6dpy\output_summary.csv[0m
+2026-03-29 21:15:35 | INFO | [36mSummary CSV saved successfully[0m
+2026-03-29 21:15:35 | DEBUG | [90mSummary contents: {'timestamp': '2026-03-29 21:15:35', 'input_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpqcuw6dpy\\input.csv', 'output_file': 'C:\\Users\\glynn\\AppData\\Local\\Temp\\tmpqcuw6dpy\\output.csv', 'mode': 'advanced', 'strictness': 'strict', 'rows_loaded': 6, 'junk_rows_removed': 2, 'invalid_emails_removed': 1, 'invalid_dates_removed': 0, 'duplicates_removed': 0, 'final_row_count': 3}[0m
+2026-03-29 21:15:35 | INFO | [36mSaving text report to: C:\Users\glynn\AppData\Local\Temp\tmpqcuw6dpy\output_report.txt[0m
+2026-03-29 21:15:35 | INFO | [36mText report saved successfully[0m
+2026-03-29 21:15:35 | INFO | [36m==============================================[0m
+2026-03-29 21:15:35 | INFO | [36m        Cleaning Completed Successfully (v1.3.0)[0m
+2026-03-29 21:15:35 | INFO | [36m==============================================[0m
