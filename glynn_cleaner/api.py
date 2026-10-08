@@ -310,7 +310,6 @@ def metrics():
     tags=["Cleaning"],
     response_class=StreamingResponse
 )
-
 async def clean_csv_api(
     file: UploadFile = File(...),
     mode: str = Form("simple"),
@@ -326,6 +325,28 @@ async def clean_csv_api(
             await save_upload_to_disk(file, input_path)
 
             df = pd.read_csv(input_path)
+
+            # --- PRICING / PAYWALL LOGIC ---
+            rows = len(df)
+
+            FREE_LIMIT = 5000
+            billable_units = (rows + 999) // 1000
+            unit_price = 0.25
+            cost = billable_units * unit_price
+
+            if rows > FREE_LIMIT:
+                return JSONResponse(
+                    status_code=402,
+                    content={
+                        "error": "payment_required",
+                        "rows": rows,
+                        "billable_units": billable_units,
+                        "estimated_cost": cost,
+                        "free_limit": FREE_LIMIT
+                    }
+                )
+            # --- END PAYWALL ---
+
             df.to_csv(input_path, index=False)
 
             clean_data(
@@ -342,15 +363,13 @@ async def clean_csv_api(
                     while chunk := f.read(1024 * 1024):
                         yield chunk
 
-            with open(output_path, "rb") as f:
-                data = f.read()
-
             return StreamingResponse(
-                iter([data]),
+                iter_file(output_path),
                 media_type="application/octet-stream",
-                headers={"Content-Disposition": f"attachment; filename=cleaned_{file.filename}"}
+                headers={
+                    "Content-Disposition": f"attachment; filename=cleaned_{file.filename}"
+                }
             )
-
 
     except Exception as e:
         log_error(str(e))
@@ -359,7 +378,12 @@ async def clean_csv_api(
 # ------------------------------------------------------------
 # SCHEMA ENDPOINT
 # ------------------------------------------------------------
-@app.post("/schema", dependencies=[Depends(require_api_key)], tags=["Cleaning"], response_model=SchemaResponse)
+@app.post(
+    "/schema",
+    dependencies=[Depends(require_api_key)],
+    tags=["Cleaning"],
+    response_model=SchemaResponse
+)
 async def schema_csv_api(file: UploadFile = File(...)):
     try:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -384,7 +408,10 @@ async def schema_csv_api(file: UploadFile = File(...)):
 
     except Exception as e:
         log_error(str(e))
-        return JSONResponse(status_code=500, content={"error": str(e)})
+        return JSONResponse(
+            status_code=500,
+            content={"error": str(e)}
+        )
 
 # ------------------------------------------------------------
 # PREVIEW ENDPOINT
@@ -613,4 +640,29 @@ print("API FILE LOADED")
 app.openapi = custom_openapi
 print("OPENAPI OVERRIDE ATTACHED")
 
+from io import StringIO
+import csv
 
+@app.post("/quote", tags=["Cleaning"])
+async def quote_csv_api(file: UploadFile = File(...)):
+    try:
+        contents = await file.read()
+        text = contents.decode("utf-8", errors="ignore")
+
+        reader = csv.reader(StringIO(text))
+        rows = max(0, sum(1 for _ in reader) - 1)
+
+        billable_units = (rows + 999) // 1000
+        unit_price = 0.25
+        cost = billable_units * unit_price
+
+        return {
+            "rows": rows,
+            "billable_units": billable_units,
+            "estimated_cost": cost,
+            "tier": "free" if rows <= 5000 else "payg"
+        }
+
+    except Exception as e:
+        log_error(str(e))
+        return JSONResponse(status_code=500, content={"error": str(e)})
