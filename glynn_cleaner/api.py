@@ -90,6 +90,11 @@ RATE_LIMIT_HITS = 0
 request_log = defaultdict(list)
 
 # ------------------------------------------------------------
+# JOB STORAGE (temporary in-memory store)
+# ------------------------------------------------------------
+jobs = {}
+
+# ------------------------------------------------------------
 # API KEY AUTH
 # ------------------------------------------------------------
 raw_keys = os.getenv("API_KEYS", "").split(",")
@@ -656,13 +661,35 @@ async def quote_csv_api(file: UploadFile = File(...)):
         unit_price = 0.25
         cost = billable_units * unit_price
 
-        return {
+        job_id = str(uuid.uuid4())
+
+        jobs[job_id] = {
             "rows": rows,
             "billable_units": billable_units,
             "estimated_cost": cost,
-            "tier": "free" if rows <= 5000 else "payg"
+            "status": "awaiting_payment"
+        }
+
+        return {
+            "job_id": job_id,
+            "rows": rows,
+            "billable_units": billable_units,
+            "estimated_cost": cost,
+            "tier": "free" if rows <= 5000 else "payg",
+            "status": "free" if rows <= 5000 else "awaiting_payment"
         }
 
     except Exception as e:
         log_error(str(e))
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+@app.get("/job/{job_id}", tags=["Cleaning"])
+async def get_job(job_id: str):
+    if job_id not in jobs:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "job_not_found"}
+        )
+
+    return jobs[job_id]    
