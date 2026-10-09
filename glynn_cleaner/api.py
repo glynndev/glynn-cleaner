@@ -112,8 +112,6 @@ CREATE TABLE IF NOT EXISTS jobs (
 
 conn.commit()
 
-jobs = {}
-
 # ------------------------------------------------------------
 # API KEY AUTH
 # ------------------------------------------------------------
@@ -683,13 +681,6 @@ async def quote_csv_api(file: UploadFile = File(...)):
 
         job_id = str(uuid.uuid4())
 
-        jobs[job_id] = {
-            "rows": rows,
-            "billable_units": billable_units,
-            "estimated_cost": cost,
-            "status": "awaiting_payment"
-        }
-
         cursor.execute("""
         INSERT INTO jobs (
             job_id,
@@ -727,24 +718,46 @@ async def quote_csv_api(file: UploadFile = File(...)):
 
 @app.get("/job/{job_id}", tags=["Cleaning"])
 async def get_job(job_id: str):
-    if job_id not in jobs:
+    cursor.execute("""
+    SELECT rows,
+           billable_units,
+           estimated_cost,
+           status
+    FROM jobs
+    WHERE job_id = ?
+    """, (job_id,))
+
+    row = cursor.fetchone()
+
+    if row is None:
         return JSONResponse(
             status_code=404,
             content={"error": "job_not_found"}
         )
 
-    return jobs[job_id]  
+    return {
+        "rows": row[0],
+        "billable_units": row[1],
+        "estimated_cost": row[2],
+        "status": row[3]
+    }  
 
 
 @app.post("/job/{job_id}/pay", tags=["Cleaning"])
 async def pay_for_job(job_id: str):
-    if job_id not in jobs:
+    cursor.execute("""
+    UPDATE jobs
+    SET status = ?
+    WHERE job_id = ?
+    """, ("paid", job_id))
+
+    conn.commit()
+
+    if cursor.rowcount == 0:
         return JSONResponse(
             status_code=404,
             content={"error": "job_not_found"}
         )
-
-    jobs[job_id]["status"] = "paid"
 
     return {
         "job_id": job_id,
@@ -754,22 +767,33 @@ async def pay_for_job(job_id: str):
 
 @app.post("/job/{job_id}/process", tags=["Cleaning"])
 async def process_job(job_id: str):
-    if job_id not in jobs:
+    cursor.execute("""
+    SELECT status
+    FROM jobs
+    WHERE job_id = ?
+    """, (job_id,))
+
+    row = cursor.fetchone()
+
+    if row is None:
         return JSONResponse(
             status_code=404,
             content={"error": "job_not_found"}
         )
 
-    if jobs[job_id]["status"] != "paid":
+    if row[0] != "paid":
         return JSONResponse(
             status_code=400,
             content={"error": "job_not_paid"}
         )
 
-    jobs[job_id]["status"] = "processing"
+    cursor.execute("""
+    UPDATE jobs
+    SET status = ?
+    WHERE job_id = ?
+    """, ("completed", job_id))
 
-    # Temporary simulation of processing
-    jobs[job_id]["status"] = "completed"
+    conn.commit()
 
     return {
         "job_id": job_id,
