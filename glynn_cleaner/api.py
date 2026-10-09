@@ -709,3 +709,28 @@ async def pay_for_job(job_id: str):
         "job_id": job_id,
         "status": "paid"
     }  
+
+
+@app.post("/job/{job_id}/process", tags=["Cleaning"])
+async def process_job(job_id: str):
+    if job_id not in jobs:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "job_not_found"}
+        )
+
+    if jobs[job_id]["status"] != "paid":
+        return JSONResponse(
+            status_code=400,
+            content={"error": "job_not_paid"}
+        )
+
+    jobs[job_id]["status"] = "processing"
+
+    # Temporary simulation of processing
+    jobs[job_id]["status"] = "completed"
+
+    return {
+        "job_id": job_id,
+        "status": "completed"
+    }
