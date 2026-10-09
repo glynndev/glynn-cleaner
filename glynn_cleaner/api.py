@@ -692,4 +692,20 @@ async def get_job(job_id: str):
             content={"error": "job_not_found"}
         )
 
-    return jobs[job_id]    
+    return jobs[job_id]  
+
+
+@app.post("/job/{job_id}/pay", tags=["Cleaning"])
+async def pay_for_job(job_id: str):
+    if job_id not in jobs:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "job_not_found"}
+        )
+
+    jobs[job_id]["status"] = "paid"
+
+    return {
+        "job_id": job_id,
+        "status": "paid"
+    }  
