@@ -9,6 +9,7 @@ import json
 import uuid
 import logging
 import time
+import sqlite3
 from collections import defaultdict
 
 from glynn_cleaner import __version__
@@ -89,9 +90,28 @@ TOTAL_REQUESTS = 0
 RATE_LIMIT_HITS = 0
 request_log = defaultdict(list)
 
+
 # ------------------------------------------------------------
-# JOB STORAGE (temporary in-memory store)
+# SQLITE DATABASE
 # ------------------------------------------------------------
+DB_PATH = "glynn_cleaner.db"
+
+conn = sqlite3.connect(DB_PATH, check_same_thread=False)
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS jobs (
+    job_id TEXT PRIMARY KEY,
+    rows INTEGER,
+    billable_units INTEGER,
+    estimated_cost REAL,
+    status TEXT,
+    created_at TEXT
+)
+""")
+
+conn.commit()
+
 jobs = {}
 
 # ------------------------------------------------------------
@@ -669,6 +689,27 @@ async def quote_csv_api(file: UploadFile = File(...)):
             "estimated_cost": cost,
             "status": "awaiting_payment"
         }
+
+        cursor.execute("""
+        INSERT INTO jobs (
+            job_id,
+            rows,
+            billable_units,
+            estimated_cost,
+            status,
+            created_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+        """, (
+            job_id,
+            rows,
+            billable_units,
+            cost,
+            "awaiting_payment",
+            datetime.utcnow().isoformat()
+        ))
+
+        conn.commit()
 
         return {
             "job_id": job_id,
