@@ -28,3 +28,11 @@ Thumbs.db
 
 # Databases
 *.db
+
+# Customer uploads
+input/*.csv
+
+# Generated outputs
+output/*.csv
+output/*_summary.csv
+output/*_report.txt

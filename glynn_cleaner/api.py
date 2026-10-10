@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Form, Header, HTTPException, Depends
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import pandas as pd
@@ -111,6 +111,25 @@ CREATE TABLE IF NOT EXISTS jobs (
 """)
 
 conn.commit()
+
+try:
+    cursor.execute("""
+    ALTER TABLE jobs
+    ADD COLUMN output_file TEXT
+    """)
+    conn.commit()
+except sqlite3.OperationalError:
+    pass
+
+try:
+    cursor.execute("""
+    ALTER TABLE jobs
+    ADD COLUMN input_file TEXT
+    """)
+    conn.commit()
+except sqlite3.OperationalError:
+    pass
+
 
 # ------------------------------------------------------------
 # API KEY AUTH
@@ -681,6 +700,11 @@ async def quote_csv_api(file: UploadFile = File(...)):
 
         job_id = str(uuid.uuid4())
 
+        input_file = f"input/{job_id}.csv"
+
+        with open(input_file, "wb") as f:
+            f.write(contents)
+
         cursor.execute("""
         INSERT INTO jobs (
             job_id,
@@ -688,16 +712,18 @@ async def quote_csv_api(file: UploadFile = File(...)):
             billable_units,
             estimated_cost,
             status,
-            created_at
+            created_at,
+            input_file
         )
-        VALUES (?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (
             job_id,
             rows,
             billable_units,
             cost,
             "awaiting_payment",
-            datetime.utcnow().isoformat()
+            datetime.utcnow().isoformat(),
+            input_file
         ))
 
         conn.commit()
@@ -768,7 +794,7 @@ async def pay_for_job(job_id: str):
 @app.post("/job/{job_id}/process", tags=["Cleaning"])
 async def process_job(job_id: str):
     cursor.execute("""
-    SELECT status
+    SELECT status, input_file
     FROM jobs
     WHERE job_id = ?
     """, (job_id,))
@@ -787,11 +813,27 @@ async def process_job(job_id: str):
             content={"error": "job_not_paid"}
         )
 
+    input_file = row[1]
+
+    output_file = f"output/{job_id}.csv"
+
+    clean_data(
+        input_path=input_file,
+        output_path=output_file,
+        mode="simple",
+        strictness="lenient"
+    )
+
     cursor.execute("""
     UPDATE jobs
-    SET status = ?
+    SET status = ?,
+        output_file = ?
     WHERE job_id = ?
-    """, ("completed", job_id))
+    """, (
+        "completed",
+        output_file,
+        job_id
+    ))
 
     conn.commit()
 
@@ -799,3 +841,40 @@ async def process_job(job_id: str):
         "job_id": job_id,
         "status": "completed"
     }
+
+@app.get("/job/{job_id}/download", tags=["Cleaning"])
+async def download_job(job_id: str):
+
+    cursor.execute("""
+    SELECT output_file
+    FROM jobs
+    WHERE job_id = ?
+    """, (job_id,))
+
+    row = cursor.fetchone()
+
+    if row is None:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "job_not_found"}
+        )
+
+    output_file = row[0]
+
+    if not output_file:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "job_not_processed"}
+        )
+
+    if not os.path.exists(output_file):
+        return JSONResponse(
+            status_code=404,
+            content={"error": "output_file_missing"}
+        )
+
+    return FileResponse(
+        output_file,
+        filename=os.path.basename(output_file),
+        media_type="text/csv"
+    )
