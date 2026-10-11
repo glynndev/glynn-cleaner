@@ -10,6 +10,7 @@ import uuid
 import logging
 import time
 import sqlite3
+import stripe
 from collections import defaultdict
 
 from glynn_cleaner import __version__
@@ -95,6 +96,8 @@ request_log = defaultdict(list)
 # SQLITE DATABASE
 # ------------------------------------------------------------
 DB_PATH = "glynn_cleaner.db"
+
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cursor = conn.cursor()
@@ -789,6 +792,54 @@ async def pay_for_job(job_id: str):
         "job_id": job_id,
         "status": "paid"
     }  
+
+@app.post("/job/{job_id}/checkout", tags=["Payments"])
+async def create_checkout_session(job_id: str):
+
+    cursor.execute("""
+    SELECT estimated_cost, status
+    FROM jobs
+    WHERE job_id = ?
+    """, (job_id,))
+
+    row = cursor.fetchone()
+
+    if row is None:
+        return JSONResponse(
+            status_code=404,
+            content={"error": "job_not_found"}
+        )
+
+    amount = row[0]
+    status = row[1]
+
+    if status != "awaiting_payment":
+        return JSONResponse(
+            status_code=400,
+            content={"error": "job_not_awaiting_payment"}
+        )
+
+    session = stripe.checkout.Session.create(
+        mode="payment",
+        line_items=[
+            {
+                "price_data": {
+                    "currency": "gbp",
+                    "product_data": {
+                        "name": f"CSV Cleaning Job {job_id}"
+                    },
+                    "unit_amount": int(amount * 100)
+                },
+                "quantity": 1
+            }
+        ],
+        success_url="http://127.0.0.1:8000/docs",
+        cancel_url="http://127.0.0.1:8000/docs"
+    )
+
+    return {
+        "checkout_url": session.url
+    }
 
 
 @app.post("/job/{job_id}/process", tags=["Cleaning"])
