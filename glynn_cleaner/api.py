@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, Form, Header, HTTPException, Depends
+from fastapi import FastAPI, UploadFile, File, Form, Header, HTTPException, Depends, Request
 from fastapi.responses import JSONResponse, StreamingResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
@@ -821,6 +821,11 @@ async def create_checkout_session(job_id: str):
 
     session = stripe.checkout.Session.create(
         mode="payment",
+
+        metadata={
+            "job_id": job_id
+        },
+
         line_items=[
             {
                 "price_data": {
@@ -840,6 +845,34 @@ async def create_checkout_session(job_id: str):
     return {
         "checkout_url": session.url
     }
+
+@app.post("/stripe/webhook", tags=["Payments"])
+async def stripe_webhook(request: Request):
+
+    payload = await request.json()
+
+    event = stripe.Event.construct_from(
+        payload,
+        stripe.api_key
+    )
+
+    if event["type"] == "checkout.session.completed":
+
+        session = event["data"]["object"]
+
+        job_id = session["metadata"]["job_id"]
+
+        cursor.execute("""
+        UPDATE jobs
+        SET status = ?
+        WHERE job_id = ?
+        """, ("paid", job_id))
+
+        conn.commit()
+
+        print(f"Payment confirmed for job {job_id}")
+
+    return {"received": True}
 
 
 @app.post("/job/{job_id}/process", tags=["Cleaning"])
