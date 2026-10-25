@@ -13,7 +13,33 @@
 
     <form action="/quote" method="post" enctype="multipart/form-data">
 
-        <input type="file" name="file" required>
+        <p>
+            <input type="file" name="file" required>
+        </p>
+
+        <h3>Cleaning Mode</h3>
+
+        <p>
+            <input type="radio" id="simple" name="mode" value="simple" checked>
+            <label for="simple">Simple</label>
+        </p>
+
+        <p>
+            <input type="radio" id="audit" name="mode" value="audit">
+            <label for="audit">Audit</label>
+        </p>
+
+        <h3>Validation Strictness</h3>
+
+        <p>
+            <input type="radio" id="strict" name="strictness" value="strict" checked>
+            <label for="strict">Strict</label>
+        </p>
+
+        <p>
+            <input type="radio" id="lenient" name="strictness" value="lenient">
+            <label for="lenient">Lenient</label>
+        </p>
 
         <button type="submit">
             Get Quote

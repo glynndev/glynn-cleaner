@@ -112,6 +112,8 @@ CREATE TABLE IF NOT EXISTS jobs (
     job_id TEXT PRIMARY KEY,
     rows INTEGER,
     billable_units INTEGER,
+    mode TEXT,
+    strictness TEXT,
     estimated_cost REAL,
     status TEXT,
     created_at TEXT
@@ -706,7 +708,9 @@ import csv
 @app.post("/quote", tags=["Cleaning"])
 async def quote_csv_api(
     request: Request,
-    file: UploadFile = File(...)
+    file: UploadFile = File(...),
+    mode: str = Form("simple"),
+    strictness: str = Form("strict")
 ):
     try:
         contents = await file.read()
@@ -731,16 +735,20 @@ async def quote_csv_api(
             job_id,
             rows,
             billable_units,
+            mode,
+            strictness,
             estimated_cost,
             status,
             created_at,
             input_file
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             job_id,
             rows,
             billable_units,
+            mode,
+            strictness,
             cost,
             "awaiting_payment",
             datetime.utcnow().isoformat(),
@@ -757,6 +765,8 @@ async def quote_csv_api(
                 "job_id": job_id,
                 "rows": rows,
                 "billable_units": billable_units,
+                "mode": mode,
+                "strictness": strictness,
                 "estimated_cost": cost,
                 "tier": "free" if rows <= 5000 else "payg",
                 "status": "free" if rows <= 5000 else "awaiting_payment"
@@ -915,7 +925,7 @@ async def stripe_webhook(request: Request):
 @app.post("/job/{job_id}/process", tags=["Cleaning"])
 async def process_job(job_id: str):
     cursor.execute("""
-    SELECT status, input_file
+    SELECT status, input_file, mode, strictness
     FROM jobs
     WHERE job_id = ?
     """, (job_id,))
@@ -935,14 +945,16 @@ async def process_job(job_id: str):
         )
 
     input_file = row[1]
+    mode = row[2]
+    strictness = row[3]
 
     output_file = f"output/{job_id}.csv"
 
     clean_data(
         input_path=input_file,
         output_path=output_file,
-        mode="simple",
-        strictness="lenient"
+        mode=mode,
+        strictness=strictness
     )
 
     cursor.execute("""
