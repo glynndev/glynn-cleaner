@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Form, Header, HTTPException, Depends, Request
-from fastapi.responses import JSONResponse, StreamingResponse, FileResponse
+from fastapi.responses import JSONResponse, StreamingResponse, FileResponse, HTMLResponse, RedirectResponse
+from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import pandas as pd
@@ -100,6 +101,8 @@ DB_PATH = "glynn_cleaner.db"
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
+
+templates = Jinja2Templates(directory="templates")
 
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cursor = conn.cursor()
@@ -333,7 +336,7 @@ async def attach_request_id(request, call_next):
 def health():
     return StatusResponse(status="ok")
 
-@app.get("/", response_model=StatusResponse, tags=["System"])
+@app.get("/api", response_model=StatusResponse, tags=["System"])
 def root():
     return StatusResponse(status="ok", version=__version__, message="Glynn Cleaner API is running")
 
@@ -347,6 +350,16 @@ def metrics():
         "rate_limit_hits": RATE_LIMIT_HITS,
         "active_api_keys": len(API_KEYS)
     }
+
+
+@app.get("/", response_class=HTMLResponse, tags=["Frontend"])
+async def homepage(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "index.html",
+        {"request": request}
+    )
+
 
 # ------------------------------------------------------------
 # CLEAN ENDPOINT (CSV DOWNLOAD WORKING)
@@ -691,7 +704,10 @@ from io import StringIO
 import csv
 
 @app.post("/quote", tags=["Cleaning"])
-async def quote_csv_api(file: UploadFile = File(...)):
+async def quote_csv_api(
+    request: Request,
+    file: UploadFile = File(...)
+):
     try:
         contents = await file.read()
         text = contents.decode("utf-8", errors="ignore")
@@ -733,14 +749,19 @@ async def quote_csv_api(file: UploadFile = File(...)):
 
         conn.commit()
 
-        return {
-            "job_id": job_id,
-            "rows": rows,
-            "billable_units": billable_units,
-            "estimated_cost": cost,
-            "tier": "free" if rows <= 5000 else "payg",
-            "status": "free" if rows <= 5000 else "awaiting_payment"
-        }
+        return templates.TemplateResponse(
+            request,
+            "quote.html",
+            {
+                "request": request,
+                "job_id": job_id,
+                "rows": rows,
+                "billable_units": billable_units,
+                "estimated_cost": cost,
+                "tier": "free" if rows <= 5000 else "payg",
+                "status": "free" if rows <= 5000 else "awaiting_payment"
+            }
+        )
 
     except Exception as e:
         log_error(str(e))
@@ -840,13 +861,14 @@ async def create_checkout_session(job_id: str):
                 "quantity": 1
             }
         ],
-        success_url="http://127.0.0.1:8000/docs",
-        cancel_url="http://127.0.0.1:8000/docs"
+        success_url="http://127.0.0.1:8000/payment-success",
+        cancel_url="http://127.0.0.1:8000/payment-cancelled"
     )
 
-    return {
-        "checkout_url": session.url
-    }
+    return RedirectResponse(
+    url=session.url,
+    status_code=303
+    )
 
 @app.post("/stripe/webhook", tags=["Payments"])
 async def stripe_webhook(request: Request):
@@ -977,3 +999,14 @@ async def download_job(job_id: str):
         filename=os.path.basename(output_file),
         media_type="text/csv"
     )
+
+@app.get("/payment-success", response_class=HTMLResponse)
+async def payment_success():
+    with open("templates/payment_success.html", "r", encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
+
+
+@app.get("/payment-cancelled", response_class=HTMLResponse)
+async def payment_cancelled():
+    with open("templates/payment_cancelled.html", "r", encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Generated</title>
+</head>
+<body>
+
+    <h1>Quote Generated</h1>
+
+    <p><strong>Job ID:</strong> {{ job_id }}</p>
+
+    <p><strong>Rows:</strong> {{ rows }}</p>
+
+    <p><strong>Billable Units:</strong> {{ billable_units }}</p>
+
+    <p><strong>Estimated Cost:</strong> £{{ "{:.2f}".format(estimated_cost) }}</p>
+
+    <p><strong>Tier:</strong> {{ tier }}</p>
+
+    <p><strong>Status:</strong> {{ status }}</p>
+
+    <form action="/job/{{ job_id }}/checkout" method="post">
+
+    <button type="submit">
+        Proceed To Payment
+    </button>
+
+    </form>
+
+</body>
+</html>
