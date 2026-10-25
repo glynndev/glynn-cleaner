@@ -99,6 +99,8 @@ DB_PATH = "glynn_cleaner.db"
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
+WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
+
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cursor = conn.cursor()
 
@@ -849,12 +851,26 @@ async def create_checkout_session(job_id: str):
 @app.post("/stripe/webhook", tags=["Payments"])
 async def stripe_webhook(request: Request):
 
-    payload = await request.json()
+    payload = await request.body()
 
-    event = stripe.Event.construct_from(
-        payload,
-        stripe.api_key
-    )
+    sig_header = request.headers.get("stripe-signature")
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload,
+            sig_header,
+            WEBHOOK_SECRET
+        )
+    except ValueError:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "invalid_payload"}
+        )
+    except stripe.error.SignatureVerificationError:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "invalid_signature"}
+        )
 
     if event["type"] == "checkout.session.completed":
 
@@ -873,7 +889,6 @@ async def stripe_webhook(request: Request):
         print(f"Payment confirmed for job {job_id}")
 
     return {"received": True}
-
 
 @app.post("/job/{job_id}/process", tags=["Cleaning"])
 async def process_job(job_id: str):
