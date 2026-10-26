@@ -871,8 +871,9 @@ async def create_checkout_session(job_id: str):
                 "quantity": 1
             }
         ],
-        success_url="http://127.0.0.1:8000/payment-success",
+        success_url=f"http://127.0.0.1:8000/payment-success?job_id={job_id}",
         cancel_url="http://127.0.0.1:8000/payment-cancelled"
+
     )
 
     return RedirectResponse(
@@ -1012,10 +1013,62 @@ async def download_job(job_id: str):
         media_type="text/csv"
     )
 
-@app.get("/payment-success", response_class=HTMLResponse)
-async def payment_success():
-    with open("templates/payment_success.html", "r", encoding="utf-8") as f:
-        return HTMLResponse(content=f.read())
+@app.get("/payment-success")
+async def payment_success(
+    request: Request,
+    job_id: str
+):
+
+    cursor.execute("""
+    SELECT mode, strictness
+    FROM jobs
+    WHERE job_id = ?
+    """, (job_id,))
+
+    row = cursor.fetchone()
+
+    if row is None:
+        return HTMLResponse(
+            content="Job not found",
+            status_code=404
+        )
+
+    return templates.TemplateResponse(
+        request,
+        "payment_success.html",
+        {
+            "request": request,
+            "job_id": job_id,
+            "mode": row[0],
+            "strictness": row[1]
+        }
+    )
+
+
+@app.post("/process/{job_id}")
+async def process_and_redirect(job_id: str):
+
+    await process_job(job_id)
+
+    return RedirectResponse(
+        url=f"/processing-complete?job_id={job_id}",
+        status_code=303
+    )
+
+@app.get("/processing-complete")
+async def processing_complete(
+    request: Request,
+    job_id: str
+):
+
+    return templates.TemplateResponse(
+        request,
+        "processing_complete.html",
+        {
+            "request": request,
+            "job_id": job_id
+        }
+    )
 
 
 @app.get("/payment-cancelled", response_class=HTMLResponse)

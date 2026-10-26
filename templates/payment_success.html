@@ -11,9 +11,19 @@
 
     <p>Your CSV cleaning job has been paid for and is ready for processing.</p>
 
-    <button onclick="window.location.href='/'">
-        Return Home
-    </button>
+    <p><strong>Job ID:</strong> {{ job_id }}</p>
+
+    <p><strong>Cleaning Mode:</strong> {{ mode }}</p>
+
+    <p><strong>Validation Strictness:</strong> {{ strictness }}</p>
+
+    <form action="/process/{{ job_id }}" method="post">
+
+        <button type="submit">
+            Process My File
+        </button>
+
+    </form>
 
 </body>
 </html>
