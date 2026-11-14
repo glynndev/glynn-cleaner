@@ -5,6 +5,7 @@ __pycache__/
 # Virtual environment
 venv/
 .venv/
+.env.*
 
 # Build output
 dist/
@@ -36,3 +37,8 @@ input/*.csv
 output/*.csv
 output/*_summary.csv
 output/*_report.txt
+
+# Test/generated files
+test_dataset.csv
+output/
+
