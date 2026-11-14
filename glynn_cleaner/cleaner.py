@@ -96,18 +96,14 @@ def clean_email_audit(email: str) -> dict:
 
     original = email.strip()
     valid = is_valid_email(original)
-    suggested = suggest_email_fix(original)
 
-    if valid:
-        cleaned = original
-    elif suggested:
-        cleaned = suggested
-    else:
-        cleaned = ""
+    suggested = ""
+
+    if not valid:
+        suggested = suggest_email_fix(original)
 
     return {
         "original": original,
-        "cleaned": cleaned,
         "valid": valid,
         "suggested_fix": suggested or ""
     }
@@ -245,7 +241,6 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
     else:
         audit_results = df["email"].apply(clean_email_audit)
         df["email_original"] = audit_results.apply(lambda x: x["original"])
-        df["email_cleaned"] = audit_results.apply(lambda x: x["cleaned"])
         df["email_valid"] = audit_results.apply(lambda x: x["valid"])
         df["email_suggested_fix"] = audit_results.apply(lambda x: x["suggested_fix"])
 

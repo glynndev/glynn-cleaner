@@ -24,7 +24,6 @@ def test_audit_mode_pipeline(tmp_path):
     # 2. Check that audit columns exist (matching your actual output)
     expected_audit_cols = [
         "email_original",
-        "email_cleaned",
         "email_valid",
         "email_suggested_fix",
         "date_of_birth_raw",
@@ -45,9 +44,8 @@ def test_audit_mode_pipeline(tmp_path):
     # 5. date_of_birth_valid must be True/False
     assert df["date_of_birth_valid"].isin([True, False]).all()
 
-    # 6. email_original and email_cleaned must be strings
+    # 6. email_original must be strings
     assert df["email_original"].apply(lambda x: isinstance(x, str)).all()
-    assert df["email_cleaned"].apply(lambda x: (isinstance(x, str) or pd.isna(x))).all()
 
     # 7. date_of_birth_raw must be a string
     assert df["date_of_birth_raw"].apply(lambda x: (isinstance(x, str) or pd.isna(x))).all()

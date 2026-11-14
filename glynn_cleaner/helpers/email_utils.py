@@ -168,15 +168,19 @@ def suggest_email_fix(email: str) -> str:
     local, domain = email.split("@", 1)
     if not local or not domain:
         return ""
+
+    if domain.lower() in COMMON_PROVIDER_DOMAINS:
+        return f"{local}@{COMMON_PROVIDER_DOMAINS[domain.lower()]}"
+
     if domain.lower() in load_disposable_domains():
         return ""
+
     if local.lower() in ROLE_BASED_PREFIXES:
         return ""
+
     if "." not in domain:
         if domain.lower() in COMMON_PROVIDER_DOMAINS:
             return f"{local}@{COMMON_PROVIDER_DOMAINS[domain.lower()]}"
-    if domain.lower() in COMMON_PROVIDER_DOMAINS:
-        return f"{local}@{COMMON_PROVIDER_DOMAINS[domain.lower()]}"
     return ""
 
 
