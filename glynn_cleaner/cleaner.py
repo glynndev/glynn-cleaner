@@ -265,6 +265,7 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
     log_info(f"Invalid dates detected: {invalid_date_count}")
     df = format_date_column(df)
 
+
     # Step 8 — Strict mode filtering
     removed_invalid_emails = 0
     removed_invalid_dates = 0
@@ -317,17 +318,23 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
 
     before = len(df)
 
-    df = (
-        df
-        .groupby(dedupe_keys, dropna=False, as_index=False)
-        .agg({
-            "name": "first",
-            "notes": merge_notes
-        })
-    )
+    if mode == "simple":
+
+        df = (
+            df
+            .groupby(dedupe_keys, dropna=False, as_index=False)
+            .agg({
+                "name": "first",
+                "notes": merge_notes
+            })
+        )
+
+    else:
+        log_info("Audit mode selected — skipping identity merge")
 
     removed_dupes = before - len(df)
     log_info(f"Duplicates removed (identity merge): {removed_dupes}")
+
 
     final_count = len(df)
 
