@@ -12,19 +12,13 @@ license = { file = "LICENSE" }
 authors = [{ name = "Glynn Holland" }]
 dependencies = ["pandas>=2.0"]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0"
+]
+
 [project.scripts]
 glynn-cleaner = "glynn_cleaner.cleaner:clean_data_cli"
 
 [tool.setuptools.packages.find]
 include = ["glynn_cleaner*"]
-
-
-
-
-
-
-
-
-
-
-
