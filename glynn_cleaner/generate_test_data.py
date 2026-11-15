@@ -356,6 +356,34 @@ rows.append({
 })
 
 # --------------------------------------------------
+# Group 15 - Strict mode behaviour
+# --------------------------------------------------
+
+# Invalid email - should survive lenient, be removed in strict
+rows.append({
+    "name": "Strict Invalid Email",
+    "email": "not-an-email",
+    "date_of_birth": "1980-01-01",
+    "notes": "Strict email test"
+})
+
+# Ambiguous DOB - should survive lenient, be removed in strict
+rows.append({
+    "name": "Strict Ambiguous DOB",
+    "email": "strictdob@example.com",
+    "date_of_birth": "03/11/1985",
+    "notes": "Strict DOB test"
+})
+
+# Valid control record - should survive both
+rows.append({
+    "name": "Strict Control Record",
+    "email": "strictcontrol@example.com",
+    "date_of_birth": "1985-11-03",
+    "notes": "Control record"
+})
+
+# --------------------------------------------------
 # Save CSV
 # --------------------------------------------------
 

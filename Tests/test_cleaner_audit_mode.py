@@ -174,3 +174,58 @@ def test_email_edge_cases(tmp_path):
         df["email"] == "john@example.technology"
     ).any()
 
+def test_strict_mode_filtering(tmp_path):
+    input_file = Path("input/test_dataset.csv")
+
+    lenient_output = tmp_path / "lenient.csv"
+    strict_output = tmp_path / "strict.csv"
+
+    clean_data(
+        input_path=str(input_file),
+        output_path=str(lenient_output),
+        mode="simple",
+        strictness="lenient",
+        dry_run=False,
+        summary_only=False,
+    )
+
+    clean_data(
+        input_path=str(input_file),
+        output_path=str(strict_output),
+        mode="simple",
+        strictness="strict",
+        dry_run=False,
+        summary_only=False,
+    )
+
+    lenient_df = pd.read_csv(lenient_output)
+    strict_df = pd.read_csv(strict_output)
+
+    # Control record survives both modes
+    assert (
+        lenient_df["name"] == "Strict Control Record"
+    ).any()
+
+    assert (
+        strict_df["name"] == "Strict Control Record"
+    ).any()
+
+    # Invalid email survives lenient mode
+    assert (
+        lenient_df["name"] == "Strict Invalid Email"
+    ).any()
+
+    # Invalid email removed in strict mode
+    assert not (
+        strict_df["name"] == "Strict Invalid Email"
+    ).any()
+
+    # UK-format date survives lenient mode
+    assert (
+        lenient_df["name"] == "Strict Ambiguous Dob"
+    ).any()
+
+    # UK-format date also survives strict mode
+    assert (
+        strict_df["name"] == "Strict Ambiguous Dob"
+    ).any()
