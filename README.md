@@ -224,20 +224,30 @@ Audit Mode adds additional review fields, including:
 
 ---
 
-### ⚠️ Ambiguous Dates in Strict Mode
+### 📅 Date Parsing and UK Date Formats
 
-Strict mode removes dates that cannot be interpreted unambiguously. Formats such as `12/05/1990` or `03/11/1985` may be valid, but they can represent different dates depending on whether the source uses **DD/MM/YYYY** or **MM/DD/YYYY**. Because the cleaner cannot reliably determine the intended format, these dates are treated as invalid in strict mode and the entire row is removed.
+glynn-cleaner assumes UK-style date formats (DD/MM/YYYY) when parsing slash-separated dates.
 
-Examples of ambiguous formats:
-- `12/05/1990`  
-- `03/11/1985`  
+Examples:
 
-Examples of unambiguous formats (always accepted):
-- `1992.07.14`  
-- `14 08 1993`  
-- `1990-05-12`  
+- `03/11/1985` → `1985-11-03`
+- `12/05/1990` → `1990-05-12`
 
-If you want to keep ambiguous dates, use **lenient mode**, which preserves all rows and leaves date interpretation to the user or downstream tools.
+Recognised dates are normalised to ISO format (`YYYY-MM-DD`) wherever possible.
+
+Examples of accepted formats:
+
+- `03/11/1985`
+- `12/05/1990`
+- `1992.07.14`
+- `14 08 1993`
+- `1990-05-12`
+
+Dates that cannot be parsed reliably are marked as invalid.
+
+In lenient mode, records with invalid dates are retained and flagged.
+
+In strict mode, records with invalid dates are removed.
 
 ---
 
@@ -498,17 +508,20 @@ This allows you to choose between **maximum retention** (lenient) and **maximum 
 
 ### Why are some dates treated as invalid even though they look reasonable?
 
-See Ambiguous Dates in Strict Mode above for the full explanation.
+glynn-cleaner uses UK date conventions (DD/MM/YYYY) when parsing slash-separated dates.
 
-Some date formats are ambiguous.
+For example:
 
-For example, `12/05/1990` could mean:
-- 12 May 1990 (DD/MM), or
-- 5 December 1990 (MM/DD).
+- `03/11/1985` → 3 November 1985
+- `12/05/1990` → 12 May 1990
 
-Because the cleaner cannot reliably infer the intended format, such dates are treated as **ambiguous** and removed in strict mode.
+Recognised dates are normalised into ISO format (`YYYY-MM-DD`) for consistency.
 
-Unambiguous formats such as `1992.07.14`, `1990-05-12`, or `14 08 1993` are always accepted.
+Dates that cannot be parsed reliably are treated as invalid.
+
+In lenient mode, records with invalid dates are retained and flagged.
+
+In strict mode, records with invalid dates are removed.
 
 ---
 
