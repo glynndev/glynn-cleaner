@@ -215,6 +215,147 @@ rows.append({
 })
 
 # --------------------------------------------------
+# Group 10 - Near duplicates (should NOT merge)
+# --------------------------------------------------
+
+# Same email, different DOB
+rows.append({
+    "name": "Near Duplicate Email A",
+    "email": "neardupe@example.com",
+    "date_of_birth": "1980-01-01",
+    "notes": "Same email first DOB"
+})
+
+rows.append({
+    "name": "Near Duplicate Email B",
+    "email": "neardupe@example.com",
+    "date_of_birth": "1981-01-01",
+    "notes": "Same email second DOB"
+})
+
+# Same DOB, different email
+rows.append({
+    "name": "Near Duplicate DOB A",
+    "email": "doba@example.com",
+    "date_of_birth": "1990-06-15",
+    "notes": "Same DOB first email"
+})
+
+rows.append({
+    "name": "Near Duplicate DOB B",
+    "email": "dobb@example.com",
+    "date_of_birth": "1990-06-15",
+    "notes": "Same DOB second email"
+})
+
+# --------------------------------------------------
+# Group 11 - Notes preservation (should merge safely)
+# --------------------------------------------------
+
+# Duplicate notes should not be repeated
+rows.append({
+    "name": "Duplicate Notes A",
+    "email": "duplicatenotes@example.com",
+    "date_of_birth": "1979-04-01",
+    "notes": "Training required"
+})
+
+rows.append({
+    "name": "Duplicate Notes B",
+    "email": "duplicatenotes@example.com",
+    "date_of_birth": "1979-04-01",
+    "notes": "Training required"
+})
+
+# Blank note should not overwrite populated note
+rows.append({
+    "name": "Blank Note A",
+    "email": "blanknote@example.com",
+    "date_of_birth": "1982-08-15",
+    "notes": ""
+})
+
+rows.append({
+    "name": "Blank Note B",
+    "email": "blanknote@example.com",
+    "date_of_birth": "1982-08-15",
+    "notes": "DBS completed"
+})
+
+# Distinct notes should be merged
+rows.append({
+    "name": "Merged Notes A",
+    "email": "mergednotes@example.com",
+    "date_of_birth": "1988-11-20",
+    "notes": "Training required"
+})
+
+rows.append({
+    "name": "Merged Notes B",
+    "email": "mergednotes@example.com",
+    "date_of_birth": "1988-11-20",
+    "notes": "DBS completed"
+})
+
+# --------------------------------------------------
+# Group 13 - Email edge cases
+# --------------------------------------------------
+
+# Mixed case emails
+rows.append({
+    "name": "Mixed Case Email A",
+    "email": "JOHN@GMAIL.COM",
+    "date_of_birth": "1980-01-01",
+    "notes": "Upper case email"
+})
+
+rows.append({
+    "name": "Mixed Case Email B",
+    "email": "John@Gmail.Com",
+    "date_of_birth": "1980-01-01",
+    "notes": "Mixed case email"
+})
+
+rows.append({
+    "name": "Mixed Case Email C",
+    "email": "john@gmail.com",
+    "date_of_birth": "1980-01-01",
+    "notes": "Lower case email"
+})
+
+# Plus addressing
+rows.append({
+    "name": "Plus Address Email",
+    "email": "john+newsletter@gmail.com",
+    "date_of_birth": "1985-05-05",
+    "notes": "Plus address"
+})
+
+# Dots in local part
+rows.append({
+    "name": "Dotted Email",
+    "email": "john.smith@gmail.com",
+    "date_of_birth": "1986-06-06",
+    "notes": "Dotted local part"
+})
+
+# Subdomain email
+rows.append({
+    "name": "Subdomain Email",
+    "email": "john@hr.company.com",
+    "date_of_birth": "1987-07-07",
+    "notes": "Subdomain address"
+})
+
+# Long TLD
+rows.append({
+    "name": "Long TLD Email",
+    "email": "john@example.technology",
+    "date_of_birth": "1988-08-08",
+    "notes": "Long TLD"
+})
+
+# --------------------------------------------------
 # Save CSV
 # --------------------------------------------------
 

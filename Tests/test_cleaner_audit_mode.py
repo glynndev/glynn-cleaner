@@ -84,3 +84,93 @@ def test_validation_aware_deduplication(tmp_path):
     ]
     assert len(invalid_email_dupes) == 2
 
+def test_note_merging_behaviour(tmp_path):
+    input_file = Path("input/test_dataset.csv")
+    output_file = tmp_path / "notes_test.csv"
+
+    clean_data(
+        input_path=str(input_file),
+        output_path=str(output_file),
+        mode="simple",
+        strictness="lenient",
+        dry_run=False,
+        summary_only=False,
+    )
+
+    df = pd.read_csv(output_file)
+
+    duplicate_notes = df[
+        df["email"] == "duplicatenotes@example.com"
+    ].iloc[0]
+
+    assert duplicate_notes["notes"] == "Training required"
+
+    blank_note = df[
+        df["email"] == "blanknote@example.com"
+    ].iloc[0]
+
+    assert blank_note["notes"] == "DBS completed"
+
+    merged_notes = df[
+        df["email"] == "mergednotes@example.com"
+    ].iloc[0]
+
+    assert merged_notes["notes"] == "DBS completed; Training required"
+
+def test_email_edge_cases(tmp_path):
+    input_file = Path("input/test_dataset.csv")
+    output_file = tmp_path / "email_test.csv"
+
+    clean_data(
+        input_path=str(input_file),
+        output_path=str(output_file),
+        mode="simple",
+        strictness="lenient",
+        dry_run=False,
+        summary_only=False,
+    )
+
+    df = pd.read_csv(output_file)
+
+    # Mixed-case emails should merge
+    mixed_case = df[
+        df["notes"].str.contains(
+            "Upper case email",
+            na=False
+        )
+    ]
+
+    assert len(mixed_case) == 1
+
+    notes = mixed_case.iloc[0]["notes"]
+
+    assert "Upper case email" in notes
+    assert "Mixed case email" in notes
+    assert "Lower case email" in notes
+
+    notes = mixed_case.iloc[0]["notes"]
+
+    assert "Upper case email" in notes
+    assert "Mixed case email" in notes
+    assert "Lower case email" in notes
+
+    # Plus addressing should be preserved
+    assert (
+        df["email"] == "john+newsletter@gmail.com"
+    ).any()
+
+    # Dotted local part should be preserved
+    assert (
+        df["email"] == "john.smith@gmail.com"
+    ).any()
+
+    # Subdomains should be valid
+    assert (
+        df["email"] == "john@hr.company.com"
+    ).any()
+
+    # Long TLDs should be valid
+    assert (
+        df["email"] == "john@example.technology"
+    ).any()
+
