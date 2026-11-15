@@ -74,7 +74,9 @@ This generates:
 ---
 
 ### 3. Run the cleaner in Audit Mode
-Audit mode provides detailed reporting, validation flags, suggested corrections, and Excel‑safe outputs
+Audit mode provides detailed reporting, validation flags, suggested corrections, and audit-friendly outputs designed for investigation and review.
+
+Audit mode preserves all non-junk records and does not perform identity deduplication.
 
     glynn-cleaner --input input/sample.csv --output output/cleaned.csv --mode audit
 
@@ -125,9 +127,7 @@ The cleaner processes your CSV through a structured, multi‑stage pipeline desi
 6. **Validate emails** — Checks email format and flags invalid entries (strict mode removes them).  
 7. **Parse dates of birth** — Converts valid dates into a consistent format and flags invalid ones.  
 8. **Apply strict filtering rules** — Removes rows with invalid or missing critical fields when strict mode is enabled.  
-9. **Resolve duplicate identities** — Collapses records that refer to the same person using an identity
-   key (email + date of birth). When multiple records match, they are merged into a single row and
-   notes are combined deterministically.  
+9. **Resolve duplicate identities** — In Simple Mode, records are merged only when the email address and date of birth are both valid and match exactly. Matching records are merged into a single row and notes are combined deterministically. Audit Mode does not perform identity deduplication.  
 10. **Save outputs** — Writes the cleaned CSV, a summary CSV, and a text report to the output directory.
 
 ---
@@ -157,7 +157,16 @@ For deduplication purposes, a *person* is defined using the following identity k
 - **Email address**
 - **Date of birth**
 
-Records are merged **only when both fields match and are valid**.
+Records are merged only when:
+
+- the email address is valid,
+- the date of birth is valid,
+- the email addresses match exactly,
+- the dates of birth match exactly.
+
+If either identity field is invalid, the records are retained separately.
+
+This conservative approach reduces the risk of accidental data loss while still removing high-confidence duplicates.
 
 ### Why not email‑only deduplication?
 
@@ -166,7 +175,7 @@ In real‑world HR data:
 - historical records may contain corrected or conflicting personal details.
 
 To avoid silent data loss, the cleaner **does not assume that one email equals one person**.
-If identity cannot be proven, records are kept separate and fully explained.
+If identity cannot be proven, records are kept separate to minimise the risk of accidental data loss.
 
 ### Notes and Information Preservation
 
@@ -196,6 +205,22 @@ Audit mode is designed to:
 - provide evidence for every decision.
 
 If two records cannot be proven to represent the same individual, both are retained.
+Audit Mode never performs identity deduplication and is intended for investigation, troubleshooting, and compliance-oriented review.
+
+---
+
+### 🔎 Audit Fields
+
+Audit Mode adds additional review fields, including:
+
+| Field | Description |
+|---------|---------|
+| email_original | Original email value from source data |
+| email_valid | Email validation result |
+| email_suggested_fix | Suggested correction where available |
+| date_of_birth_raw | Original date value |
+| date_of_birth_valid | Date validation result |
+
 
 ---
 
@@ -249,7 +274,7 @@ All unrecognised fields are preserved, so no data is lost unless strict mode rem
 ## 🚀 Features
 - Removes blank rows and junk rows  
 - Normalises column names  
-- Cleans and validates email addresses  
+- Cleans, validates, and suggests corrections for common email issues  
 - Detects and standardises date formats  
 - Provides Excel‑safe date suggestions  
 - Capitalises names for professional polish  
@@ -358,6 +383,11 @@ Most analysts and small businesses spend too much time fixing messy CSV files. T
 - README improvements  
 - Added Quick Start, CLI Preview, Roadmap  
 - Repository structure standardised  
+- Audit Mode now preserves all non-junk records and skips identity deduplication
+- Added validation-aware identity deduplication
+- Email suggestion handling improved for common provider typos
+- Added additional automated tests for deduplication behaviour
+- Added generated edge-case test data for regression testing
 
 ### v1.3.0
 - First stable public release
