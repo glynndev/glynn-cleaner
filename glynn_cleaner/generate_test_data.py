@@ -166,6 +166,55 @@ for i, (email, note) in enumerate(typo_emails, start=1):
     })
 
 # --------------------------------------------------
+# Group 9 - Duplicate edge cases
+# --------------------------------------------------
+
+# Should merge
+rows.append({
+    "name": "Valid Duplicate A",
+    "email": "duplicate@example.com",
+    "date_of_birth": "1980-01-01",
+    "notes": "First record"
+})
+
+rows.append({
+    "name": "Valid Duplicate B",
+    "email": "duplicate@example.com",
+    "date_of_birth": "1980-01-01",
+    "notes": "Second record"
+})
+
+# Should NOT merge (invalid DOB)
+rows.append({
+    "name": "Invalid DOB Duplicate A",
+    "email": "invaliddob@example.com",
+    "date_of_birth": "not-a-date",
+    "notes": "First invalid DOB"
+})
+
+rows.append({
+    "name": "Invalid DOB Duplicate B",
+    "email": "invaliddob@example.com",
+    "date_of_birth": "not-a-date",
+    "notes": "Second invalid DOB"
+})
+
+# Should NOT merge (invalid email)
+rows.append({
+    "name": "Invalid Email Duplicate A",
+    "email": "invalidemail",
+    "date_of_birth": "1985-06-01",
+    "notes": "First invalid email"
+})
+
+rows.append({
+    "name": "Invalid Email Duplicate B",
+    "email": "invalidemail",
+    "date_of_birth": "1985-06-01",
+    "notes": "Second invalid email"
+})
+
+# --------------------------------------------------
 # Save CSV
 # --------------------------------------------------
 

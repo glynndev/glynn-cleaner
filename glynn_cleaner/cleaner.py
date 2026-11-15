@@ -315,13 +315,28 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
 
     if mode == "simple":
 
-        df = (
-            df
+        mergeable = df[
+            df["email_valid"] &
+            df["date_of_birth_valid"]
+        ].copy()
+
+        non_mergeable = df[
+            ~(df["email_valid"] &
+              df["date_of_birth_valid"])
+        ].copy()
+
+        mergeable = (
+            mergeable
             .groupby(dedupe_keys, dropna=False, as_index=False)
             .agg({
                 "name": "first",
                 "notes": merge_notes
             })
+        )
+
+        df = pd.concat(
+            [mergeable, non_mergeable],
+            ignore_index=True
         )
 
     else:
