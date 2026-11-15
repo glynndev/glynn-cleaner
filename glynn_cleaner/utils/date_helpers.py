@@ -42,7 +42,7 @@ def standardise_dates(df):
 
         if parsed:
             validity_flags.append(True)
-            parsed_dates.append(parsed.strftime("%d/%m/%Y"))
+            parsed_dates.append(parsed.strftime("%Y-%m-%d"))
         else:
             validity_flags.append(False)
             parsed_dates.append(pd.NA)

@@ -19,9 +19,16 @@ BLACKLIST_URL = (
     "disposable-email-domains/master/domains.txt"
 )
 
-# Cache file lives alongside this module
-CACHE_PATH = Path(__file__).with_name("disposable_email_blacklist.conf")
+# Bundled fallback file (tracked in Git)
+FALLBACK_PATH = Path(__file__).with_name(
+    "disposable_email_blacklist.conf"
+)
 
+# Runtime cache (not tracked in Git)
+CACHE_DIR = Path.home() / ".glynn-cleaner"
+CACHE_DIR.mkdir(exist_ok=True)
+
+CACHE_PATH = CACHE_DIR / "disposable_email_blacklist.conf"
 
 # ------------------------------------------------------------
 # Helpers
@@ -39,14 +46,27 @@ def _fetch_remote_list() -> Set[str]:
     response.raise_for_status()
     return _parse_lines(response.text)
 
+# Prefer runtime cache
 
-def _load_cached_list() -> Set[str]:
-    if not CACHE_PATH.exists():
-        LOGGER.warning("Disposable email cache file not found: %s", CACHE_PATH)
-        return set()
+def _load_cached_list() -> Set:
+    if CACHE_PATH.exists():
+        text = CACHE_PATH.read_text(encoding="utf-8")
+        return _parse_lines(text)
 
-    text = CACHE_PATH.read_text(encoding="utf-8")
-    return _parse_lines(text)
+    # Fall back to bundled file
+    if FALLBACK_PATH.exists():
+        LOGGER.info(
+            "Using bundled disposable email blacklist: %s",
+            FALLBACK_PATH,
+        )
+        text = FALLBACK_PATH.read_text(encoding="utf-8")
+        return _parse_lines(text)
+
+    LOGGER.warning(
+        "No disposable email blacklist available"
+    )
+
+    return set()
 
 
 def _write_cache(domains: Set[str]) -> None:

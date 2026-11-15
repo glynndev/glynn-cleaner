@@ -49,11 +49,11 @@ def test_load_remote_failure_falls_back_to_cache(tmp_path):
     assert len(domains) == 1
 
 
-def test_load_remote_failure_no_cache_returns_empty(tmp_path):
+def test_load_remote_failure_uses_fallback_blacklist(tmp_path):
     with patch("requests.get", side_effect=Exception("Network down")):
         domains = load_disposable_domains()
 
-    assert domains == set()
+    assert len(domains) > 1000
 
 
 def test_write_cache_creates_sorted_file(tmp_path):

@@ -256,6 +256,8 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
     df["date_of_birth_raw"] = parsed.apply(lambda x: x[1])
     df["date_of_birth_valid"] = parsed.apply(lambda x: x[2])
 
+    df["date_of_birth"] = df["date_of_birth_cleaned"]
+
     invalid_date_count = (~df["date_of_birth_valid"]).sum()
     log_info(f"Invalid dates detected: {invalid_date_count}")
     df = format_date_column(df)
@@ -347,14 +349,13 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
 
 
     final_count = len(df)
-
+    
     # Final output columns
     log_info("Preparing final output columns")
 
     if mode == "simple":
         log_info("Simple mode selected — dropping helper columns")
 
-        # At this point, date_of_birth is already cleaned and final
         df = df[["name", "email", "date_of_birth", "notes"]]
 
     else:
