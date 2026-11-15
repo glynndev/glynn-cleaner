@@ -47,6 +47,6 @@ output/*_summary.csv
 output/*_report.txt
 
 # Test/generated files
-test_dataset.csv
+!input/test_dataset.csv
 output/
 

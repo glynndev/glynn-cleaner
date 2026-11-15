@@ -1,0 +1,422 @@
+name,email,date_of_birth,notes
+Person 1,person1@example.com,1980-01-02,Valid record
+Person 2,person2@example.com,1980-01-03,Valid record
+Person 3,person3@example.com,1980-01-04,Valid record
+Person 4,person4@example.com,1980-01-05,Valid record
+Person 5,person5@example.com,1980-01-06,Valid record
+Person 6,person6@example.com,1980-01-07,Valid record
+Person 7,person7@example.com,1980-01-08,Valid record
+Person 8,person8@example.com,1980-01-09,Valid record
+Person 9,person9@example.com,1980-01-10,Valid record
+Person 10,person10@example.com,1980-01-11,Valid record
+Person 11,person11@example.com,1980-01-12,Valid record
+Person 12,person12@example.com,1980-01-13,Valid record
+Person 13,person13@example.com,1980-01-14,Valid record
+Person 14,person14@example.com,1980-01-15,Valid record
+Person 15,person15@example.com,1980-01-16,Valid record
+Person 16,person16@example.com,1980-01-17,Valid record
+Person 17,person17@example.com,1980-01-18,Valid record
+Person 18,person18@example.com,1980-01-19,Valid record
+Person 19,person19@example.com,1980-01-20,Valid record
+Person 20,person20@example.com,1980-01-21,Valid record
+Person 21,person21@example.com,1980-01-22,Valid record
+Person 22,person22@example.com,1980-01-23,Valid record
+Person 23,person23@example.com,1980-01-24,Valid record
+Person 24,person24@example.com,1980-01-25,Valid record
+Person 25,person25@example.com,1980-01-26,Valid record
+Person 26,person26@example.com,1980-01-27,Valid record
+Person 27,person27@example.com,1980-01-28,Valid record
+Person 28,person28@example.com,1980-01-01,Valid record
+Person 29,person29@example.com,1980-01-02,Valid record
+Person 30,person30@example.com,1980-01-03,Valid record
+Person 31,person31@example.com,1980-01-04,Valid record
+Person 32,person32@example.com,1980-01-05,Valid record
+Person 33,person33@example.com,1980-01-06,Valid record
+Person 34,person34@example.com,1980-01-07,Valid record
+Person 35,person35@example.com,1980-01-08,Valid record
+Person 36,person36@example.com,1980-01-09,Valid record
+Person 37,person37@example.com,1980-01-10,Valid record
+Person 38,person38@example.com,1980-01-11,Valid record
+Person 39,person39@example.com,1980-01-12,Valid record
+Person 40,person40@example.com,1980-01-13,Valid record
+Person 41,person41@example.com,1980-01-14,Valid record
+Person 42,person42@example.com,1980-01-15,Valid record
+Person 43,person43@example.com,1980-01-16,Valid record
+Person 44,person44@example.com,1980-01-17,Valid record
+Person 45,person45@example.com,1980-01-18,Valid record
+Person 46,person46@example.com,1980-01-19,Valid record
+Person 47,person47@example.com,1980-01-20,Valid record
+Person 48,person48@example.com,1980-01-21,Valid record
+Person 49,person49@example.com,1980-01-22,Valid record
+Person 50,person50@example.com,1980-01-23,Valid record
+Person 51,person51@example.com,1980-01-24,Valid record
+Person 52,person52@example.com,1980-01-25,Valid record
+Person 53,person53@example.com,1980-01-26,Valid record
+Person 54,person54@example.com,1980-01-27,Valid record
+Person 55,person55@example.com,1980-01-28,Valid record
+Person 56,person56@example.com,1980-01-01,Valid record
+Person 57,person57@example.com,1980-01-02,Valid record
+Person 58,person58@example.com,1980-01-03,Valid record
+Person 59,person59@example.com,1980-01-04,Valid record
+Person 60,person60@example.com,1980-01-05,Valid record
+Person 61,person61@example.com,1980-01-06,Valid record
+Person 62,person62@example.com,1980-01-07,Valid record
+Person 63,person63@example.com,1980-01-08,Valid record
+Person 64,person64@example.com,1980-01-09,Valid record
+Person 65,person65@example.com,1980-01-10,Valid record
+Person 66,person66@example.com,1980-01-11,Valid record
+Person 67,person67@example.com,1980-01-12,Valid record
+Person 68,person68@example.com,1980-01-13,Valid record
+Person 69,person69@example.com,1980-01-14,Valid record
+Person 70,person70@example.com,1980-01-15,Valid record
+Person 71,person71@example.com,1980-01-16,Valid record
+Person 72,person72@example.com,1980-01-17,Valid record
+Person 73,person73@example.com,1980-01-18,Valid record
+Person 74,person74@example.com,1980-01-19,Valid record
+Person 75,person75@example.com,1980-01-20,Valid record
+Person 76,person76@example.com,1980-01-21,Valid record
+Person 77,person77@example.com,1980-01-22,Valid record
+Person 78,person78@example.com,1980-01-23,Valid record
+Person 79,person79@example.com,1980-01-24,Valid record
+Person 80,person80@example.com,1980-01-25,Valid record
+Person 81,person81@example.com,1980-01-26,Valid record
+Person 82,person82@example.com,1980-01-27,Valid record
+Person 83,person83@example.com,1980-01-28,Valid record
+Person 84,person84@example.com,1980-01-01,Valid record
+Person 85,person85@example.com,1980-01-02,Valid record
+Person 86,person86@example.com,1980-01-03,Valid record
+Person 87,person87@example.com,1980-01-04,Valid record
+Person 88,person88@example.com,1980-01-05,Valid record
+Person 89,person89@example.com,1980-01-06,Valid record
+Person 90,person90@example.com,1980-01-07,Valid record
+Person 91,person91@example.com,1980-01-08,Valid record
+Person 92,person92@example.com,1980-01-09,Valid record
+Person 93,person93@example.com,1980-01-10,Valid record
+Person 94,person94@example.com,1980-01-11,Valid record
+Person 95,person95@example.com,1980-01-12,Valid record
+Person 96,person96@example.com,1980-01-13,Valid record
+Person 97,person97@example.com,1980-01-14,Valid record
+Person 98,person98@example.com,1980-01-15,Valid record
+Person 99,person99@example.com,1980-01-16,Valid record
+Person 100,person100@example.com,1980-01-17,Valid record
+Duplicate 1,duplicate1@example.com,1975-02-02,Exact duplicate
+Duplicate 1,duplicate1@example.com,1975-02-02,Exact duplicate
+Duplicate 2,duplicate2@example.com,1975-02-03,Exact duplicate
+Duplicate 2,duplicate2@example.com,1975-02-03,Exact duplicate
+Duplicate 3,duplicate3@example.com,1975-02-04,Exact duplicate
+Duplicate 3,duplicate3@example.com,1975-02-04,Exact duplicate
+Duplicate 4,duplicate4@example.com,1975-02-05,Exact duplicate
+Duplicate 4,duplicate4@example.com,1975-02-05,Exact duplicate
+Duplicate 5,duplicate5@example.com,1975-02-06,Exact duplicate
+Duplicate 5,duplicate5@example.com,1975-02-06,Exact duplicate
+Duplicate 6,duplicate6@example.com,1975-02-07,Exact duplicate
+Duplicate 6,duplicate6@example.com,1975-02-07,Exact duplicate
+Duplicate 7,duplicate7@example.com,1975-02-08,Exact duplicate
+Duplicate 7,duplicate7@example.com,1975-02-08,Exact duplicate
+Duplicate 8,duplicate8@example.com,1975-02-09,Exact duplicate
+Duplicate 8,duplicate8@example.com,1975-02-09,Exact duplicate
+Duplicate 9,duplicate9@example.com,1975-02-10,Exact duplicate
+Duplicate 9,duplicate9@example.com,1975-02-10,Exact duplicate
+Duplicate 10,duplicate10@example.com,1975-02-11,Exact duplicate
+Duplicate 10,duplicate10@example.com,1975-02-11,Exact duplicate
+Duplicate 11,duplicate11@example.com,1975-02-12,Exact duplicate
+Duplicate 11,duplicate11@example.com,1975-02-12,Exact duplicate
+Duplicate 12,duplicate12@example.com,1975-02-13,Exact duplicate
+Duplicate 12,duplicate12@example.com,1975-02-13,Exact duplicate
+Duplicate 13,duplicate13@example.com,1975-02-14,Exact duplicate
+Duplicate 13,duplicate13@example.com,1975-02-14,Exact duplicate
+Duplicate 14,duplicate14@example.com,1975-02-15,Exact duplicate
+Duplicate 14,duplicate14@example.com,1975-02-15,Exact duplicate
+Duplicate 15,duplicate15@example.com,1975-02-16,Exact duplicate
+Duplicate 15,duplicate15@example.com,1975-02-16,Exact duplicate
+Duplicate 16,duplicate16@example.com,1975-02-17,Exact duplicate
+Duplicate 16,duplicate16@example.com,1975-02-17,Exact duplicate
+Duplicate 17,duplicate17@example.com,1975-02-18,Exact duplicate
+Duplicate 17,duplicate17@example.com,1975-02-18,Exact duplicate
+Duplicate 18,duplicate18@example.com,1975-02-19,Exact duplicate
+Duplicate 18,duplicate18@example.com,1975-02-19,Exact duplicate
+Duplicate 19,duplicate19@example.com,1975-02-20,Exact duplicate
+Duplicate 19,duplicate19@example.com,1975-02-20,Exact duplicate
+Duplicate 20,duplicate20@example.com,1975-02-21,Exact duplicate
+Duplicate 20,duplicate20@example.com,1975-02-21,Exact duplicate
+Duplicate 21,duplicate21@example.com,1975-02-22,Exact duplicate
+Duplicate 21,duplicate21@example.com,1975-02-22,Exact duplicate
+Duplicate 22,duplicate22@example.com,1975-02-23,Exact duplicate
+Duplicate 22,duplicate22@example.com,1975-02-23,Exact duplicate
+Duplicate 23,duplicate23@example.com,1975-02-24,Exact duplicate
+Duplicate 23,duplicate23@example.com,1975-02-24,Exact duplicate
+Duplicate 24,duplicate24@example.com,1975-02-25,Exact duplicate
+Duplicate 24,duplicate24@example.com,1975-02-25,Exact duplicate
+Duplicate 25,duplicate25@example.com,1975-02-26,Exact duplicate
+Duplicate 25,duplicate25@example.com,1975-02-26,Exact duplicate
+Merge Person 1,merge1@example.com,1985-03-01,Interaction 1
+Merge Person 1,merge1@example.com,1985-03-01,Interaction 2
+Merge Person 1,merge1@example.com,1985-03-01,Interaction 3
+Merge Person 1,merge1@example.com,1985-03-01,Interaction 4
+Merge Person 1,merge1@example.com,1985-03-01,Interaction 5
+Merge Person 2,merge2@example.com,1985-03-02,Interaction 1
+Merge Person 2,merge2@example.com,1985-03-02,Interaction 2
+Merge Person 2,merge2@example.com,1985-03-02,Interaction 3
+Merge Person 2,merge2@example.com,1985-03-02,Interaction 4
+Merge Person 2,merge2@example.com,1985-03-02,Interaction 5
+Merge Person 3,merge3@example.com,1985-03-03,Interaction 1
+Merge Person 3,merge3@example.com,1985-03-03,Interaction 2
+Merge Person 3,merge3@example.com,1985-03-03,Interaction 3
+Merge Person 3,merge3@example.com,1985-03-03,Interaction 4
+Merge Person 3,merge3@example.com,1985-03-03,Interaction 5
+Merge Person 4,merge4@example.com,1985-03-04,Interaction 1
+Merge Person 4,merge4@example.com,1985-03-04,Interaction 2
+Merge Person 4,merge4@example.com,1985-03-04,Interaction 3
+Merge Person 4,merge4@example.com,1985-03-04,Interaction 4
+Merge Person 4,merge4@example.com,1985-03-04,Interaction 5
+Merge Person 5,merge5@example.com,1985-03-05,Interaction 1
+Merge Person 5,merge5@example.com,1985-03-05,Interaction 2
+Merge Person 5,merge5@example.com,1985-03-05,Interaction 3
+Merge Person 5,merge5@example.com,1985-03-05,Interaction 4
+Merge Person 5,merge5@example.com,1985-03-05,Interaction 5
+Merge Person 6,merge6@example.com,1985-03-06,Interaction 1
+Merge Person 6,merge6@example.com,1985-03-06,Interaction 2
+Merge Person 6,merge6@example.com,1985-03-06,Interaction 3
+Merge Person 6,merge6@example.com,1985-03-06,Interaction 4
+Merge Person 6,merge6@example.com,1985-03-06,Interaction 5
+Merge Person 7,merge7@example.com,1985-03-07,Interaction 1
+Merge Person 7,merge7@example.com,1985-03-07,Interaction 2
+Merge Person 7,merge7@example.com,1985-03-07,Interaction 3
+Merge Person 7,merge7@example.com,1985-03-07,Interaction 4
+Merge Person 7,merge7@example.com,1985-03-07,Interaction 5
+Merge Person 8,merge8@example.com,1985-03-08,Interaction 1
+Merge Person 8,merge8@example.com,1985-03-08,Interaction 2
+Merge Person 8,merge8@example.com,1985-03-08,Interaction 3
+Merge Person 8,merge8@example.com,1985-03-08,Interaction 4
+Merge Person 8,merge8@example.com,1985-03-08,Interaction 5
+Merge Person 9,merge9@example.com,1985-03-09,Interaction 1
+Merge Person 9,merge9@example.com,1985-03-09,Interaction 2
+Merge Person 9,merge9@example.com,1985-03-09,Interaction 3
+Merge Person 9,merge9@example.com,1985-03-09,Interaction 4
+Merge Person 9,merge9@example.com,1985-03-09,Interaction 5
+Merge Person 10,merge10@example.com,1985-03-10,Interaction 1
+Merge Person 10,merge10@example.com,1985-03-10,Interaction 2
+Merge Person 10,merge10@example.com,1985-03-10,Interaction 3
+Merge Person 10,merge10@example.com,1985-03-10,Interaction 4
+Merge Person 10,merge10@example.com,1985-03-10,Interaction 5
+Bad Email 1,user1example.com,1990-04-02,Invalid email test
+Bad Email 2,user2@test,1990-04-03,Invalid email test
+Bad Email 3,user3@@example.com,1990-04-04,Invalid email test
+Bad Email 4,,1990-04-05,Invalid email test
+Bad Email 5,user5@,1990-04-06,Invalid email test
+Bad Email 6,user6example.com,1990-04-07,Invalid email test
+Bad Email 7,user7@test,1990-04-08,Invalid email test
+Bad Email 8,user8@@example.com,1990-04-09,Invalid email test
+Bad Email 9,,1990-04-10,Invalid email test
+Bad Email 10,user10@,1990-04-11,Invalid email test
+Bad Email 11,user11example.com,1990-04-12,Invalid email test
+Bad Email 12,user12@test,1990-04-13,Invalid email test
+Bad Email 13,user13@@example.com,1990-04-14,Invalid email test
+Bad Email 14,,1990-04-15,Invalid email test
+Bad Email 15,user15@,1990-04-16,Invalid email test
+Bad Email 16,user16example.com,1990-04-17,Invalid email test
+Bad Email 17,user17@test,1990-04-18,Invalid email test
+Bad Email 18,user18@@example.com,1990-04-19,Invalid email test
+Bad Email 19,,1990-04-20,Invalid email test
+Bad Email 20,user20@,1990-04-21,Invalid email test
+Bad Email 21,user21example.com,1990-04-22,Invalid email test
+Bad Email 22,user22@test,1990-04-23,Invalid email test
+Bad Email 23,user23@@example.com,1990-04-24,Invalid email test
+Bad Email 24,,1990-04-25,Invalid email test
+Bad Email 25,user25@,1990-04-26,Invalid email test
+Bad Email 26,user26example.com,1990-04-27,Invalid email test
+Bad Email 27,user27@test,1990-04-28,Invalid email test
+Bad Email 28,user28@@example.com,1990-04-01,Invalid email test
+Bad Email 29,,1990-04-02,Invalid email test
+Bad Email 30,user30@,1990-04-03,Invalid email test
+Bad Email 31,user31example.com,1990-04-04,Invalid email test
+Bad Email 32,user32@test,1990-04-05,Invalid email test
+Bad Email 33,user33@@example.com,1990-04-06,Invalid email test
+Bad Email 34,,1990-04-07,Invalid email test
+Bad Email 35,user35@,1990-04-08,Invalid email test
+Bad Email 36,user36example.com,1990-04-09,Invalid email test
+Bad Email 37,user37@test,1990-04-10,Invalid email test
+Bad Email 38,user38@@example.com,1990-04-11,Invalid email test
+Bad Email 39,,1990-04-12,Invalid email test
+Bad Email 40,user40@,1990-04-13,Invalid email test
+Bad Email 41,user41example.com,1990-04-14,Invalid email test
+Bad Email 42,user42@test,1990-04-15,Invalid email test
+Bad Email 43,user43@@example.com,1990-04-16,Invalid email test
+Bad Email 44,,1990-04-17,Invalid email test
+Bad Email 45,user45@,1990-04-18,Invalid email test
+Bad Email 46,user46example.com,1990-04-19,Invalid email test
+Bad Email 47,user47@test,1990-04-20,Invalid email test
+Bad Email 48,user48@@example.com,1990-04-21,Invalid email test
+Bad Email 49,,1990-04-22,Invalid email test
+Bad Email 50,user50@,1990-04-23,Invalid email test
+Bad Date 1,baddate1@example.com,32/01/2000,Invalid date test
+Bad Date 2,baddate2@example.com,2000/99/01,Invalid date test
+Bad Date 3,baddate3@example.com,not-a-date,Invalid date test
+Bad Date 4,baddate4@example.com,,Invalid date test
+Bad Date 5,baddate5@example.com,99/99/9999,Invalid date test
+Bad Date 6,baddate6@example.com,32/01/2000,Invalid date test
+Bad Date 7,baddate7@example.com,2000/99/01,Invalid date test
+Bad Date 8,baddate8@example.com,not-a-date,Invalid date test
+Bad Date 9,baddate9@example.com,,Invalid date test
+Bad Date 10,baddate10@example.com,99/99/9999,Invalid date test
+Bad Date 11,baddate11@example.com,32/01/2000,Invalid date test
+Bad Date 12,baddate12@example.com,2000/99/01,Invalid date test
+Bad Date 13,baddate13@example.com,not-a-date,Invalid date test
+Bad Date 14,baddate14@example.com,,Invalid date test
+Bad Date 15,baddate15@example.com,99/99/9999,Invalid date test
+Bad Date 16,baddate16@example.com,32/01/2000,Invalid date test
+Bad Date 17,baddate17@example.com,2000/99/01,Invalid date test
+Bad Date 18,baddate18@example.com,not-a-date,Invalid date test
+Bad Date 19,baddate19@example.com,,Invalid date test
+Bad Date 20,baddate20@example.com,99/99/9999,Invalid date test
+Bad Date 21,baddate21@example.com,32/01/2000,Invalid date test
+Bad Date 22,baddate22@example.com,2000/99/01,Invalid date test
+Bad Date 23,baddate23@example.com,not-a-date,Invalid date test
+Bad Date 24,baddate24@example.com,,Invalid date test
+Bad Date 25,baddate25@example.com,99/99/9999,Invalid date test
+Bad Date 26,baddate26@example.com,32/01/2000,Invalid date test
+Bad Date 27,baddate27@example.com,2000/99/01,Invalid date test
+Bad Date 28,baddate28@example.com,not-a-date,Invalid date test
+Bad Date 29,baddate29@example.com,,Invalid date test
+Bad Date 30,baddate30@example.com,99/99/9999,Invalid date test
+Bad Date 31,baddate31@example.com,32/01/2000,Invalid date test
+Bad Date 32,baddate32@example.com,2000/99/01,Invalid date test
+Bad Date 33,baddate33@example.com,not-a-date,Invalid date test
+Bad Date 34,baddate34@example.com,,Invalid date test
+Bad Date 35,baddate35@example.com,99/99/9999,Invalid date test
+Bad Date 36,baddate36@example.com,32/01/2000,Invalid date test
+Bad Date 37,baddate37@example.com,2000/99/01,Invalid date test
+Bad Date 38,baddate38@example.com,not-a-date,Invalid date test
+Bad Date 39,baddate39@example.com,,Invalid date test
+Bad Date 40,baddate40@example.com,99/99/9999,Invalid date test
+Bad Date 41,baddate41@example.com,32/01/2000,Invalid date test
+Bad Date 42,baddate42@example.com,2000/99/01,Invalid date test
+Bad Date 43,baddate43@example.com,not-a-date,Invalid date test
+Bad Date 44,baddate44@example.com,,Invalid date test
+Bad Date 45,baddate45@example.com,99/99/9999,Invalid date test
+Bad Date 46,baddate46@example.com,32/01/2000,Invalid date test
+Bad Date 47,baddate47@example.com,2000/99/01,Invalid date test
+Bad Date 48,baddate48@example.com,not-a-date,Invalid date test
+Bad Date 49,baddate49@example.com,,Invalid date test
+Bad Date 50,baddate50@example.com,99/99/9999,Invalid date test
+   jOhN sMiTh 1   ,   JOHN1@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 2   ,   JOHN2@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 3   ,   JOHN3@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 4   ,   JOHN4@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 5   ,   JOHN5@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 6   ,   JOHN6@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 7   ,   JOHN7@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 8   ,   JOHN8@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 9   ,   JOHN9@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 10   ,   JOHN10@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 11   ,   JOHN11@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 12   ,   JOHN12@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 13   ,   JOHN13@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 14   ,   JOHN14@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 15   ,   JOHN15@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 16   ,   JOHN16@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 17   ,   JOHN17@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 18   ,   JOHN18@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 19   ,   JOHN19@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 20   ,   JOHN20@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 21   ,   JOHN21@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 22   ,   JOHN22@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 23   ,   JOHN23@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 24   ,   JOHN24@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 25   ,   JOHN25@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 26   ,   JOHN26@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 27   ,   JOHN27@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 28   ,   JOHN28@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 29   ,   JOHN29@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 30   ,   JOHN30@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 31   ,   JOHN31@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 32   ,   JOHN32@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 33   ,   JOHN33@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 34   ,   JOHN34@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 35   ,   JOHN35@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 36   ,   JOHN36@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 37   ,   JOHN37@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 38   ,   JOHN38@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 39   ,   JOHN39@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 40   ,   JOHN40@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 41   ,   JOHN41@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 42   ,   JOHN42@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 43   ,   JOHN43@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 44   ,   JOHN44@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 45   ,   JOHN45@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 46   ,   JOHN46@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 47   ,   JOHN47@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 48   ,   JOHN48@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 49   ,   JOHN49@EXAMPLE.COM   ,1988-05-01,Whitespace test
+   jOhN sMiTh 50   ,   JOHN50@EXAMPLE.COM   ,1988-05-01,Whitespace test
+Missing DOB 1,missing1@example.com,,Missing DOB
+Missing Email 2,,1980-01-01,Missing email
+Missing DOB 3,missing3@example.com,,Missing DOB
+Missing Email 4,,1980-01-01,Missing email
+,,,
+Missing Email 6,,1980-01-01,Missing email
+Missing DOB 7,missing7@example.com,,Missing DOB
+Missing Email 8,,1980-01-01,Missing email
+Missing DOB 9,missing9@example.com,,Missing DOB
+,,,
+Missing DOB 11,missing11@example.com,,Missing DOB
+Missing Email 12,,1980-01-01,Missing email
+Missing DOB 13,missing13@example.com,,Missing DOB
+Missing Email 14,,1980-01-01,Missing email
+,,,
+Missing Email 16,,1980-01-01,Missing email
+Missing DOB 17,missing17@example.com,,Missing DOB
+Missing Email 18,,1980-01-01,Missing email
+Missing DOB 19,missing19@example.com,,Missing DOB
+,,,
+Missing DOB 21,missing21@example.com,,Missing DOB
+Missing Email 22,,1980-01-01,Missing email
+Missing DOB 23,missing23@example.com,,Missing DOB
+Missing Email 24,,1980-01-01,Missing email
+,,,
+Typo Email 1,john@gmial.com,1991-06-02,Common Gmail typo
+Typo Email 2,jane@hotmial.com,1991-06-03,Common Hotmail typo
+Typo Email 3,fred@yahooo.com,1991-06-04,Extra character
+Typo Email 4,sarah@outlok.com,1991-06-05,Missing letter
+Typo Email 5,mark@gamil.com,1991-06-06,Letter transposition
+Typo Email 6,emma@gnail.com,1991-06-07,Common keyboard error
+Typo Email 7,tom@icloud.co,1991-06-08,Missing TLD character
+Typo Email 8,lucy@hotmai.com,1991-06-09,Missing letter
+Typo Email 9,paul@gmai.com,1991-06-10,Missing letter
+Typo Email 10,amy@yaho.com,1991-06-11,Missing letter
+Typo Email 11,dave@outloo.com,1991-06-12,Missing letter
+Typo Email 12,kate@gmali.com,1991-06-13,Transposed letters
+Typo Email 13,rob@iclod.com,1991-06-14,Missing letter
+Typo Email 14,anna@hotmial.co.uk,1991-06-15,Hotmail typo
+Typo Email 15,ben@gmaill.com,1991-06-16,Extra character
+Typo Email 16,chris@yahhoo.com,1991-06-17,Repeated character
+Typo Email 17,sam@outllook.com,1991-06-18,Repeated letters
+Typo Email 18,jo@gmaiil.com,1991-06-19,Repeated character
+Typo Email 19,claire@icloudcom,1991-06-20,Missing dot
+Typo Email 20,nick@gmial.co.uk,1991-06-21,Gmail typo UK
+Valid Duplicate A,duplicate@example.com,1980-01-01,First record
+Valid Duplicate B,duplicate@example.com,1980-01-01,Second record
+Invalid DOB Duplicate A,invaliddob@example.com,not-a-date,First invalid DOB
+Invalid DOB Duplicate B,invaliddob@example.com,not-a-date,Second invalid DOB
+Invalid Email Duplicate A,invalidemail,1985-06-01,First invalid email
+Invalid Email Duplicate B,invalidemail,1985-06-01,Second invalid email
+Near Duplicate Email A,neardupe@example.com,1980-01-01,Same email first DOB
+Near Duplicate Email B,neardupe@example.com,1981-01-01,Same email second DOB
+Near Duplicate DOB A,doba@example.com,1990-06-15,Same DOB first email
+Near Duplicate DOB B,dobb@example.com,1990-06-15,Same DOB second email
+Duplicate Notes A,duplicatenotes@example.com,1979-04-01,Training required
+Duplicate Notes B,duplicatenotes@example.com,1979-04-01,Training required
+Blank Note A,blanknote@example.com,1982-08-15,
+Blank Note B,blanknote@example.com,1982-08-15,DBS completed
+Merged Notes A,mergednotes@example.com,1988-11-20,Training required
+Merged Notes B,mergednotes@example.com,1988-11-20,DBS completed
+Mixed Case Email A,JOHN@GMAIL.COM,1980-01-01,Upper case email
+Mixed Case Email B,John@Gmail.Com,1980-01-01,Mixed case email
+Mixed Case Email C,john@gmail.com,1980-01-01,Lower case email
+Plus Address Email,john+newsletter@gmail.com,1985-05-05,Plus address
+Dotted Email,john.smith@gmail.com,1986-06-06,Dotted local part
+Subdomain Email,john@hr.company.com,1987-07-07,Subdomain address
+Long TLD Email,john@example.technology,1988-08-08,Long TLD
+Strict Invalid Email,not-an-email,1980-01-01,Strict email test
+Strict Ambiguous DOB,strictdob@example.com,03/11/1985,Strict DOB test
+Strict Control Record,strictcontrol@example.com,1985-11-03,Control record
