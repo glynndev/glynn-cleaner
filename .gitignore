@@ -1,11 +1,19 @@
-# Python
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
 # Virtual environment
 venv/
 .venv/
 .env.*
+
+# Pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
 
 # Build output
 dist/
