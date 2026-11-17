@@ -7,4 +7,4 @@ glynn-cleaner
 colorama
 requests
 jinja2>=3.1
-
+stripe>=11.0
