@@ -267,19 +267,47 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
     removed_invalid_emails = 0
     removed_invalid_dates = 0
 
+    quarantine_df = pd.DataFrame()
+
     if strict_flag:
         log_info(f"[{step}/{total_steps}] Applying strict filtering rules")
         step += 1
+
+        invalid_email_rows = df[~df["email_valid"]].copy()
+
+        if len(invalid_email_rows) > 0:
+            invalid_email_rows["quarantine_reason"] = (
+                "Invalid email"
+            )
 
         before = len(df)
         df = df[df["email_valid"]]
         removed_invalid_emails = before - len(df)
         log_info(f"Rows removed due to invalid emails: {removed_invalid_emails}")
 
+        invalid_date_rows = df[
+            ~df["date_of_birth_valid"]
+        ].copy()
+
+        if len(invalid_date_rows) > 0:
+            invalid_date_rows["quarantine_reason"] = (
+                "Invalid date"
+            )
+
         before = len(df)
         df = df[df["date_of_birth_valid"]]
         removed_invalid_dates = before - len(df)
-        log_info(f"Rows removed due to invalid dates: {removed_invalid_dates}")
+
+        log_info(
+            f"Rows removed due to invalid dates: "
+            f"{removed_invalid_dates}"
+        )
+
+        quarantine_df = pd.concat(
+            [invalid_email_rows, invalid_date_rows],
+            ignore_index=True
+        )
+
     else:
         log_info(f"[{step}/{total_steps}] Skipping strict filtering (lenient mode)")
         step += 1
@@ -349,7 +377,7 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
 
 
     final_count = len(df)
-    
+
     # Final output columns
     log_info("Preparing final output columns")
 
@@ -387,6 +415,23 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
 
     if not summary_only:
         save_csv(df, output_path)
+
+        if len(quarantine_df) > 0:
+            quarantine_path = output_path.replace(
+                ".csv",
+                "_quarantined.csv"
+            )
+
+            save_csv(
+                quarantine_df,
+                quarantine_path
+            )
+
+            log_info(
+                f"Quarantine file written: "
+                f"{quarantine_path}"
+            )
+
     else:
         log_info("Skipping cleaned CSV (summary-only mode).")
 
@@ -402,6 +447,7 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
         "invalid_emails_removed": removed_invalid_emails,
         "invalid_dates_removed": removed_invalid_dates,
         "duplicates_removed": removed_dupes,
+        "rows_quarantined": len(quarantine_df),
         "final_row_count": final_count,
     }
 
@@ -423,6 +469,7 @@ Junk rows removed: {removed_junk}
 Invalid emails removed: {removed_invalid_emails}
 Invalid dates removed: {removed_invalid_dates}
 Duplicates removed: {removed_dupes}
+Rows quarantined: {len(quarantine_df)}
 
 Final row count: {final_count}
 """

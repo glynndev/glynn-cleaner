@@ -63,7 +63,7 @@ class SummaryResponse(RootModel[dict]):
     pass
 
 class SchemaResponse(BaseModel):
-    schema: dict
+    schema_definition: dict
 
 class PreviewResponse(BaseModel):
     preview: list
@@ -466,7 +466,7 @@ async def schema_csv_api(file: UploadFile = File(...)):
                 "sample_values": col_data.dropna().head(5).tolist()
             }
 
-        return SchemaResponse(schema=schema)
+        return SchemaResponse(schema_definition=schema)
 
     except Exception as e:
         log_error(str(e))
