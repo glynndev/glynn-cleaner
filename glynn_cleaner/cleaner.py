@@ -23,6 +23,7 @@ Features:
 """
 
 import pandas as pd
+from pandas import ExcelWriter
 from datetime import datetime
 import re
 from glynn_cleaner import __version__
@@ -432,8 +433,44 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
                 f"{quarantine_path}"
             )
 
+        workbook_path = output_path.replace(
+            ".csv",
+            "_workbook.xlsx"
+        )
+
+        with ExcelWriter(
+            workbook_path,
+            engine="openpyxl"
+        ) as writer:
+
+            df.to_excel(
+                writer,
+                sheet_name="Cleaned Data",
+                index=False
+            )
+
+            quarantine_df.to_excel(
+                writer,
+                sheet_name="Quarantined Rows",
+                index=False
+            )
+
+        log_info(
+            f"Workbook written: {workbook_path}"
+        )
+
+
     else:
         log_info("Skipping cleaned CSV (summary-only mode).")
+
+    quarantine_breakdown = {}
+
+    if len(quarantine_df) > 0:
+        quarantine_breakdown = (
+            quarantine_df["quarantine_reason"]
+            .value_counts()
+            .to_dict()
+        )
 
     # Build summary
     summary = {
@@ -448,6 +485,15 @@ def clean_data(input_path: str, output_path: str, mode: str = "simple",
         "invalid_dates_removed": removed_invalid_dates,
         "duplicates_removed": removed_dupes,
         "rows_quarantined": len(quarantine_df),
+
+        "quarantine_invalid_email": quarantine_breakdown.get(
+            "Invalid email", 0
+        ),
+
+        "quarantine_invalid_date": quarantine_breakdown.get(
+            "Invalid date", 0
+        ),
+
         "final_row_count": final_count,
     }
 
@@ -470,6 +516,10 @@ Invalid emails removed: {removed_invalid_emails}
 Invalid dates removed: {removed_invalid_dates}
 Duplicates removed: {removed_dupes}
 Rows quarantined: {len(quarantine_df)}
+
+Quarantine Breakdown:
+- Invalid email: {quarantine_breakdown.get('Invalid email', 0)}
+- Invalid date: {quarantine_breakdown.get('Invalid date', 0)}
 
 Final row count: {final_count}
 """
